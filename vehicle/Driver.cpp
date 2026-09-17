@@ -7661,8 +7661,9 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // going downhill also take into account impact of gravity
-                AccDesired -= fAccGravity;
+                // EXPERIMENT: AbsAccS already contains the gravity component, subtracting it here
+                // made the brakes aim for a deceleration stronger by the slope
+                // AccDesired -= fAccGravity;
                 // HACK: if the max allowed speed was exceeded something went wrong; brake harder
                 AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
