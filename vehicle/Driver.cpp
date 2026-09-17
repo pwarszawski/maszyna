@@ -6516,14 +6516,15 @@ TController::determine_braking_distance() {
         // HACK: make the induction motor powered EMUs start braking slightly earlier
         fBrakeDist += 10.0;
     }
-/*
     // take into account effect of gravity (but to stay on safe side of calculations, only downhill)
     if( fAccGravity > 0.025 ) {
-        fBrakeDist *= ( 1.0 + fAccGravity );
-        // TBD: use version which shortens route going uphill, too
-        //fBrakeDist = std::max( fBrakeDist, fBrakeDist * ( 1.0 + fAccGravity ) );
+        // gravity eats into the deceleration the brakes can deliver, so the distance grows by
+        // the ratio of the two; capped, as the estimate gets unreliable on very steep grades
+        auto const brakingacceleration { std::max( 0.15, -fAccThreshold ) };
+        fBrakeDist *= std::clamp(
+            brakingacceleration / std::max( 0.05, brakingacceleration - fAccGravity ),
+            1.0, 2.5 );
     }
-*/
 }
 
 void
@@ -7661,8 +7662,8 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // going downhill also take into account impact of gravity
-                AccDesired -= fAccGravity;
+                // EXPERIMENT 3: gravity is taken into account in the braking distance instead;
+                // AbsAccS the brake controller compares against already contains it
                 // HACK: if the max allowed speed was exceeded something went wrong; brake harder
                 AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
