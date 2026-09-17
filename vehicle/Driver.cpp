@@ -7661,8 +7661,7 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // going downhill also take into account impact of gravity
-                AccDesired -= fAccGravity;
+                // EXPERIMENT 5: AbsAccS already contains the gravity component
                 // HACK: if the max allowed speed was exceeded something went wrong; brake harder
                 AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
@@ -7952,6 +7951,24 @@ void TController::control_braking_force() {
 
     auto const velocity { DirectionalVel() };
 
+    // EXPERIMENT 5: the brakes of a long consist take seconds to release, so ease off while the
+    // deceleration in effect is still going to take us below the speed we are braking towards
+    auto const braketarget { (
+        VelNext >= 0.0 ?
+            std::min( VelDesired, VelNext ) :
+            VelDesired ) };
+    auto const releaselead { std::clamp( 2.0 + 0.3 * iVehicles, 2.0, 9.0 ) };
+    auto const easeoff {
+        braketarget > 0.0
+     && AbsAccS < -0.01
+     && velocity > EU07_AI_NOMOVEMENT
+     && velocity + AbsAccS * 3.6 * releaselead < braketarget };
+    if( easeoff
+     && OrderCurrentGet() != Disconnect
+     && BrakeCtrlPosition > 0 ) {
+        cue_action( driver_hint::brakingforcedecrease );
+    }
+
     // jeśli przyspieszamy, to nie hamujemy
     if( AccDesired > 0.0 ) {
         if( OrderCurrentGet() != Disconnect // przy odłączaniu nie zwalniamy tu hamulca
@@ -7970,7 +7987,8 @@ void TController::control_braking_force() {
 		auto const AccMax{ std::min(fBrake_a0[0] + 12 * fBrake_a1[0], mvOccupied->MED_amax) };
 		auto const accmargin = AccMax > 1.1 * AccDesired && fAccGravity < 0.025 ?
 							0.05 : 0.0;
-        if( AccDesired < accthreshold // jeśli hamować - u góry ustawia się hamowanie na fAccThreshold
+        if( false == easeoff
+         && AccDesired < accthreshold // jeśli hamować - u góry ustawia się hamowanie na fAccThreshold
          && ( AbsAccS > AccDesired + accmargin
            || BrakeCtrlPosition < 0 ) ) {
             // hamować bardziej, gdy aktualne opóźnienie hamowania mniejsze niż (AccDesired)
@@ -7993,18 +8011,21 @@ void TController::control_braking_force() {
     } // type & dt_ezt
     else {
         // a stara wersja w miarę dobrze działa na składy wagonowe
-        if( ( AccDesired < fAccGravity - 0.1 && AbsAccS > AccDesired + fBrake_a1[0] ) // regular braking
-         || ( fAccGravity < -0.05 && velocity < -0.1 ) ) { // also brake if uphill and slipping back
+        if( false == easeoff
+         && ( ( AccDesired < fAccGravity - 0.1 && AbsAccS > AccDesired + fBrake_a1[0] ) // regular braking
+           || ( fAccGravity < -0.05 && velocity < -0.1 ) ) ) { // also brake if uphill and slipping back
             // u góry ustawia się hamowanie na fAccThreshold
+            // EXPERIMENT 5: wait out the response of the brakes before adding another step;
+            // only a large deficit justifies stacking them up without waiting
             if( fBrakeTime < 0.0
-             || AccDesired < fAccGravity - 0.5
+             || AbsAccS - AccDesired > 0.5
              || BrakeCtrlPosition <= 0 ) {
                 // jeśli upłynął czas reakcji hamulca, chyba że nagłe albo luzował
                 // TODO: check whether brake delay variable still has any purpose
                 cue_action(
                     driver_hint::brakingforceincrease,
                     // Ra: ten czas należy zmniejszyć, jeśli czas dojazdu do zatrzymania jest mniejszy
-                    ( 3.0
+                    ( 3.0 + 0.3 * iVehicles
                     + 0.5 * ( (
                         mvOccupied->BrakeDelayFlag > bdelay_G ?
                             mvOccupied->BrakeDelay[ 1 ] :
