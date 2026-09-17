@@ -7661,10 +7661,11 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // going downhill also take into account impact of gravity
-                AccDesired -= fAccGravity;
-                // HACK: if the max allowed speed was exceeded something went wrong; brake harder
-                AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
+                // EXPERIMENT 2: AbsAccS already contains the gravity component, and the extra
+                // 0.15 * (vel - VelDesired) term adds up to -0.75 m/s2 through the whole approach
+                // to a low speed limit, which brings the consist nearly to a stop before it
+                // AccDesired -= fAccGravity;
+                // AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
         }
         // HACK: limit acceleration for cargo trains, to reduce probability of breaking couplers on sudden jolts
