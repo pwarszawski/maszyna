@@ -449,6 +449,8 @@ private:
     double BrakingLevelIncrease{ 0.25 };
     double ReactionTime = 0.0; // czas reakcji Ra: czego i na co? świadomości AI
     double fBrakeTime = 0.0; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
+    double fBrakePressPrev = -1.0; // cisnienie w cylindrach z poprzedniego kroku, do wykrywania narastania hamowania
+    double fBrakePressRate = 0.0; // wygladzona szybkosc narastania cisnienia w cylindrach [MPa/s]
     double BrakeChargingCooldown{}; // prevents the ai from trying to charge the train brake too frequently
     TBrakeSystem BrakeSystem = TBrakeSystem::Individual; //type of main brake
     bool ForcePNBrake = false; //is it necessary to use PN brake instead of EP brake
