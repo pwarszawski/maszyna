@@ -8033,7 +8033,7 @@ void TController::control_braking_force() {
         // predkosc spadnie odrobine ponizej limitu, konczy sie jej ucieczka i ratunkowym hamowaniem
         if( ( fAccGravity > 0.025 )
          && ( VelDesired > 0.0 )
-         && ( mvOccupied->Vel > VelDesired - std::max( 1.0, VelDesired * 0.05 ) ) ) {
+         && ( mvOccupied->Vel > VelDesired - std::max( 5.0, VelDesired * 0.05 ) ) ) {
             neededacc = std::max( neededacc, fAccGravity );
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
