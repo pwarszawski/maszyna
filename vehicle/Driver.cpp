@@ -8032,7 +8032,13 @@ void TController::control_braking_force() {
             // yB: luzuje hamulec dopiero przy różnicy opóźnień rzędu 0.2
             // symetrycznie do poglebiania: nie luzowac dalej, dopoki cisnienie w cylindrach
             // wciaz opada po poprzedniej nastawie - inaczej AI schodzi do zera zanim hamulec zareaguje
-            auto const brakestillreleasing { ( fBrakePressRate < -0.02 ) && ( BrakeCtrlPosition > 0 ) };
+            auto const brakestillreleasing { ( fBrakePressRate < -0.005 ) && ( BrakeCtrlPosition > 0 ) };
+            // w biegu na spadku nie schodzic ponizej pozycji jazdy - oproznienie cylindrow
+            // oznacza, ze nastepne hamowanie trzeba budowac od zera, a grawitacja nie czeka
+            auto const wouldemptybrake {
+                ( fAccGravity > 0.025 )
+             && ( mvOccupied->Vel > 5.0 )
+             && ( BrakeCtrlPosition <= 0 ) };
             // na spadku nie luzowac ponizej poziomu rownowazacego grawitacje: skoro sklad juz
             // nie zwalnia, biezace przylozenie jest mniej wiecej w rownowadze i kazde kolejne
             // odluznienie tylko go rozpedzi, wymuszajac za chwile napelnianie hamulca od zera
@@ -8043,6 +8049,7 @@ void TController::control_braking_force() {
              && ( AccDesired < 0.1 ) };
             if( ( OrderCurrentGet() != Disconnect ) // przy odłączaniu nie zwalniamy tu hamulca
              && ( false == brakestillreleasing )
+             && ( false == wouldemptybrake )
              && ( false == holdingonslope ) ) {
                 if( VelDesired > 0.0 ) { // sanity check to prevent unintended brake release on sharp slopes
                     // TODO: check whether brake delay variable still has any purpose
