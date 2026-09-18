@@ -7681,9 +7681,11 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // grawitacja nie jest juz odejmowana od zadania: AccDesired to zadane przyspieszenie
-                // wypadkowe skladu, a kompensacje pochylenia dolicza sterowanie hamulcem po stronie sily.
-                // odejmowanie jej tutaj liczylo ja drugi raz, bo AbsAccS tez ja zawiera
+                // going downhill also take into account impact of gravity.
+                // uwaga: to jest potrzebne, bo dobor wielkosci kroku kranu bierze -AccDesired jako
+                // wymagane opoznienie SAMEGO hamulca. podwojne liczenie bylo nie tutaj, tylko
+                // w porownaniu z AbsAccS, ktore juz zawiera grawitacje - to porownanie usuniete nizej
+                AccDesired -= fAccGravity;
                 // HACK: if the max allowed speed was exceeded something went wrong; brake harder
                 AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
@@ -8024,8 +8026,16 @@ void TController::control_braking_force() {
             BrakeCtrlPosition <= 0.0 ?
                 0.0 : // na pozycji jazdy hamulec nie daje nic, model nie moze tego udawac
                 ( fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale };
-        // hamulec ma dac zadane opoznienie ORAZ skompensowac pochylenie
-        auto const neededacc { fAccGravity - AccDesired };
+        // AccDesired zawiera juz kompensacje pochylenia, wiec -AccDesired to wprost opoznienie,
+        // ktore ma dac hamulec - ta sama wielkosc, ktorej uzywa dobor kroku kranu
+        auto neededacc { -AccDesired };
+        // na spadku trzymaj predkosc w pasmie tuz pod limitem. zluzowanie do zera, gdy tylko
+        // predkosc spadnie odrobine ponizej limitu, konczy sie jej ucieczka i ratunkowym hamowaniem
+        if( ( fAccGravity > 0.025 )
+         && ( VelDesired > 0.0 )
+         && ( mvOccupied->Vel > VelDesired - std::max( 1.0, VelDesired * 0.05 ) ) ) {
+            neededacc = std::max( neededacc, fAccGravity );
+        }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
         // korekte w danym kierunku wprowadzamy dopiero, gdy poprzednia zdazyla zadzialac.
         // warunek musi byc niesymetryczny: czekanie z dolozeniem hamulca dlatego, ze cylindry
