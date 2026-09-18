@@ -8020,26 +8020,34 @@ void TController::control_braking_force() {
         //     a(pozycja) = a0 + 4*(pozycja-1)*a1
         // Porownanie z AbsAccS bylo porownaniem z odpowiedzia na nastawe sprzed kilku sekund,
         // czyli petla ze zwloka wieksza niz okres decyzji - stad eskalacja i pila na spadku.
-        auto const modelacc { ( fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale };
+        auto const modelacc {
+            BrakeCtrlPosition <= 0.0 ?
+                0.0 : // na pozycji jazdy hamulec nie daje nic, model nie moze tego udawac
+                ( fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale };
         // hamulec ma dac zadane opoznienie ORAZ skompensowac pochylenie
         auto const neededacc { fAccGravity - AccDesired };
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
-        // korekte wprowadzamy dopiero, gdy poprzednia nastawa zdazyla zadzialac - inaczej
-        // porownywalibysmy model ze stanem przejsciowym
-        auto const brakesettled { std::abs( fBrakePressRate ) < 0.01 };
+        // korekte w danym kierunku wprowadzamy dopiero, gdy poprzednia zdazyla zadzialac.
+        // warunek musi byc niesymetryczny: czekanie z dolozeniem hamulca dlatego, ze cylindry
+        // wlasnie sie oprozniaja, oznaczaloby brak reakcji przez caly czas odluzniania
+        auto const brakestillbuilding { fBrakePressRate > 0.01 };
+        auto const brakestillreleasing { fBrakePressRate < -0.01 };
         auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
 
-        if( false == brakesettled ) {
-            cue_action( driver_hint::brakingforcelap );
-        }
-        else if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
-              || ( true == slippingback ) ) {
-            cue_action( driver_hint::brakingforceincrease );
+        if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
+         || ( true == slippingback ) ) {
+            if( false == brakestillbuilding ) {
+                cue_action( driver_hint::brakingforceincrease );
+            }
+            else {
+                cue_action( driver_hint::brakingforcelap );
+            }
         }
         else if( OrderCurrentGet() != Disconnect ) { // przy odlaczaniu nie zwalniamy tu hamulca
             if( ( neededacc < modelacc - deadband )
              && ( BrakeCtrlPosition > 0 )
-             && ( VelDesired > 0.0 ) ) { // sanity check to prevent unintended brake release on sharp slopes
+             && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
+             && ( false == brakestillreleasing ) ) {
                 cue_action( driver_hint::brakingforcedecrease );
             }
             else {
