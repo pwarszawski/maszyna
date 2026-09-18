@@ -5891,6 +5891,26 @@ TController::update_timers( double dt ) {
     ElapsedTime += dt;
     WaitingTime += dt;
     fBrakeTime -= dt; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
+    if( ( mvOccupied != nullptr ) && ( dt > 0.0 ) ) {
+        // odpowiedz hamulca: dopoki cisnienie w cylindrach sie zmienia, skutek poprzedniej
+        // nastawy jeszcze nie jest widoczny i nie ma czego porownywac z modelem
+        auto const brakepress { mvOccupied->BrakePress };
+        if( fBrakePressPrev < 0.0 ) { fBrakePressPrev = brakepress; }
+        fBrakePressRate += ( ( brakepress - fBrakePressPrev ) / dt - fBrakePressRate ) * std::min( 1.0, dt * 2.0 );
+        fBrakePressPrev = brakepress;
+        // powolne dopasowanie modelu do rzeczywistosci - model jest liniowy wzgledem pozycji kranu,
+        // a charakterystyki pojazdow takie nie sa; stala czasowa rzedu 20 s, wiec nie wywoluje oscylacji
+        if( ( mvOccupied->Vel > 10.0 )
+         && ( BrakeCtrlPosition > 0.5 )
+         && ( std::abs( fBrakePressRate ) < 0.005 ) ) {
+            auto const modelacc { fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] };
+            if( modelacc > 0.05 ) {
+                auto const achieved { fAccGravity - AbsAccS };
+                fBrakeModelScale += ( std::clamp( achieved / modelacc, 0.3, 3.0 ) - fBrakeModelScale ) * std::min( 1.0, dt * 0.05 );
+                fBrakeModelScale = std::clamp( fBrakeModelScale, 0.5, 2.0 );
+            }
+        }
+    }
     if( mvOccupied->fBrakeCtrlPos != mvOccupied->Handle->GetPos( bh_FS ) ) {
         // brake charging timeout starts after charging ends
         BrakeChargingCooldown += dt;
@@ -7661,8 +7681,9 @@ TController::adjust_desired_speed_for_current_speed() {
             }
             // final tweaks
             if( vel > EU07_AI_NOMOVEMENT ) {
-                // going downhill also take into account impact of gravity
-                AccDesired -= fAccGravity;
+                // grawitacja nie jest juz odejmowana od zadania: AccDesired to zadane przyspieszenie
+                // wypadkowe skladu, a kompensacje pochylenia dolicza sterowanie hamulcem po stronie sily.
+                // odejmowanie jej tutaj liczylo ja drugi raz, bo AbsAccS tez ja zawiera
                 // HACK: if the max allowed speed was exceeded something went wrong; brake harder
                 AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
             }
@@ -7992,39 +8013,37 @@ void TController::control_braking_force() {
         }
     } // type & dt_ezt
     else {
-        // a stara wersja w miarę dobrze działa na składy wagonowe
-        if( ( AccDesired < fAccGravity - 0.1 && AbsAccS > AccDesired + fBrake_a1[0] ) // regular braking
-         || ( fAccGravity < -0.05 && velocity < -0.1 ) ) { // also brake if uphill and slipping back
-            // u góry ustawia się hamowanie na fAccThreshold
-            if( fBrakeTime < 0.0
-             || AccDesired < fAccGravity - 0.5
-             || BrakeCtrlPosition <= 0 ) {
-                // jeśli upłynął czas reakcji hamulca, chyba że nagłe albo luzował
-                // TODO: check whether brake delay variable still has any purpose
-                cue_action(
-                    driver_hint::brakingforceincrease,
-                    // Ra: ten czas należy zmniejszyć, jeśli czas dojazdu do zatrzymania jest mniejszy
-                    ( 3.0
-                    + 0.5 * ( (
-                        mvOccupied->BrakeDelayFlag > bdelay_G ?
-                            mvOccupied->BrakeDelay[ 1 ] :
-                            mvOccupied->BrakeDelay[ 3 ] )
-                        - 3.0 ) )
-                    * 0.5 ); // Ra: tymczasowo, bo przeżyna S1
-            }
+        // nastawe kranu wybiera model skladu, a nie chwilowe AbsAccS.
+        // fBrake_a0/fBrake_a1 sa liczone z BrakeForceR() kazdego pojazdu z osobna, dzielone przez
+        // rzeczywista mase i stablicowane w 16 przedzialach predkosci, wiec zachowuja charakterystyke
+        // konkretnego taboru; my tylko odwracamy ten model:
+        //     a(pozycja) = a0 + 4*(pozycja-1)*a1
+        // Porownanie z AbsAccS bylo porownaniem z odpowiedzia na nastawe sprzed kilku sekund,
+        // czyli petla ze zwloka wieksza niz okres decyzji - stad eskalacja i pila na spadku.
+        auto const modelacc { ( fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale };
+        // hamulec ma dac zadane opoznienie ORAZ skompensowac pochylenie
+        auto const neededacc { fAccGravity - AccDesired };
+        auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
+        // korekte wprowadzamy dopiero, gdy poprzednia nastawa zdazyla zadzialac - inaczej
+        // porownywalibysmy model ze stanem przejsciowym
+        auto const brakesettled { std::abs( fBrakePressRate ) < 0.01 };
+        auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
+
+        if( false == brakesettled ) {
+            cue_action( driver_hint::brakingforcelap );
         }
-        if ( AccDesired < fAccGravity - 0.05
-        && AccDesired - fBrake_a1[0] * 0.51 - AbsAccS > 0.05 ) {
-            // jak hamuje, to nie tykaj kranu za często
-            // yB: luzuje hamulec dopiero przy różnicy opóźnień rzędu 0.2
-            if( OrderCurrentGet() != Disconnect ) { // przy odłączaniu nie zwalniamy tu hamulca
-                if( VelDesired > 0.0 ) { // sanity check to prevent unintended brake release on sharp slopes
-                    // TODO: check whether brake delay variable still has any purpose
-                    cue_action(
-                        driver_hint::brakingforcedecrease,
-                        (mvOccupied->BrakeDelayFlag > bdelay_G ? mvOccupied->BrakeDelay[0] : mvOccupied->BrakeDelay[2]) / 3.0
-                        * 0.5 ); // Ra: tymczasowo, bo przeżyna S1
-                }
+        else if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
+              || ( true == slippingback ) ) {
+            cue_action( driver_hint::brakingforceincrease );
+        }
+        else if( OrderCurrentGet() != Disconnect ) { // przy odlaczaniu nie zwalniamy tu hamulca
+            if( ( neededacc < modelacc - deadband )
+             && ( BrakeCtrlPosition > 0 )
+             && ( VelDesired > 0.0 ) ) { // sanity check to prevent unintended brake release on sharp slopes
+                cue_action( driver_hint::brakingforcedecrease );
+            }
+            else {
+                cue_action( driver_hint::brakingforcelap );
             }
         }
         // stop-gap measure to ensure cars actually brake to stop even when above calculactions go awry
