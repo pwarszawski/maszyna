@@ -8115,9 +8115,12 @@ void TController::control_releaser() {
                 isbrakehandleinrightposition &= BrakeCtrlPosition == mvOccupied->HandleUnlock;
             }
         }
-        // wyluzuj lokomotywę, to szybciej ruszymy
+        // wyluzuj lokomotywę, to szybciej ruszymy - ale tylko gdy faktycznie ruszamy z miejsca.
+        // w biegu, zwlaszcza na spadku, oproznienie cylindrow konczy sie rozpedzeniem
+        // i koniecznoscia napelniania hamulca od zera, na co juz nie ma czasu
         if( mvOccupied->BrakePress > 0.4
-         && mvOccupied->Hamulec->GetCRP() > 4.9 ) {
+         && mvOccupied->Hamulec->GetCRP() > 4.9
+         && mvOccupied->Vel < 5.0 ) {
             actuate = true;
         }
         // keep engine brakes released during coupling/uncoupling
