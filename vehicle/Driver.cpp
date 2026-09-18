@@ -7634,7 +7634,9 @@ TController::adjust_desired_speed_for_current_speed() {
         if( fAccGravity > 0.025 ) {
             // going sharply downhill we may need to start braking sooner than usual
             // try to estimate increase of current velocity before engaged brakes start working
-            auto const speedestimate = vel + ( 1.0 - fBrake_a0[ 0 ] ) * 30.0 * AbsAccS;
+            // EXPERIMENT 7: the 30.0 horizon keeps the consist some 8 km/h below the limit on a
+            // grade and then holds it there by alternating power and brake; try a shorter one
+            auto const speedestimate = vel + ( 1.0 - fBrake_a0[ 0 ] ) * 10.0 * AbsAccS;
             if( speedestimate > VelDesired ) {
                 // jesli jedzie za szybko do AKTUALNEGO
                 if( VelDesired == 0.0 ) {
