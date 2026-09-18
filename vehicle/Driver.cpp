@@ -5891,6 +5891,15 @@ TController::update_timers( double dt ) {
     ElapsedTime += dt;
     WaitingTime += dt;
     fBrakeTime -= dt; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
+    // sledzenie odpowiedzi hamulca: dopoki cisnienie w cylindrach narasta po poprzedniej
+    // nastawie, poglebianie hamowania nie ma sensu - efekt poprzedniego kroku jeszcze nie dotarl
+    if( ( mvOccupied != nullptr ) && ( dt > 0.0 ) ) {
+        auto const brakepress { mvOccupied->BrakePress };
+        if( fBrakePressPrev < 0.0 ) { fBrakePressPrev = brakepress; }
+        auto const rate { ( brakepress - fBrakePressPrev ) / dt };
+        fBrakePressRate += ( rate - fBrakePressRate ) * std::min( 1.0, dt * 2.0 );
+        fBrakePressPrev = brakepress;
+    }
     if( mvOccupied->fBrakeCtrlPos != mvOccupied->Handle->GetPos( bh_FS ) ) {
         // brake charging timeout starts after charging ends
         BrakeChargingCooldown += dt;
@@ -7996,9 +8005,13 @@ void TController::control_braking_force() {
         if( ( AccDesired < fAccGravity - 0.1 && AbsAccS > AccDesired + fBrake_a1[0] ) // regular braking
          || ( fAccGravity < -0.05 && velocity < -0.1 ) ) { // also brake if uphill and slipping back
             // u góry ustawia się hamowanie na fAccThreshold
-            if( fBrakeTime < 0.0
-             || AccDesired < fAccGravity - 0.5
-             || BrakeCtrlPosition <= 0 ) {
+            // nie poglebiac hamowania, dopoki cisnienie w cylindrach wciaz rosnie po poprzedniej
+            // nastawie - inaczej AI dokłada kolejne pozycje szybciej, niz hamulec zdazy zadzialac
+            auto const brakestillbuilding { ( fBrakePressRate > 0.02 ) && ( BrakeCtrlPosition > 0 ) };
+            if( ( false == brakestillbuilding )
+             && ( fBrakeTime < 0.0
+               || AccDesired < fAccGravity - 0.5
+               || BrakeCtrlPosition <= 0 ) ) {
                 // jeśli upłynął czas reakcji hamulca, chyba że nagłe albo luzował
                 // TODO: check whether brake delay variable still has any purpose
                 cue_action(
