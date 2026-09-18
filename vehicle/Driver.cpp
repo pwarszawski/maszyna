@@ -8035,7 +8035,11 @@ void TController::control_braking_force() {
         && AccDesired - fBrake_a1[0] * 0.51 - AbsAccS > 0.05 ) {
             // jak hamuje, to nie tykaj kranu za często
             // yB: luzuje hamulec dopiero przy różnicy opóźnień rzędu 0.2
-            if( OrderCurrentGet() != Disconnect ) { // przy odłączaniu nie zwalniamy tu hamulca
+            // symetrycznie do poglebiania: nie luzowac dalej, dopoki cisnienie w cylindrach
+            // wciaz opada po poprzedniej nastawie - inaczej AI schodzi do zera zanim hamulec zareaguje
+            auto const brakestillreleasing { ( fBrakePressRate < -0.02 ) && ( BrakeCtrlPosition > 0 ) };
+            if( ( OrderCurrentGet() != Disconnect ) // przy odłączaniu nie zwalniamy tu hamulca
+             && ( false == brakestillreleasing ) ) {
                 if( VelDesired > 0.0 ) { // sanity check to prevent unintended brake release on sharp slopes
                     // TODO: check whether brake delay variable still has any purpose
                     cue_action(
