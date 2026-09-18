@@ -6515,14 +6515,9 @@ TController::determine_braking_distance() {
      && mvOccupied->CategoryFlag == 1 ) {
         fBrakeDist = velceil *	velceil / 25.92 / -fAccThreshold;
     }
-    {
-        // zapas drogi na czas reakcji hamulca - potrzebny w kazdym nastawieniu, nie tylko w G,
-        // bo w czasie napelniania cylindrow pociag jedzie dalej praktycznie nie hamujac
-        auto const brakefilltime {
-            mvOccupied->BrakeDelayFlag > bdelay_G ?
-                mvOccupied->BrakeDelay[ 1 ] :
-                mvOccupied->BrakeDelay[ 3 ] };
-        fBrakeDist += velceil * std::clamp( brakefilltime * 0.5, 2.0, 8.0 ) / 3.6;
+    if( mvOccupied->BrakeDelayFlag == bdelay_G ) {
+        // dla nastawienia G koniecznie należy wydłużyć drogę na czas reakcji
+        fBrakeDist += 2 * velceil;
     }
     if( mvOccupied->Vel > 15.0
      && mvControlling->EngineType == TEngineType::ElectricInductionMotor
