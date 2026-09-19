@@ -5898,6 +5898,13 @@ TController::update_timers( double dt ) {
         if( fBrakePressPrev < 0.0 ) { fBrakePressPrev = brakepress; }
         fBrakePressRate += ( ( brakepress - fBrakePressPrev ) / dt - fBrakePressRate ) * std::min( 1.0, dt * 2.0 );
         fBrakePressPrev = brakepress;
+        // mierzone tempo oproznienia cylindrow. wartosc z BrakeDelay dotyczy pojedynczego pojazdu,
+        // a caly sklad oprozniany przewodem glownym schodzi wyraznie wolniej - w tescie 0.13 MPa/s
+        // wobec 0.25 wynikajacych z tabliczki
+        if( fBrakePressRate < -0.02 ) {
+            fBrakeReleaseRate += ( -fBrakePressRate - fBrakeReleaseRate ) * std::min( 1.0, dt * 0.3 );
+            fBrakeReleaseRate = std::clamp( fBrakeReleaseRate, 0.03, 1.0 );
+        }
         // powolne dopasowanie modelu do rzeczywistosci - model jest liniowy wzgledem pozycji kranu,
         // a charakterystyki pojazdow takie nie sa; stala czasowa rzedu 20 s, wiec nie wywoluje oscylacji
         // dopasowanie dziala takze w trakcie hamowania, gdy cisnienie juz tylko dopelza -
@@ -8125,7 +8132,7 @@ void TController::control_braking_force() {
         auto const balancepressure { mvOccupied->BrakePress * std::max( 0.0, fAccGravity ) / brakingnow };
         auto const releasetime {
             std::clamp(
-                ( mvOccupied->BrakePress - balancepressure ) * fullreleasetime / fullpressure,
+                ( mvOccupied->BrakePress - balancepressure ) / std::max( 0.03, fBrakeReleaseRate ),
                 0.0, 30.0 ) };
         // 0.7 zamiast 0.5: opoznienie nie zanika liniowo do zera, tylko do poziomu rownowazacego
         // pochylenie, wiec srednia z okresu luzowania jest wyzsza niz polowa wartosci poczatkowej
@@ -8142,16 +8149,16 @@ void TController::control_braking_force() {
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
             auto const midband { holdtarget - 0.5 * band };
-            if( anticipatedvel <= holdtarget ) {
-                // lagodna regulacja obowiazuje tylko PONIZEJ celu - tam prowadzi predkosc do
-                // srodka pasma zamiast zadania progowego. powyzej celu zostaje zwykle zadanie,
-                // bo to juz jest realne przekroczenie; niedopuszczenie do niego jest zadaniem
-                // czlonu przewidujacego, a nie oslabionej regulacji
-                neededacc =
-                    std::clamp(
-                        fAccGravity + 0.08 * ( anticipatedvel - midband ),
-                        0.0,
-                        fAccGravity + 0.40 );
+            if( anticipatedvel < holdtarget + band ) {
+                // jedna ciagla funkcja zamiast dwoch trybow ze skokiem na granicy celu:
+                // ponizej celu lagodne prowadzenie do srodka pasma, powyzej rosnie szybciej
+                // i plynnie dochodzi do zwyklego zadania - zadnego przelaczania
+                auto const gentle { fAccGravity + 0.08 * ( anticipatedvel - midband ) };
+                auto const firm {
+                    anticipatedvel > holdtarget ?
+                        gentle + 0.25 * ( anticipatedvel - holdtarget ) :
+                        gentle };
+                neededacc = std::min( neededacc, std::max( 0.0, firm ) );
 
             }
         }
