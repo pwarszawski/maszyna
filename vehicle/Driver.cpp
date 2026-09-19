@@ -8121,7 +8121,9 @@ void TController::control_braking_force() {
             std::clamp(
                 ( mvOccupied->BrakePress - balancepressure ) * fullreleasetime / fullpressure,
                 0.0, 30.0 ) };
-        auto const speedtocome { std::max( 0.0, -AbsAccS ) * releasetime * 0.5 * 3.6 };
+        // 0.7 zamiast 0.5: opoznienie nie zanika liniowo do zera, tylko do poziomu rownowazacego
+        // pochylenie, wiec srednia z okresu luzowania jest wyzsza niz polowa wartosci poczatkowej
+        auto const speedtocome { std::max( 0.0, -AbsAccS ) * releasetime * 0.7 * 3.6 };
         auto const anticipatedvel { mvOccupied->Vel - speedtocome };
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
@@ -8286,9 +8288,12 @@ void TController::control_releaser() {
                 isbrakehandleinrightposition &= BrakeCtrlPosition == mvOccupied->HandleUnlock;
             }
         }
-        // wyluzuj lokomotywę, to szybciej ruszymy
+        // wyluzuj lokomotywę, to szybciej ruszymy - ale tylko gdy faktycznie ruszamy z miejsca.
+        // w biegu wystarczy chwilowo dodatnie AccDesired, zeby oproznic cylindry: hamulec nigdy
+        // nie zdazy sie zbudowac, a na spadku predkosc wisi tuz nad limitem
         if( mvOccupied->BrakePress > 0.4
-         && mvOccupied->Hamulec->GetCRP() > 4.9 ) {
+         && mvOccupied->Hamulec->GetCRP() > 4.9
+         && mvOccupied->Vel < 5.0 ) {
             actuate = true;
         }
         // keep engine brakes released during coupling/uncoupling
