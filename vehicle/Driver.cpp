@@ -8131,22 +8131,20 @@ void TController::control_braking_force() {
 
         if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
          || ( true == slippingback ) ) {
-            if( false == brakestillbuilding ) {
+            // cue_action tylko USTAWIA fBrakeTime po zmianie - sprawdzic je musi wywolujacy,
+            // inaczej kran przesuwa sie w kazdej klatce, dopoki warunek jest spelniony
+            if( ( false == brakestillbuilding )
+             && ( fBrakeTime < 0.0 ) ) {
                 cue_action( driver_hint::brakingforceincrease, dwell );
-            }
-            else {
-                cue_action( driver_hint::brakingforcelap );
             }
         }
         else if( OrderCurrentGet() != Disconnect ) { // przy odlaczaniu nie zwalniamy tu hamulca
             if( ( neededacc < modelacc - deadband )
              && ( BrakeCtrlPosition > 0 )
              && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
-             && ( false == brakestillreleasing ) ) {
+             && ( false == brakestillreleasing )
+             && ( fBrakeTime < 0.0 ) ) {
                 cue_action( driver_hint::brakingforcedecrease, dwell );
-            }
-            else {
-                cue_action( driver_hint::brakingforcelap );
             }
         }
         // stop-gap measure to ensure cars actually brake to stop even when above calculactions go awry
