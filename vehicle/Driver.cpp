@@ -7907,11 +7907,35 @@ void TController::control_motor_connectors() {
     }
 }
 
+namespace {
+
+// szerokosc pasma trzymania predkosci pod limitem. im wiekszy spadek, tym szersze pasmo,
+// bo tym mocniej pociag rozpedza sie po zluzowaniu hamulca:
+//   20 promili -> ok. 6 km/h, 10 promili -> 4 km/h, 5 promili -> 3 km/h
+// przy duzych predkosciach o szerokosci decyduje udzial procentowy
+double speed_hold_band( double const Accgravity, double const Veldesired ) {
+
+    return std::max(
+        2.0 + 20.0 * std::max( 0.0, Accgravity ),
+        Veldesired * 0.04 );
+}
+
+} // namespace
+
 void TController::control_tractive_force() {
 
     auto const velocity { DirectionalVel() };
+    // na spadku nie trzeba ciagnac - wystarczy nie hamowac, reszte zrobi pochylenie.
+    // dotyczy pasma tuz pod limitem oraz calego dojazdu do zatrzymania: podciaganie
+    // przed semaforem to praca napedu przeciw hamulcowi i strata powietrza,
+    // ktore trzeba potem odzyskac
+    auto const downhillcoast {
+        ( fAccGravity > 0.025 )
+     && ( ( ( VelNext == 0.0 ) && ( ActualProximityDist < 2.0 * fBrakeDist + 100.0 ) )
+       || ( ( VelDesired > 0.0 ) && ( velocity > VelDesired - speed_hold_band( fAccGravity, VelDesired ) ) ) ) };
     // jeśli przyspieszenie pojazdu jest mniejsze niż żądane oraz...
-    if( AccDesired > EU07_AI_NOACCELERATION // don't add power if not asked for actual speed-up
+    if( ( false == downhillcoast )
+     && AccDesired > EU07_AI_NOACCELERATION // don't add power if not asked for actual speed-up
      && (AbsAccS < AccDesired /*- std::min( 0.05, 0.01 * iDriverFailCount )*/ || (mvOccupied->SpeedCtrlUnit.IsActive && velocity < mvOccupied->SpeedCtrlUnit.FullPowerVelocity))
      && false == TestFlag(iDrivigFlags, movePress) ) {
         // ...jeśli prędkość w kierunku czoła jest mniejsza od dozwolonej o margines...
@@ -8051,7 +8075,7 @@ void TController::control_braking_force() {
         // predkosc spadnie odrobine ponizej limitu, konczy sie jej ucieczka i ratunkowym hamowaniem
         if( ( fAccGravity > 0.025 )
          && ( VelDesired > 0.0 )
-         && ( mvOccupied->Vel > VelDesired - std::max( 5.0, VelDesired * 0.05 ) ) ) {
+         && ( mvOccupied->Vel > VelDesired - speed_hold_band( fAccGravity, VelDesired ) ) ) {
             neededacc = std::max( neededacc, fAccGravity );
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
