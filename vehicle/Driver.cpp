@@ -8128,7 +8128,12 @@ void TController::control_braking_force() {
             // powyzej niego hamujemy mocniej niz sama rownowaga, proporcjonalnie do nadwyzki
             auto const midband { holdtarget - 0.5 * band };
             if( anticipatedvel > midband ) {
-                neededacc = std::max( neededacc, fAccGravity + 0.03 * ( anticipatedvel - midband ) );
+                // delikatna korekta prowadzaca predkosc do srodka pasma. musi byc ograniczona,
+                // bo przy dojezdzie z duzo wyzszej predkosci urosloby to do zadania
+                // niemozliwego do spelnienia i hamulec zostawalby przylozony do samego konca
+                neededacc = std::max(
+                    neededacc,
+                    fAccGravity + std::min( 0.15, 0.03 * ( anticipatedvel - midband ) ) );
             }
             else if( anticipatedvel > holdtarget - band ) {
                 // w dolnej polowie pasma: hamulec ma co najmniej rownowazyc pochylenie
