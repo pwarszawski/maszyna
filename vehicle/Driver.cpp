@@ -8173,10 +8173,11 @@ void TController::control_braking_force() {
             char line[ 512 ];
             std::snprintf(
                 line, sizeof( line ),
-                "BRAKECTL %s t=%.1f v=%.2f g=%.3f absacc=%.3f accdes=%.3f need=%.3f model=%.3f steady=%.3f scale=%.2f pos=%.2f press=%.2f rate=%.3f hold=%.1f band=%.1f stc=%.2f antic=%.2f dist=%.1f vnext=%.1f veldes=%.1f btime=%.2f",
+                "BRAKECTL %s t=%.1f v=%.2f g=%.3f absacc=%.3f accdes=%.3f need=%.3f model=%.3f steady=%.3f scale=%.2f pos=%.2f press=%.2f rate=%.3f hold=%.1f band=%.1f stc=%.2f gain=%.2f relrate=%.3f reltime=%.1f antic=%.2f dist=%.1f vnext=%.1f veldes=%.1f btime=%.2f",
                 OwnerName().c_str(), ElapsedTime, mvOccupied->Vel, fAccGravity, AbsAccS, AccDesired, neededacc, modelacc, modelsteady,
                 fBrakeModelScale, BrakeCtrlPosition, mvOccupied->BrakePress, fBrakePressRate,
-                holdtarget, band, speedtocome, anticipatedvel, ActualProximityDist, VelNext, VelDesired, fBrakeTime );
+                holdtarget, band, speedtocome, speedtogain, fBrakeReleaseRate, releasetime,
+                anticipatedvel, ActualProximityDist, VelNext, VelDesired, fBrakeTime );
             WriteLog( line );
         }
         // decyzja porownuje zadanie z tym, co dana pozycja kranu da DOCELOWO (modelsteady):
