@@ -8131,9 +8131,9 @@ void TController::control_braking_force() {
                 // tutaj ZASTEPUJEMY je lagodna regulacja prowadzaca do srodka pasma
                 neededacc =
                     std::clamp(
-                        fAccGravity + 0.05 * ( anticipatedvel - midband ),
+                        fAccGravity + 0.08 * ( anticipatedvel - midband ),
                         0.0,
-                        fAccGravity + 0.25 );
+                        fAccGravity + 0.40 );
             }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
@@ -8170,13 +8170,27 @@ void TController::control_braking_force() {
                     mvOccupied->BrakeDelay[ 3 ] ) * 0.25,
                 1.0, 3.0 ) };
 
+        // jeden ruch na policzona pozycje, a dopiero potem odczekanie - tak jak robi to maszynista.
+        // przesuwanie po cwiartce co sekunde oznaczalo, ze zmiana o kilkanascie pozycji
+        // (np. pelne zluzowanie przed znakiem) trwa kilkadziesiat sekund i zawsze jest spozniona.
+        // cue_action tylko USTAWIA fBrakeTime po zmianie, wiec sprawdzic je musi wywolujacy
+        auto const modelat = [ this ]( double const Position ) {
+            return (
+                Position <= 0.0 ?
+                    0.0 :
+                    ( fBrake_a0[ 0 ] + 4.0 * ( Position - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale ); };
+
         if( ( ( neededacc > 0.0 ) && ( neededacc > modelsteady + deadband ) )
          || ( true == slippingback ) ) {
-            // cue_action tylko USTAWIA fBrakeTime po zmianie - sprawdzic je musi wywolujacy,
-            // inaczej kran przesuwa sie w kazdej klatce, dopoki warunek jest spelniony
             if( ( false == brakestillbuilding )
              && ( fBrakeTime < 0.0 ) ) {
-                cue_action( driver_hint::brakingforceincrease, dwell );
+                auto steps { 0 };
+                while( ( steps < 16 )
+                    && ( BrakeCtrlPosition < 5.0 )
+                    && ( neededacc > modelat( BrakeCtrlPosition ) + deadband ) ) {
+                    cue_action( driver_hint::brakingforceincrease, dwell );
+                    ++steps;
+                }
             }
         }
         else if( OrderCurrentGet() != Disconnect ) { // przy odlaczaniu nie zwalniamy tu hamulca
@@ -8185,7 +8199,13 @@ void TController::control_braking_force() {
              && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
              && ( false == brakestillreleasing )
              && ( fBrakeTime < 0.0 ) ) {
-                cue_action( driver_hint::brakingforcedecrease, dwell );
+                auto steps { 0 };
+                while( ( steps < 16 )
+                    && ( BrakeCtrlPosition > 0.0 )
+                    && ( neededacc < modelat( BrakeCtrlPosition ) - deadband ) ) {
+                    cue_action( driver_hint::brakingforcedecrease, dwell );
+                    ++steps;
+                }
             }
         }
         // stop-gap measure to ensure cars actually brake to stop even when above calculactions go awry
