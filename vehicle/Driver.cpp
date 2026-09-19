@@ -8090,10 +8090,27 @@ void TController::control_braking_force() {
         // na spadku trzymaj predkosc w pasmie tuz pod limitem. zluzowanie do zera, gdy tylko
         // predkosc spadnie odrobine ponizej limitu, konczy sie jej ucieczka i ratunkowym hamowaniem
         auto const holdtarget { hold_target() };
-        if( ( fAccGravity > 0.025 )
-         && ( holdtarget > 0.0 )
-         && ( mvOccupied->Vel > holdtarget - speed_hold_band( fAccGravity, holdtarget ) ) ) {
-            neededacc = std::max( neededacc, fAccGravity );
+        auto const band { speed_hold_band( fAccGravity, holdtarget ) };
+        // predkosc, ktora jeszcze zejdzie, zanim hamulec zwolni po poprzedniej nastawie.
+        // maszynista luzuje przed osiagnieciem celu wlasnie dlatego, ze to przewiduje
+        auto const releasetime {
+            std::clamp(
+                ( mvOccupied->BrakeDelayFlag > bdelay_G ?
+                    mvOccupied->BrakeDelay[ 0 ] :
+                    mvOccupied->BrakeDelay[ 2 ] ) * 0.5,
+                1.0, 6.0 ) };
+        auto const speedtocome { std::max( 0.0, -AbsAccS ) * releasetime * 0.5 * 3.6 };
+        auto const anticipatedvel { mvOccupied->Vel - speedtocome };
+
+        if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
+            if( anticipatedvel > holdtarget - band ) {
+                // w pasmie: hamulec ma co najmniej rownowazyc pochylenie, zeby predkosc nie uciekla
+                neededacc = std::max( neededacc, fAccGravity );
+            }
+            else if( mvOccupied->Vel > 1.0 ) {
+                // zejdziemy ponizej pasma: przestac dokladac, zostawic tyle, ile rownowazy spadek
+                neededacc = std::min( neededacc, fAccGravity );
+            }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
         // korekte w danym kierunku wprowadzamy dopiero, gdy poprzednia zdazyla zadzialac.
