@@ -8103,12 +8103,23 @@ void TController::control_braking_force() {
         auto const band { speed_hold_band( fAccGravity, holdtarget ) };
         // predkosc, ktora jeszcze zejdzie, zanim hamulec zwolni po poprzedniej nastawie.
         // maszynista luzuje przed osiagnieciem celu wlasnie dlatego, ze to przewiduje
+        // ile predkosci jeszcze zejdzie, jesli zaczniemy luzowac teraz. hamulec dziala dalej,
+        // dopoki cisnienie nie spadnie do poziomu, przy ktorym rownowazy juz tylko pochylenie;
+        // przy dlugim skladzie w nastawieniu P to kilkanascie sekund i kilkanascie km/h
+        auto const fullreleasetime {
+            mvOccupied->BrakeDelayFlag > bdelay_G ?
+                mvOccupied->BrakeDelay[ 0 ] :
+                mvOccupied->BrakeDelay[ 2 ] };
+        auto const fullpressure {
+            mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
+                mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
+                3.8 };
+        auto const brakingnow { std::max( 0.01, fAccGravity - AbsAccS ) }; // opoznienie od samego hamulca
+        auto const balancepressure { mvOccupied->BrakePress * std::max( 0.0, fAccGravity ) / brakingnow };
         auto const releasetime {
             std::clamp(
-                ( mvOccupied->BrakeDelayFlag > bdelay_G ?
-                    mvOccupied->BrakeDelay[ 0 ] :
-                    mvOccupied->BrakeDelay[ 2 ] ) * 0.5,
-                1.0, 6.0 ) };
+                ( mvOccupied->BrakePress - balancepressure ) * fullreleasetime / fullpressure,
+                0.0, 30.0 ) };
         auto const speedtocome { std::max( 0.0, -AbsAccS ) * releasetime * 0.5 * 3.6 };
         auto const anticipatedvel { mvOccupied->Vel - speedtocome };
 
