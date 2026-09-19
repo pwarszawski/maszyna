@@ -7916,7 +7916,9 @@ namespace {
 double speed_hold_band( double const Accgravity, double const Veldesired ) {
 
     return std::max(
-        2.0 + 20.0 * std::max( 0.0, Accgravity ),
+        std::max(
+            3.0, // minimum takze na plaskim i pod gore - chroni przed pilowaniem naped-hamulec
+            2.0 + 20.0 * std::max( 0.0, Accgravity ) ),
         Veldesired * 0.04 );
 }
 
