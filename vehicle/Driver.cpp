@@ -8146,6 +8146,14 @@ void TController::control_braking_force() {
                 mvOccupied->BrakeDelay[ 3 ] };
         auto const speedtogain { std::max( 0.0, AbsAccS ) * std::clamp( filltime, 1.0, 12.0 ) * 0.5 * 3.6 };
         auto const anticipatedvel { mvOccupied->Vel - speedtocome + speedtogain };
+        // nie hamuj mocniej, niz zdazysz zluzowac. jesli odluznienie trwa dluzej niz dojazd do
+        // celu, to kazde silniejsze przylozenie konczy sie zejsciem znacznie ponizej celu -
+        // wlasnie dlatego dlugi sklad na spadku hamuje wczesniej i lagodniej, a nie mocno i pozno
+        auto const marginvel { std::max( 0.0, mvOccupied->Vel - std::max( 0.0, holdtarget ) ) };
+        auto const releasable {
+            releasetime > 1.0 ?
+                fAccGravity + marginvel / ( 3.6 * releasetime ) :
+                9.9 };
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
             auto const midband { holdtarget - 0.5 * band };
@@ -8163,6 +8171,9 @@ void TController::control_braking_force() {
             }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
+        if( ( mvOccupied->Vel > 5.0 ) && ( neededacc > releasable ) ) {
+            neededacc = std::max( releasable, fAccGravity );
+        }
         // korekte w danym kierunku wprowadzamy dopiero, gdy poprzednia zdazyla zadzialac.
         // warunek musi byc niesymetryczny: czekanie z dolozeniem hamulca dlatego, ze cylindry
         // wlasnie sie oprozniaja, oznaczaloby brak reakcji przez caly czas odluzniania
@@ -8231,7 +8242,7 @@ void TController::control_braking_force() {
                 auto const floorposition {
                     ( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) && ( neededacc > fAccGravity * 0.5 ) ) ?
                         1.0 :
-                        0.0 };
+                        ( mvOccupied->Vel > 5.0 ? 0.0 : -1.0 ) }; // w biegu nie schodzimy ponizej pozycji jazdy
                 auto steps { 0 };
                 while( ( steps < 16 )
                     && ( BrakeCtrlPosition > floorposition )
