@@ -2260,6 +2260,32 @@ void TController::AutoRewident()
 		    fBrake_a1[i+1] /= 12 * fMass;
 	    }
 
+        {
+            // DIAGNOSTYKA: ksztalt charakterystyki hamulca skladu. tablica AI powstaje z dwoch
+            // punktow (0.25 i 1.00) i jest interpolowana liniowo - tu sprawdzamy, czy rzeczywista
+            // charakterystyka jest liniowa, czy wklesla, bo od tego zalezy, czy tablice da sie
+            // poprawic raz przy zestawianiu skladu zamiast uczyc jej w jezdzie
+            auto const velsample { std::max( 20.0, mvOccupied->Vmax * 0.25 ) };
+            std::string shape { "BRAKESHAPE " + OwnerName() + " v=" + std::to_string( (int)velsample ) + " force:" };
+            for( int k = 1; k <= 12; ++k ) {
+                auto const level { k / 12.0 };
+                double force { 0.0 };
+                auto *w { pVehicles[ 0 ] };
+                while( w != nullptr ) {
+                    force += w->MoverParameters->BrakeForceR( level, velsample );
+                    w = w->Next();
+                }
+                shape += " " + std::to_string( (int)( force / std::max( 1.0, fMass ) * 1000.0 ) );
+            }
+            shape += " | mass=" + std::to_string( (int)fMass )
+                  + " vehicles=" + std::to_string( iVehicles )
+                  + " delay=" + std::to_string( mvOccupied->BrakeDelay[ 0 ] )
+                  + "/" + std::to_string( mvOccupied->BrakeDelay[ 1 ] )
+                  + "/" + std::to_string( mvOccupied->BrakeDelay[ 2 ] )
+                  + "/" + std::to_string( mvOccupied->BrakeDelay[ 3 ] );
+            WriteLog( shape );
+        }
+
         IsPassengerTrain = is_train() && false == is_emu() && false == is_dmu() && (mvOccupied->BrakeDelayFlag & bdelay_G) == 0;
         IsCargoTrain = is_train() && (mvOccupied->BrakeDelayFlag & bdelay_G) != 0;
         IsHeavyCargoTrain = true == IsCargoTrain && fBrake_a0[1] > 0.4 && iVehicles - ControlledEnginesCount > 0 && fMass / iVehicles > 50000;
