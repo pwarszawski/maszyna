@@ -5906,7 +5906,11 @@ TController::update_timers( double dt ) {
         if( ( mvOccupied->Vel > 10.0 )
          && ( BrakeCtrlPosition > 0.5 )
          && ( mvOccupied->BrakePress > 0.3 )
-         && ( std::abs( fBrakePressRate ) < 0.02 ) ) { // hamulec musi byc ustalony, inaczej mierzymy stan przejsciowy
+         // hamulec musi byc ustalony NA TEJ pozycji: samo male tempo zmian nie wystarcza,
+         // bo cisnienie pelznie powoli takze wtedy, gdy do zadanej wartosci brakuje polowy.
+         // fBrakeTime < -5 oznacza, ze nastawa nie byla ruszana od ponad pieciu sekund
+         && ( fBrakeTime < -5.0 )
+         && ( std::abs( fBrakePressRate ) < 0.01 ) ) {
             auto const fullpress {
                 mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
                     mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
@@ -5918,7 +5922,9 @@ TController::update_timers( double dt ) {
             if( modelnow > 0.05 ) {
                 auto const achieved { fAccGravity - AbsAccS };
                 fBrakeModelScale += ( std::clamp( achieved / modelnow, 0.2, 3.0 ) - fBrakeModelScale ) * std::min( 1.0, dt * 0.2 );
-                fBrakeModelScale = std::clamp( fBrakeModelScale, 0.3, 2.0 );
+                // weziej niz dotad: skala 0.43 oznaczala dwukrotne przehamowanie przed semaforem,
+                // a tak duzy blad modelu i tak nie jest wiarygodny
+                fBrakeModelScale = std::clamp( fBrakeModelScale, 0.6, 1.5 );
             }
         }
     }
