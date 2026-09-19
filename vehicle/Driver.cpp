@@ -5931,6 +5931,39 @@ TController::update_timers( double dt ) {
             fBrakeReleaseRate += ( -fBrakePressRate - fBrakeReleaseRate ) * std::min( 1.0, dt * 0.3 );
             fBrakeReleaseRate = std::clamp( fBrakeReleaseRate, 0.03, 1.0 );
         }
+        // DIAGNOSTYKA: skad bierze sie optymizm tablicy. porownujemy trzy wielkosci przy
+        // ustalonej nastawie: sile przewidywana dla ZADANEJ pozycji kranu, sile przewidywana
+        // dla FAKTYCZNEGO cisnienia w cylindrach oraz opoznienie rzeczywiscie osiagniete.
+        //   jesli force(cisnienie) ~ osiagniete -> hamulec nie dochodzi do zadanego cisnienia
+        //   jesli force(cisnienie) >  osiagniete -> BrakeForceR sam w sobie obiecuje za duzo
+        if( ( mvOccupied->Vel > 10.0 )
+         && ( BrakeCtrlPosition > 0.5 )
+         && ( fBrakeTime < -5.0 )
+         && ( std::abs( fBrakePressRate ) < 0.01 )
+         && ( ElapsedTime - fBrakeProbeTime >= 3.0 ) ) {
+            fBrakeProbeTime = ElapsedTime;
+            auto const fullpress {
+                mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
+                    mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
+                    3.8 };
+            auto const fillratio { std::clamp( mvOccupied->BrakePress / fullpress, 0.0, 1.0 ) };
+            auto const commanded { std::clamp( BrakeCtrlPosition / 4.0, 0.0, 1.0 ) };
+            double fcmd { 0.0 }, ffill { 0.0 };
+            auto *w { pVehicles[ 0 ] };
+            while( w != nullptr ) {
+                fcmd += w->MoverParameters->BrakeForceR( commanded, mvOccupied->Vel );
+                ffill += w->MoverParameters->BrakeForceR( fillratio, mvOccupied->Vel );
+                w = w->Next();
+            }
+            char probe[ 320 ];
+            std::snprintf(
+                probe, sizeof( probe ),
+                "BRAKECAL %s v=%.1f pos=%.2f cmd=%.2f fill=%.2f press=%.2f a_cmd=%.3f a_fill=%.3f a_real=%.3f scale=%.2f",
+                OwnerName().c_str(), mvOccupied->Vel, BrakeCtrlPosition, commanded, fillratio,
+                mvOccupied->BrakePress, fcmd / std::max( 1.0, fMass ), ffill / std::max( 1.0, fMass ),
+                fAccGravity - AbsAccS, fBrakeModelScale );
+            WriteLog( probe );
+        }
         // powolne dopasowanie modelu do rzeczywistosci - model jest liniowy wzgledem pozycji kranu,
         // a charakterystyki pojazdow takie nie sa; stala czasowa rzedu 20 s, wiec nie wywoluje oscylacji
         // dopasowanie dziala takze w trakcie hamowania, gdy cisnienie juz tylko dopelza -
