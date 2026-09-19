@@ -5906,14 +5906,15 @@ TController::update_timers( double dt ) {
         if( ( mvOccupied->Vel > 10.0 )
          && ( BrakeCtrlPosition > 0.5 )
          && ( mvOccupied->BrakePress > 0.3 )
-         && ( std::abs( fBrakePressRate ) < 0.05 ) ) {
+         && ( std::abs( fBrakePressRate ) < 0.02 ) ) { // hamulec musi byc ustalony, inaczej mierzymy stan przejsciowy
             auto const fullpress {
                 mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
                     mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
                     3.8 };
-            auto const modelnow {
-                ( fBrake_a0[ 0 ] + 12.0 * fBrake_a1[ 0 ] )
-                * std::clamp( mvOccupied->BrakePress / fullpress, 0.0, 1.0 ) };
+            // kalibrujemy dokladnie te wielkosc, ktorej uzywa decyzja - stan ustalony biezacej
+            // pozycji kranu. porownywanie z wartoscia skalowana cisnieniem dawalo skale zanizona,
+            // bo te dwie wielkosci roznia sie w trakcie napelniania nawet dwukrotnie
+            auto const modelnow { fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] };
             if( modelnow > 0.05 ) {
                 auto const achieved { fAccGravity - AbsAccS };
                 fBrakeModelScale += ( std::clamp( achieved / modelnow, 0.2, 3.0 ) - fBrakeModelScale ) * std::min( 1.0, dt * 0.2 );
@@ -8199,9 +8200,15 @@ void TController::control_braking_force() {
              && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
              && ( false == brakestillreleasing )
              && ( fBrakeTime < 0.0 ) ) {
+                // na spadku, gdy prowadzimy predkosc w pasmie, nie schodzimy ponizej pierwszego
+                // przylozenia: zero oznacza rozpedzanie sie i koniecznosc napelniania od nowa
+                auto const floorposition {
+                    ( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) && ( neededacc > fAccGravity * 0.5 ) ) ?
+                        1.0 :
+                        0.0 };
                 auto steps { 0 };
                 while( ( steps < 16 )
-                    && ( BrakeCtrlPosition > 0.0 )
+                    && ( BrakeCtrlPosition > floorposition )
                     && ( neededacc < modelat( BrakeCtrlPosition ) - deadband ) ) {
                     cue_action( driver_hint::brakingforcedecrease, dwell );
                     ++steps;
