@@ -7559,9 +7559,13 @@ TController::adjust_desired_speed_for_target_speed( double const Range ) {
                             // don't slow down prematurely; as long as we have room to come to a full stop at a safe distance, we're good
                             // ensure some minimal coasting speed, otherwise a vehicle entering this zone at very low speed will be crawling forever
                             auto const brakingpointoffset = VelNext * braking_distance_multiplier( VelNext );
+                            // celuj w dolna czesc pasma dopuszczalnej predkosci, a nie dokladnie w prog:
+                            // zejscie z 24 na 20 na ostatnich 150 m wymaga 0.05 m/s2, czyli mniej niz
+                            // martwa strefa sterowania, wiec pociag wjezdzalby na ograniczenie za szybko
+                            auto const approachtarget { std::max( 0.0, VelNext - std::min( 2.5, VelNext * 0.15 ) ) };
                             AccDesired = std::min(
                                 AccDesired,
-                                ( VelNext * VelNext - vel * vel )
+                                ( approachtarget * approachtarget - vel * vel )
                                 / ( 25.92
                                     * std::max(
                                         ActualProximityDist - brakingpointoffset,
@@ -7686,8 +7690,10 @@ TController::adjust_desired_speed_for_current_speed() {
                 // wymagane opoznienie SAMEGO hamulca. podwojne liczenie bylo nie tutaj, tylko
                 // w porownaniu z AbsAccS, ktore juz zawiera grawitacje - to porownanie usuniete nizej
                 AccDesired -= fAccGravity;
-                // HACK: if the max allowed speed was exceeded something went wrong; brake harder
-                AccDesired -= 0.15 * std::clamp( vel - VelDesired, 0.0, 5.0 );
+                // usuniety HACK dokladajacy 0.15*nadwyzka do zadania przy przekroczeniu predkosci:
+                // przy 3 km/h nadwyzki zamawial 0.45 m/s2 wiecej, co konczylo sie kranem na 5
+                // i zatrzymaniem w ograniczeniu. byl proteza na sterowanie, ktore nie umialo
+                // utrzymac predkosci - przy doborze nastawy z modelu jest zbedny
             }
         }
         // HACK: limit acceleration for cargo trains, to reduce probability of breaking couplers on sudden jolts
