@@ -451,8 +451,10 @@ private:
     double fBrakeTime = 0.0; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
     double hold_target() const; // limit, do ktorego aktualnie prowadzimy predkosc
     double fBrakeLogTime = 0.0; // diagnostyka sterowania hamulcem
+    double hold_target() const; // limit, do ktorego aktualnie prowadzimy predkosc
     double fBrakePressPrev = -1.0; // cisnienie w cylindrach z poprzedniego kroku
     double fBrakePressRate = 0.0; // wygladzona szybkosc zmiany cisnienia w cylindrach [MPa/s]
+    double fBrakeReleaseRate = 0.25; // mierzone tempo oproznienia cylindrow [MPa/s]
     double fBrakeModelScale = 1.0; // dopasowanie liniowego modelu hamulca do obserwowanej skutecznosci
     double BrakeChargingCooldown{}; // prevents the ai from trying to charge the train brake too frequently
     TBrakeSystem BrakeSystem = TBrakeSystem::Individual; //type of main brake
