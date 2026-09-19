@@ -8124,24 +8124,16 @@ void TController::control_braking_force() {
         auto const anticipatedvel { mvOccupied->Vel - speedtocome };
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
-            // pasmo jest celem, nie tylko zakazem: srodek pasma to predkosc, ktora chcemy trzymac.
-            // powyzej niego hamujemy mocniej niz sama rownowaga, proporcjonalnie do nadwyzki
             auto const midband { holdtarget - 0.5 * band };
-            if( anticipatedvel > midband ) {
-                // delikatna korekta prowadzaca predkosc do srodka pasma. musi byc ograniczona,
-                // bo przy dojezdzie z duzo wyzszej predkosci urosloby to do zadania
-                // niemozliwego do spelnienia i hamulec zostawalby przylozony do samego konca
-                neededacc = std::max(
-                    neededacc,
-                    fAccGravity + std::min( 0.15, 0.03 * ( anticipatedvel - midband ) ) );
-            }
-            else if( anticipatedvel > holdtarget - band ) {
-                // w dolnej polowie pasma: hamulec ma co najmniej rownowazyc pochylenie
-                neededacc = std::max( neededacc, fAccGravity );
-            }
-            else if( mvOccupied->Vel > 1.0 ) {
-                // zejdziemy ponizej pasma: przestac dokladac, zostawic tyle, ile rownowazy spadek
-                neededacc = std::min( neededacc, fAccGravity );
+            if( anticipatedvel < holdtarget + band ) {
+                // w otoczeniu celu zadanie progowe (fAccThreshold) jest bez sensu: przekroczenie
+                // limitu o kilometr wywoluje takie samo hamowanie jak dojazd z pelnej predkosci.
+                // tutaj ZASTEPUJEMY je lagodna regulacja prowadzaca do srodka pasma
+                neededacc =
+                    std::clamp(
+                        fAccGravity + 0.05 * ( anticipatedvel - midband ),
+                        0.0,
+                        fAccGravity + 0.25 );
             }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
@@ -8161,8 +8153,12 @@ void TController::control_braking_force() {
                 holdtarget, band, speedtocome, anticipatedvel, ActualProximityDist, VelNext, VelDesired, fBrakeTime );
             WriteLog( line );
         }
-        auto const brakestillbuilding { fBrakePressRate > 0.05 };
-        auto const brakestillreleasing { fBrakePressRate < -0.05 };
+        // decyzja porownuje zadanie z tym, co dana pozycja kranu da DOCELOWO (modelsteady):
+        // wtedy nastawa sama zatrzymuje sie tam, gdzie model zrownuje sie z zadaniem.
+        // bramka cisnieniowa zostaje tylko jako zabezpieczenie przed gwaltownym napelnianiem,
+        // bo wczesniej blokowala kazde dolozenie przez caly dojazd i hamowanie bylo spoznione
+        auto const brakestillbuilding { fBrakePressRate > 0.25 };
+        auto const brakestillreleasing { fBrakePressRate < -0.25 };
         auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
 
         // minimalny odstep miedzy zmianami nastawy: bez niego kran przesuwa sie o cwiartke
@@ -8174,7 +8170,7 @@ void TController::control_braking_force() {
                     mvOccupied->BrakeDelay[ 3 ] ) * 0.25,
                 1.0, 3.0 ) };
 
-        if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
+        if( ( ( neededacc > 0.0 ) && ( neededacc > modelsteady + deadband ) )
          || ( true == slippingback ) ) {
             // cue_action tylko USTAWIA fBrakeTime po zmianie - sprawdzic je musi wywolujacy,
             // inaczej kran przesuwa sie w kazdej klatce, dopoki warunek jest spelniony
@@ -8184,7 +8180,7 @@ void TController::control_braking_force() {
             }
         }
         else if( OrderCurrentGet() != Disconnect ) { // przy odlaczaniu nie zwalniamy tu hamulca
-            if( ( neededacc < modelacc - deadband )
+            if( ( neededacc < modelsteady - deadband )
              && ( BrakeCtrlPosition > 0 )
              && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
              && ( false == brakestillreleasing )
