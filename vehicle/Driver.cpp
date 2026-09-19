@@ -5900,14 +5900,24 @@ TController::update_timers( double dt ) {
         fBrakePressPrev = brakepress;
         // powolne dopasowanie modelu do rzeczywistosci - model jest liniowy wzgledem pozycji kranu,
         // a charakterystyki pojazdow takie nie sa; stala czasowa rzedu 20 s, wiec nie wywoluje oscylacji
+        // dopasowanie dziala takze w trakcie hamowania, gdy cisnienie juz tylko dopelza -
+        // wczesniej wymagalo niemal zerowej pochodnej i w praktyce nigdy sie nie uruchamialo.
+        // porownujemy z tym, co model przewiduje przy BIEZACYM cisnieniu, a nie docelowym
         if( ( mvOccupied->Vel > 10.0 )
          && ( BrakeCtrlPosition > 0.5 )
-         && ( std::abs( fBrakePressRate ) < 0.005 ) ) {
-            auto const modelacc { fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] };
-            if( modelacc > 0.05 ) {
+         && ( mvOccupied->BrakePress > 0.3 )
+         && ( std::abs( fBrakePressRate ) < 0.05 ) ) {
+            auto const fullpress {
+                mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
+                    mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
+                    3.8 };
+            auto const modelnow {
+                ( fBrake_a0[ 0 ] + 12.0 * fBrake_a1[ 0 ] )
+                * std::clamp( mvOccupied->BrakePress / fullpress, 0.0, 1.0 ) };
+            if( modelnow > 0.05 ) {
                 auto const achieved { fAccGravity - AbsAccS };
-                fBrakeModelScale += ( std::clamp( achieved / modelacc, 0.3, 3.0 ) - fBrakeModelScale ) * std::min( 1.0, dt * 0.05 );
-                fBrakeModelScale = std::clamp( fBrakeModelScale, 0.5, 2.0 );
+                fBrakeModelScale += ( std::clamp( achieved / modelnow, 0.2, 3.0 ) - fBrakeModelScale ) * std::min( 1.0, dt * 0.2 );
+                fBrakeModelScale = std::clamp( fBrakeModelScale, 0.3, 2.0 );
             }
         }
     }
@@ -8116,8 +8126,10 @@ void TController::control_braking_force() {
         // korekte w danym kierunku wprowadzamy dopiero, gdy poprzednia zdazyla zadzialac.
         // warunek musi byc niesymetryczny: czekanie z dolozeniem hamulca dlatego, ze cylindry
         // wlasnie sie oprozniaja, oznaczaloby brak reakcji przez caly czas odluzniania
-        auto const brakestillbuilding { fBrakePressRate > 0.01 };
-        auto const brakestillreleasing { fBrakePressRate < -0.01 };
+        // prog dotyczy glownego napelniania/oprozniania, nie powolnego dopelzania cisnienia,
+        // ktore trwa jeszcze kilkanascie sekund i przy progu 0.01 blokowalo kazda korekte
+        auto const brakestillbuilding { fBrakePressRate > 0.05 };
+        auto const brakestillreleasing { fBrakePressRate < -0.05 };
         auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
 
         // minimalny odstep miedzy zmianami nastawy: bez niego kran przesuwa sie o cwiartke
