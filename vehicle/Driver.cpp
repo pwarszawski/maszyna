@@ -8142,10 +8142,11 @@ void TController::control_braking_force() {
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
             auto const midband { holdtarget - 0.5 * band };
-            if( anticipatedvel < holdtarget + band ) {
-                // w otoczeniu celu zadanie progowe (fAccThreshold) jest bez sensu: przekroczenie
-                // limitu o kilometr wywoluje takie samo hamowanie jak dojazd z pelnej predkosci.
-                // tutaj ZASTEPUJEMY je lagodna regulacja prowadzaca do srodka pasma
+            if( anticipatedvel <= holdtarget ) {
+                // lagodna regulacja obowiazuje tylko PONIZEJ celu - tam prowadzi predkosc do
+                // srodka pasma zamiast zadania progowego. powyzej celu zostaje zwykle zadanie,
+                // bo to juz jest realne przekroczenie; niedopuszczenie do niego jest zadaniem
+                // czlonu przewidujacego, a nie oslabionej regulacji
                 neededacc =
                     std::clamp(
                         fAccGravity + 0.08 * ( anticipatedvel - midband ),
