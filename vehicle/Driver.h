@@ -449,6 +449,7 @@ private:
     double BrakingLevelIncrease{ 0.25 };
     double ReactionTime = 0.0; // czas reakcji Ra: czego i na co? świadomości AI
     double fBrakeTime = 0.0; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
+    double fBrakeProbeTime = 0.0; // diagnostyka kalibracji hamulca
     double fBrakeLogTime = 0.0; // diagnostyka sterowania hamulcem
     double hold_target() const; // limit, do ktorego aktualnie prowadzimy predkosc
     double fBrakePressPrev = -1.0; // cisnienie w cylindrach z poprzedniego kroku
