@@ -8022,10 +8022,22 @@ void TController::control_braking_force() {
         //     a(pozycja) = a0 + 4*(pozycja-1)*a1
         // Porownanie z AbsAccS bylo porownaniem z odpowiedzia na nastawe sprzed kilku sekund,
         // czyli petla ze zwloka wieksza niz okres decyzji - stad eskalacja i pila na spadku.
-        auto const modelacc {
+        auto const modelsteady {
             BrakeCtrlPosition <= 0.0 ?
                 0.0 : // na pozycji jazdy hamulec nie daje nic, model nie moze tego udawac
                 ( fBrake_a0[ 0 ] + 4.0 * ( BrakeCtrlPosition - 1.0 ) * fBrake_a1[ 0 ] ) * fBrakeModelScale };
+        // model opisuje stan USTALONY. dopoki cylindry sie napelniaja albo oprozniaja, hamulec
+        // daje tyle, ile wynika z biezacego cisnienia - i to jest wielkosc, wzgledem ktorej
+        // trzeba decydowac, bo od niej zalezy, czy pociag zdazy wyhamowac
+        auto const accmax { ( fBrake_a0[ 0 ] + 12.0 * fBrake_a1[ 0 ] ) * fBrakeModelScale };
+        auto const fullpress {
+            mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
+                mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
+                3.8 };
+        auto const modelacc {
+            std::min(
+                modelsteady,
+                accmax * std::clamp( mvOccupied->BrakePress / fullpress, 0.0, 1.0 ) ) };
         // AccDesired zawiera juz kompensacje pochylenia, wiec -AccDesired to wprost opoznienie,
         // ktore ma dac hamulec - ta sama wielkosc, ktorej uzywa dobor kroku kranu
         auto neededacc { -AccDesired };
@@ -8044,10 +8056,19 @@ void TController::control_braking_force() {
         auto const brakestillreleasing { fBrakePressRate < -0.01 };
         auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
 
+        // minimalny odstep miedzy zmianami nastawy: bez niego kran przesuwa sie o cwiartke
+        // w kazdej klatce i zjezdza do konca skali, zanim cisnienie zdazy drgnac
+        auto const dwell {
+            std::clamp(
+                ( mvOccupied->BrakeDelayFlag > bdelay_G ?
+                    mvOccupied->BrakeDelay[ 1 ] :
+                    mvOccupied->BrakeDelay[ 3 ] ) * 0.25,
+                1.0, 3.0 ) };
+
         if( ( ( neededacc > 0.0 ) && ( neededacc > modelacc + deadband ) )
          || ( true == slippingback ) ) {
             if( false == brakestillbuilding ) {
-                cue_action( driver_hint::brakingforceincrease );
+                cue_action( driver_hint::brakingforceincrease, dwell );
             }
             else {
                 cue_action( driver_hint::brakingforcelap );
@@ -8058,7 +8079,7 @@ void TController::control_braking_force() {
              && ( BrakeCtrlPosition > 0 )
              && ( VelDesired > 0.0 ) // sanity check to prevent unintended brake release on sharp slopes
              && ( false == brakestillreleasing ) ) {
-                cue_action( driver_hint::brakingforcedecrease );
+                cue_action( driver_hint::brakingforcedecrease, dwell );
             }
             else {
                 cue_action( driver_hint::brakingforcelap );
