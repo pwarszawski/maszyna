@@ -8143,6 +8143,14 @@ void TController::control_braking_force() {
                         fAccGravity + 0.08 * ( anticipatedvel - midband ),
                         0.0,
                         fAccGravity + 0.40 );
+                if( anticipatedvel > holdtarget ) {
+                    // limit jest sufitem, a nie kolejnym punktem lagodnej krzywej:
+                    // powyzej niego reagujemy zdecydowanie ostrzej, zeby przekroczenie bylo krotkie
+                    neededacc =
+                        std::min(
+                            fAccGravity + 0.60,
+                            neededacc + 0.20 * ( anticipatedvel - holdtarget ) );
+                }
             }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
