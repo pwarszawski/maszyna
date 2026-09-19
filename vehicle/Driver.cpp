@@ -8130,7 +8130,15 @@ void TController::control_braking_force() {
         // 0.7 zamiast 0.5: opoznienie nie zanika liniowo do zera, tylko do poziomu rownowazacego
         // pochylenie, wiec srednia z okresu luzowania jest wyzsza niz polowa wartosci poczatkowej
         auto const speedtocome { std::max( 0.0, -AbsAccS ) * releasetime * 0.7 * 3.6 };
-        auto const anticipatedvel { mvOccupied->Vel - speedtocome };
+        // to samo przewidywanie w druga strone: gdy pociag przyspiesza, predkosc urosnie jeszcze
+        // przez czas napelniania cylindrow. regulujemy wedlug tego, co bedzie, zeby do limitu
+        // w ogole nie dojsc - reagowanie po jego przekroczeniu to znow sterowanie po fakcie
+        auto const filltime {
+            mvOccupied->BrakeDelayFlag > bdelay_G ?
+                mvOccupied->BrakeDelay[ 1 ] :
+                mvOccupied->BrakeDelay[ 3 ] };
+        auto const speedtogain { std::max( 0.0, AbsAccS ) * std::clamp( filltime, 1.0, 12.0 ) * 0.5 * 3.6 };
+        auto const anticipatedvel { mvOccupied->Vel - speedtocome + speedtogain };
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
             auto const midband { holdtarget - 0.5 * band };
@@ -8143,14 +8151,7 @@ void TController::control_braking_force() {
                         fAccGravity + 0.08 * ( anticipatedvel - midband ),
                         0.0,
                         fAccGravity + 0.40 );
-                if( anticipatedvel > holdtarget ) {
-                    // limit jest sufitem, a nie kolejnym punktem lagodnej krzywej:
-                    // powyzej niego reagujemy zdecydowanie ostrzej, zeby przekroczenie bylo krotkie
-                    neededacc =
-                        std::min(
-                            fAccGravity + 0.60,
-                            neededacc + 0.20 * ( anticipatedvel - holdtarget ) );
-                }
+
             }
         }
         auto const deadband { std::max( 0.02, fBrake_a1[ 0 ] ) };
