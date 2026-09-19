@@ -8124,8 +8124,14 @@ void TController::control_braking_force() {
         auto const anticipatedvel { mvOccupied->Vel - speedtocome };
 
         if( ( fAccGravity > 0.025 ) && ( holdtarget > 0.0 ) ) {
-            if( anticipatedvel > holdtarget - band ) {
-                // w pasmie: hamulec ma co najmniej rownowazyc pochylenie, zeby predkosc nie uciekla
+            // pasmo jest celem, nie tylko zakazem: srodek pasma to predkosc, ktora chcemy trzymac.
+            // powyzej niego hamujemy mocniej niz sama rownowaga, proporcjonalnie do nadwyzki
+            auto const midband { holdtarget - 0.5 * band };
+            if( anticipatedvel > midband ) {
+                neededacc = std::max( neededacc, fAccGravity + 0.03 * ( anticipatedvel - midband ) );
+            }
+            else if( anticipatedvel > holdtarget - band ) {
+                // w dolnej polowie pasma: hamulec ma co najmniej rownowazyc pochylenie
                 neededacc = std::max( neededacc, fAccGravity );
             }
             else if( mvOccupied->Vel > 1.0 ) {
@@ -8139,6 +8145,17 @@ void TController::control_braking_force() {
         // wlasnie sie oprozniaja, oznaczaloby brak reakcji przez caly czas odluzniania
         // prog dotyczy glownego napelniania/oprozniania, nie powolnego dopelzania cisnienia,
         // ktore trwa jeszcze kilkanascie sekund i przy progu 0.01 blokowalo kazda korekte
+        if( ElapsedTime - fBrakeLogTime >= 1.0 ) {
+            fBrakeLogTime = ElapsedTime;
+            char line[ 512 ];
+            std::snprintf(
+                line, sizeof( line ),
+                "BRAKECTL t=%.1f v=%.2f g=%.3f absacc=%.3f accdes=%.3f need=%.3f model=%.3f steady=%.3f scale=%.2f pos=%.2f press=%.2f rate=%.3f hold=%.1f band=%.1f stc=%.2f antic=%.2f dist=%.1f vnext=%.1f veldes=%.1f btime=%.2f",
+                ElapsedTime, mvOccupied->Vel, fAccGravity, AbsAccS, AccDesired, neededacc, modelacc, modelsteady,
+                fBrakeModelScale, BrakeCtrlPosition, mvOccupied->BrakePress, fBrakePressRate,
+                holdtarget, band, speedtocome, anticipatedvel, ActualProximityDist, VelNext, VelDesired, fBrakeTime );
+            WriteLog( line );
+        }
         auto const brakestillbuilding { fBrakePressRate > 0.05 };
         auto const brakestillreleasing { fBrakePressRate < -0.05 };
         auto const slippingback { fAccGravity < -0.05 && velocity < -0.1 };
