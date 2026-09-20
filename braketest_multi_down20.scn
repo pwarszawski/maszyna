@@ -1,0 +1,7349 @@
+//$n Brake test - 20 per mille descent, eight consists
+
+
+sky skydome_clouds.t3d endsky
+atmo 0 0 0 8500 10200 0.737 0.812 0.812 0.37 endatmo
+time 12:00 04:48 20:23 endtime
+
+node -1 0 bt_nul memcell 0 0 0 none 0 0 none endmemcell
+
+node -1 0 btA01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 220.000 0.0 0
+0 0 0
+0 0 0
+-0.0 218.000 100.0 0
+0
+velocity 100
+isolated btiA01
+endtrack
+node -1 0 btA02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 218.000 100.0 0
+0 0 0
+0 0 0
+-0.0 216.000 200.0 0
+0
+velocity 100
+isolated btiA02
+endtrack
+node -1 0 btA03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 216.000 200.0 0
+0 0 0
+0 0 0
+-0.0 214.000 300.0 0
+0
+velocity 100
+isolated btiA03
+endtrack
+node -1 0 btA04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 214.000 300.0 0
+0 0 0
+0 0 0
+-0.0 212.000 400.0 0
+0
+velocity 100
+isolated btiA04
+endtrack
+node -1 0 btA05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 212.000 400.0 0
+0 0 0
+0 0 0
+-0.0 210.000 500.0 0
+0
+velocity 100
+isolated btiA05
+endtrack
+node -1 0 btA06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 210.000 500.0 0
+0 0 0
+0 0 0
+-0.0 208.000 600.0 0
+0
+velocity 100
+isolated btiA06
+endtrack
+node -1 0 btA07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 208.000 600.0 0
+0 0 0
+0 0 0
+-0.0 206.000 700.0 0
+0
+velocity 100
+isolated btiA07
+event2 btA_go_sem_info
+endtrack
+node -1 0 btA08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 206.000 700.0 0
+0 0 0
+0 0 0
+-0.0 204.000 800.0 0
+0
+velocity 100
+isolated btiA08
+endtrack
+node -1 0 btA09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 204.000 800.0 0
+0 0 0
+0 0 0
+-0.0 202.000 900.0 0
+0
+velocity 100
+isolated btiA09
+endtrack
+node -1 0 btA10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 202.000 900.0 0
+0 0 0
+0 0 0
+-0.0 200.000 1000.0 0
+0
+velocity 100
+isolated btiA10
+endtrack
+node -1 0 btA11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 200.000 1000.0 0
+0 0 0
+0 0 0
+-0.0 198.000 1100.0 0
+0
+velocity 100
+isolated btiA11
+endtrack
+node -1 0 btA12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 198.000 1100.0 0
+0 0 0
+0 0 0
+-0.0 196.000 1200.0 0
+0
+velocity 100
+isolated btiA12
+endtrack
+node -1 0 btA13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 196.000 1200.0 0
+0 0 0
+0 0 0
+-0.0 194.000 1300.0 0
+0
+velocity 100
+isolated btiA13
+endtrack
+node -1 0 btA14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 194.000 1300.0 0
+0 0 0
+0 0 0
+-0.0 192.000 1400.0 0
+0
+velocity 100
+isolated btiA14
+endtrack
+node -1 0 btA15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 192.000 1400.0 0
+0 0 0
+0 0 0
+-0.0 190.000 1500.0 0
+0
+velocity 100
+isolated btiA15
+endtrack
+node -1 0 btA16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 190.000 1500.0 0
+0 0 0
+0 0 0
+-0.0 188.000 1600.0 0
+0
+velocity 100
+isolated btiA16
+endtrack
+node -1 0 btA17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 188.000 1600.0 0
+0 0 0
+0 0 0
+-0.0 186.000 1700.0 0
+0
+velocity 100
+isolated btiA17
+endtrack
+node -1 0 btA18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 186.000 1700.0 0
+0 0 0
+0 0 0
+-0.0 184.000 1800.0 0
+0
+velocity 100
+isolated btiA18
+endtrack
+node -1 0 btA19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 184.000 1800.0 0
+0 0 0
+0 0 0
+-0.0 182.000 1900.0 0
+0
+velocity 100
+isolated btiA19
+endtrack
+node -1 0 btA20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 182.000 1900.0 0
+0 0 0
+0 0 0
+-0.0 180.000 2000.0 0
+0
+velocity 100
+isolated btiA20
+endtrack
+node -1 0 btA21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 180.000 2000.0 0
+0 0 0
+0 0 0
+-0.0 178.000 2100.0 0
+0
+velocity 100
+isolated btiA21
+endtrack
+node -1 0 btA22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 178.000 2100.0 0
+0 0 0
+0 0 0
+-0.0 176.000 2200.0 0
+0
+velocity 100
+isolated btiA22
+endtrack
+node -1 0 btA23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 176.000 2200.0 0
+0 0 0
+0 0 0
+-0.0 174.000 2300.0 0
+0
+velocity 100
+isolated btiA23
+endtrack
+node -1 0 btA24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 174.000 2300.0 0
+0 0 0
+0 0 0
+-0.0 172.000 2400.0 0
+0
+velocity 100
+isolated btiA24
+endtrack
+node -1 0 btA25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 172.000 2400.0 0
+0 0 0
+0 0 0
+-0.0 170.000 2500.0 0
+0
+velocity 100
+isolated btiA25
+endtrack
+node -1 0 btA26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 170.000 2500.0 0
+0 0 0
+0 0 0
+-0.0 168.000 2600.0 0
+0
+velocity 100
+isolated btiA26
+endtrack
+node -1 0 btA27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 168.000 2600.0 0
+0 0 0
+0 0 0
+-0.0 166.000 2700.0 0
+0
+velocity 100
+isolated btiA27
+endtrack
+node -1 0 btA28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 166.000 2700.0 0
+0 0 0
+0 0 0
+-0.0 164.000 2800.0 0
+0
+velocity 100
+isolated btiA28
+endtrack
+node -1 0 btA29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 164.000 2800.0 0
+0 0 0
+0 0 0
+-0.0 162.000 2900.0 0
+0
+velocity 100
+isolated btiA29
+endtrack
+node -1 0 btA30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 162.000 2900.0 0
+0 0 0
+0 0 0
+-0.0 160.000 3000.0 0
+0
+velocity 100
+isolated btiA30
+endtrack
+node -1 0 btA31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 160.000 3000.0 0
+0 0 0
+0 0 0
+-0.0 158.000 3100.0 0
+0
+velocity 100
+isolated btiA31
+endtrack
+node -1 0 btA32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 158.000 3100.0 0
+0 0 0
+0 0 0
+-0.0 156.000 3200.0 0
+0
+velocity 100
+isolated btiA32
+endtrack
+node -1 0 btA33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 156.000 3200.0 0
+0 0 0
+0 0 0
+-0.0 154.000 3300.0 0
+0
+velocity 100
+isolated btiA33
+endtrack
+node -1 0 btA34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 154.000 3300.0 0
+0 0 0
+0 0 0
+-0.0 152.000 3400.0 0
+0
+velocity 100
+isolated btiA34
+endtrack
+node -1 0 btA35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 152.000 3400.0 0
+0 0 0
+0 0 0
+-0.0 150.000 3500.0 0
+0
+velocity 100
+isolated btiA35
+endtrack
+node -1 0 btA36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 150.000 3500.0 0
+0 0 0
+0 0 0
+-0.0 148.000 3600.0 0
+0
+velocity 100
+isolated btiA36
+endtrack
+node -1 0 btA37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 148.000 3600.0 0
+0 0 0
+0 0 0
+-0.0 146.000 3700.0 0
+0
+velocity 100
+isolated btiA37
+endtrack
+node -1 0 btA38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 146.000 3700.0 0
+0 0 0
+0 0 0
+-0.0 144.000 3800.0 0
+0
+velocity 100
+isolated btiA38
+endtrack
+node -1 0 btA39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 144.000 3800.0 0
+0 0 0
+0 0 0
+-0.0 142.000 3900.0 0
+0
+velocity 100
+isolated btiA39
+endtrack
+node -1 0 btA40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 142.000 3900.0 0
+0 0 0
+0 0 0
+-0.0 140.000 4000.0 0
+0
+velocity 100
+isolated btiA40
+endtrack
+node -1 0 btA41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 140.000 4000.0 0
+0 0 0
+0 0 0
+-0.0 138.000 4100.0 0
+0
+velocity 100
+isolated btiA41
+endtrack
+node -1 0 btA42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 138.000 4100.0 0
+0 0 0
+0 0 0
+-0.0 136.000 4200.0 0
+0
+velocity 100
+isolated btiA42
+endtrack
+node -1 0 btA43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 136.000 4200.0 0
+0 0 0
+0 0 0
+-0.0 134.000 4300.0 0
+0
+velocity 100
+isolated btiA43
+endtrack
+node -1 0 btA44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 134.000 4300.0 0
+0 0 0
+0 0 0
+-0.0 132.000 4400.0 0
+0
+velocity 100
+isolated btiA44
+endtrack
+node -1 0 btA45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 132.000 4400.0 0
+0 0 0
+0 0 0
+-0.0 130.000 4500.0 0
+0
+velocity 100
+isolated btiA45
+endtrack
+node -1 0 btA46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 130.000 4500.0 0
+0 0 0
+0 0 0
+-0.0 128.000 4600.0 0
+0
+velocity 100
+isolated btiA46
+endtrack
+node -1 0 btA47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 128.000 4600.0 0
+0 0 0
+0 0 0
+-0.0 126.000 4700.0 0
+0
+velocity 100
+isolated btiA47
+endtrack
+node -1 0 btA48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 126.000 4700.0 0
+0 0 0
+0 0 0
+-0.0 124.000 4800.0 0
+0
+velocity 100
+isolated btiA48
+endtrack
+node -1 0 btA49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 124.000 4800.0 0
+0 0 0
+0 0 0
+-0.0 122.000 4900.0 0
+0
+velocity 100
+isolated btiA49
+endtrack
+node -1 0 btA50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 122.000 4900.0 0
+0 0 0
+0 0 0
+-0.0 120.000 5000.0 0
+0
+velocity 100
+isolated btiA50
+endtrack
+node -1 0 btA51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 120.000 5000.0 0
+0 0 0
+0 0 0
+-0.0 118.000 5100.0 0
+0
+velocity 20
+isolated btiA51
+endtrack
+node -1 0 btA52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 118.000 5100.0 0
+0 0 0
+0 0 0
+-0.0 116.000 5200.0 0
+0
+velocity 20
+isolated btiA52
+endtrack
+node -1 0 btA53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 116.000 5200.0 0
+0 0 0
+0 0 0
+-0.0 114.000 5300.0 0
+0
+velocity 100
+isolated btiA53
+endtrack
+node -1 0 btA54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 114.000 5300.0 0
+0 0 0
+0 0 0
+-0.0 112.000 5400.0 0
+0
+velocity 100
+isolated btiA54
+endtrack
+node -1 0 btA55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 112.000 5400.0 0
+0 0 0
+0 0 0
+-0.0 110.000 5500.0 0
+0
+velocity 100
+isolated btiA55
+endtrack
+node -1 0 btA56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 110.000 5500.0 0
+0 0 0
+0 0 0
+-0.0 108.000 5600.0 0
+0
+velocity 100
+isolated btiA56
+endtrack
+node -1 0 btA57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 108.000 5600.0 0
+0 0 0
+0 0 0
+-0.0 106.000 5700.0 0
+0
+velocity 100
+isolated btiA57
+endtrack
+node -1 0 btA58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 106.000 5700.0 0
+0 0 0
+0 0 0
+-0.0 104.000 5800.0 0
+0
+velocity 100
+isolated btiA58
+endtrack
+node -1 0 btA59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 104.000 5800.0 0
+0 0 0
+0 0 0
+-0.0 102.000 5900.0 0
+0
+velocity 100
+isolated btiA59
+endtrack
+node -1 0 btA60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 102.000 5900.0 0
+0 0 0
+0 0 0
+-0.0 100.000 6000.0 0
+0
+velocity 100
+isolated btiA60
+endtrack
+node -1 0 btA61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 100.000 6000.0 0
+0 0 0
+0 0 0
+-0.0 98.000 6100.0 0
+0
+velocity 100
+isolated btiA61
+endtrack
+node -1 0 btA62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 98.000 6100.0 0
+0 0 0
+0 0 0
+-0.0 96.000 6200.0 0
+0
+velocity 100
+isolated btiA62
+endtrack
+node -1 0 btA63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 96.000 6200.0 0
+0 0 0
+0 0 0
+-0.0 94.000 6300.0 0
+0
+velocity 100
+isolated btiA63
+endtrack
+node -1 0 btA64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 94.000 6300.0 0
+0 0 0
+0 0 0
+-0.0 92.000 6400.0 0
+0
+velocity 100
+isolated btiA64
+endtrack
+node -1 0 btA65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 92.000 6400.0 0
+0 0 0
+0 0 0
+-0.0 90.000 6500.0 0
+0
+velocity 100
+isolated btiA65
+endtrack
+node -1 0 btA66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 90.000 6500.0 0
+0 0 0
+0 0 0
+-0.0 88.000 6600.0 0
+0
+velocity 100
+isolated btiA66
+endtrack
+node -1 0 btA67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 88.000 6600.0 0
+0 0 0
+0 0 0
+-0.0 86.000 6700.0 0
+0
+velocity 100
+isolated btiA67
+endtrack
+node -1 0 btA68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 86.000 6700.0 0
+0 0 0
+0 0 0
+-0.0 84.000 6800.0 0
+0
+velocity 100
+isolated btiA68
+endtrack
+node -1 0 btA69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 84.000 6800.0 0
+0 0 0
+0 0 0
+-0.0 82.000 6900.0 0
+0
+velocity 100
+isolated btiA69
+endtrack
+node -1 0 btA70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 82.000 6900.0 0
+0 0 0
+0 0 0
+-0.0 80.000 7000.0 0
+0
+velocity 100
+isolated btiA70
+endtrack
+node -1 0 btA71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 80.000 7000.0 0
+0 0 0
+0 0 0
+-0.0 78.000 7100.0 0
+0
+velocity 100
+isolated btiA71
+endtrack
+node -1 0 btA72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 78.000 7100.0 0
+0 0 0
+0 0 0
+-0.0 76.000 7200.0 0
+0
+velocity 100
+isolated btiA72
+endtrack
+node -1 0 btA73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 76.000 7200.0 0
+0 0 0
+0 0 0
+-0.0 74.000 7300.0 0
+0
+velocity 100
+isolated btiA73
+endtrack
+node -1 0 btA74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 74.000 7300.0 0
+0 0 0
+0 0 0
+-0.0 72.000 7400.0 0
+0
+velocity 100
+isolated btiA74
+endtrack
+node -1 0 btA75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 72.000 7400.0 0
+0 0 0
+0 0 0
+-0.0 70.000 7500.0 0
+0
+velocity 100
+isolated btiA75
+endtrack
+node -1 0 btA76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 70.000 7500.0 0
+0 0 0
+0 0 0
+-0.0 68.000 7600.0 0
+0
+velocity 100
+isolated btiA76
+endtrack
+node -1 0 btA77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 68.000 7600.0 0
+0 0 0
+0 0 0
+-0.0 66.000 7700.0 0
+0
+velocity 100
+isolated btiA77
+event2 btA_s1_sem_info
+endtrack
+node -1 0 btA78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 66.000 7700.0 0
+0 0 0
+0 0 0
+-0.0 64.000 7800.0 0
+0
+velocity 100
+isolated btiA78
+endtrack
+node -1 0 btA79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 64.000 7800.0 0
+0 0 0
+0 0 0
+-0.0 62.000 7900.0 0
+0
+velocity 100
+isolated btiA79
+endtrack
+node -1 0 btA80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 62.000 7900.0 0
+0 0 0
+0 0 0
+-0.0 60.000 8000.0 0
+0
+velocity 100
+isolated btiA80
+endtrack
+node -1 0 btA81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-0.0 60.000 8000.0 0
+0 0 0
+0 0 0
+-0.0 58.000 8100.0 0
+0
+velocity 100
+isolated btiA81
+endtrack
+
+event btiA01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiA81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btA_go_sem_mem memcell -0.0 208.000 600 SetVelocity -1 -1 none endmemcell
+event btA_go_sem_info getvalues 1.0 btA_go_sem_mem endevent
+node -1 0 btA_s1_sem_mem memcell -0.0 68.000 7600 SetVelocity 0 0 none endmemcell
+event btA_s1_sem_info getvalues 1.0 btA_s1_sem_mem endevent
+
+node -1 0 btB01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 220.000 0.0 0
+0 0 0
+0 0 0
+-4.5 218.000 100.0 0
+0
+velocity 100
+isolated btiB01
+endtrack
+node -1 0 btB02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 218.000 100.0 0
+0 0 0
+0 0 0
+-4.5 216.000 200.0 0
+0
+velocity 100
+isolated btiB02
+endtrack
+node -1 0 btB03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 216.000 200.0 0
+0 0 0
+0 0 0
+-4.5 214.000 300.0 0
+0
+velocity 100
+isolated btiB03
+endtrack
+node -1 0 btB04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 214.000 300.0 0
+0 0 0
+0 0 0
+-4.5 212.000 400.0 0
+0
+velocity 100
+isolated btiB04
+endtrack
+node -1 0 btB05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 212.000 400.0 0
+0 0 0
+0 0 0
+-4.5 210.000 500.0 0
+0
+velocity 100
+isolated btiB05
+endtrack
+node -1 0 btB06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 210.000 500.0 0
+0 0 0
+0 0 0
+-4.5 208.000 600.0 0
+0
+velocity 100
+isolated btiB06
+endtrack
+node -1 0 btB07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 208.000 600.0 0
+0 0 0
+0 0 0
+-4.5 206.000 700.0 0
+0
+velocity 100
+isolated btiB07
+event2 btB_go_sem_info
+endtrack
+node -1 0 btB08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 206.000 700.0 0
+0 0 0
+0 0 0
+-4.5 204.000 800.0 0
+0
+velocity 100
+isolated btiB08
+endtrack
+node -1 0 btB09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 204.000 800.0 0
+0 0 0
+0 0 0
+-4.5 202.000 900.0 0
+0
+velocity 100
+isolated btiB09
+endtrack
+node -1 0 btB10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 202.000 900.0 0
+0 0 0
+0 0 0
+-4.5 200.000 1000.0 0
+0
+velocity 100
+isolated btiB10
+endtrack
+node -1 0 btB11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 200.000 1000.0 0
+0 0 0
+0 0 0
+-4.5 198.000 1100.0 0
+0
+velocity 100
+isolated btiB11
+endtrack
+node -1 0 btB12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 198.000 1100.0 0
+0 0 0
+0 0 0
+-4.5 196.000 1200.0 0
+0
+velocity 100
+isolated btiB12
+endtrack
+node -1 0 btB13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 196.000 1200.0 0
+0 0 0
+0 0 0
+-4.5 194.000 1300.0 0
+0
+velocity 100
+isolated btiB13
+endtrack
+node -1 0 btB14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 194.000 1300.0 0
+0 0 0
+0 0 0
+-4.5 192.000 1400.0 0
+0
+velocity 100
+isolated btiB14
+endtrack
+node -1 0 btB15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 192.000 1400.0 0
+0 0 0
+0 0 0
+-4.5 190.000 1500.0 0
+0
+velocity 100
+isolated btiB15
+endtrack
+node -1 0 btB16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 190.000 1500.0 0
+0 0 0
+0 0 0
+-4.5 188.000 1600.0 0
+0
+velocity 100
+isolated btiB16
+endtrack
+node -1 0 btB17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 188.000 1600.0 0
+0 0 0
+0 0 0
+-4.5 186.000 1700.0 0
+0
+velocity 100
+isolated btiB17
+endtrack
+node -1 0 btB18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 186.000 1700.0 0
+0 0 0
+0 0 0
+-4.5 184.000 1800.0 0
+0
+velocity 100
+isolated btiB18
+endtrack
+node -1 0 btB19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 184.000 1800.0 0
+0 0 0
+0 0 0
+-4.5 182.000 1900.0 0
+0
+velocity 100
+isolated btiB19
+endtrack
+node -1 0 btB20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 182.000 1900.0 0
+0 0 0
+0 0 0
+-4.5 180.000 2000.0 0
+0
+velocity 100
+isolated btiB20
+endtrack
+node -1 0 btB21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 180.000 2000.0 0
+0 0 0
+0 0 0
+-4.5 178.000 2100.0 0
+0
+velocity 100
+isolated btiB21
+endtrack
+node -1 0 btB22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 178.000 2100.0 0
+0 0 0
+0 0 0
+-4.5 176.000 2200.0 0
+0
+velocity 100
+isolated btiB22
+endtrack
+node -1 0 btB23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 176.000 2200.0 0
+0 0 0
+0 0 0
+-4.5 174.000 2300.0 0
+0
+velocity 100
+isolated btiB23
+endtrack
+node -1 0 btB24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 174.000 2300.0 0
+0 0 0
+0 0 0
+-4.5 172.000 2400.0 0
+0
+velocity 100
+isolated btiB24
+endtrack
+node -1 0 btB25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 172.000 2400.0 0
+0 0 0
+0 0 0
+-4.5 170.000 2500.0 0
+0
+velocity 100
+isolated btiB25
+endtrack
+node -1 0 btB26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 170.000 2500.0 0
+0 0 0
+0 0 0
+-4.5 168.000 2600.0 0
+0
+velocity 100
+isolated btiB26
+endtrack
+node -1 0 btB27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 168.000 2600.0 0
+0 0 0
+0 0 0
+-4.5 166.000 2700.0 0
+0
+velocity 100
+isolated btiB27
+endtrack
+node -1 0 btB28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 166.000 2700.0 0
+0 0 0
+0 0 0
+-4.5 164.000 2800.0 0
+0
+velocity 100
+isolated btiB28
+endtrack
+node -1 0 btB29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 164.000 2800.0 0
+0 0 0
+0 0 0
+-4.5 162.000 2900.0 0
+0
+velocity 100
+isolated btiB29
+endtrack
+node -1 0 btB30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 162.000 2900.0 0
+0 0 0
+0 0 0
+-4.5 160.000 3000.0 0
+0
+velocity 100
+isolated btiB30
+endtrack
+node -1 0 btB31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 160.000 3000.0 0
+0 0 0
+0 0 0
+-4.5 158.000 3100.0 0
+0
+velocity 100
+isolated btiB31
+endtrack
+node -1 0 btB32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 158.000 3100.0 0
+0 0 0
+0 0 0
+-4.5 156.000 3200.0 0
+0
+velocity 100
+isolated btiB32
+endtrack
+node -1 0 btB33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 156.000 3200.0 0
+0 0 0
+0 0 0
+-4.5 154.000 3300.0 0
+0
+velocity 100
+isolated btiB33
+endtrack
+node -1 0 btB34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 154.000 3300.0 0
+0 0 0
+0 0 0
+-4.5 152.000 3400.0 0
+0
+velocity 100
+isolated btiB34
+endtrack
+node -1 0 btB35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 152.000 3400.0 0
+0 0 0
+0 0 0
+-4.5 150.000 3500.0 0
+0
+velocity 100
+isolated btiB35
+endtrack
+node -1 0 btB36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 150.000 3500.0 0
+0 0 0
+0 0 0
+-4.5 148.000 3600.0 0
+0
+velocity 100
+isolated btiB36
+endtrack
+node -1 0 btB37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 148.000 3600.0 0
+0 0 0
+0 0 0
+-4.5 146.000 3700.0 0
+0
+velocity 100
+isolated btiB37
+endtrack
+node -1 0 btB38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 146.000 3700.0 0
+0 0 0
+0 0 0
+-4.5 144.000 3800.0 0
+0
+velocity 100
+isolated btiB38
+endtrack
+node -1 0 btB39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 144.000 3800.0 0
+0 0 0
+0 0 0
+-4.5 142.000 3900.0 0
+0
+velocity 100
+isolated btiB39
+endtrack
+node -1 0 btB40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 142.000 3900.0 0
+0 0 0
+0 0 0
+-4.5 140.000 4000.0 0
+0
+velocity 100
+isolated btiB40
+endtrack
+node -1 0 btB41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 140.000 4000.0 0
+0 0 0
+0 0 0
+-4.5 138.000 4100.0 0
+0
+velocity 100
+isolated btiB41
+endtrack
+node -1 0 btB42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 138.000 4100.0 0
+0 0 0
+0 0 0
+-4.5 136.000 4200.0 0
+0
+velocity 100
+isolated btiB42
+endtrack
+node -1 0 btB43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 136.000 4200.0 0
+0 0 0
+0 0 0
+-4.5 134.000 4300.0 0
+0
+velocity 100
+isolated btiB43
+endtrack
+node -1 0 btB44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 134.000 4300.0 0
+0 0 0
+0 0 0
+-4.5 132.000 4400.0 0
+0
+velocity 100
+isolated btiB44
+endtrack
+node -1 0 btB45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 132.000 4400.0 0
+0 0 0
+0 0 0
+-4.5 130.000 4500.0 0
+0
+velocity 100
+isolated btiB45
+endtrack
+node -1 0 btB46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 130.000 4500.0 0
+0 0 0
+0 0 0
+-4.5 128.000 4600.0 0
+0
+velocity 100
+isolated btiB46
+endtrack
+node -1 0 btB47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 128.000 4600.0 0
+0 0 0
+0 0 0
+-4.5 126.000 4700.0 0
+0
+velocity 100
+isolated btiB47
+endtrack
+node -1 0 btB48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 126.000 4700.0 0
+0 0 0
+0 0 0
+-4.5 124.000 4800.0 0
+0
+velocity 100
+isolated btiB48
+endtrack
+node -1 0 btB49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 124.000 4800.0 0
+0 0 0
+0 0 0
+-4.5 122.000 4900.0 0
+0
+velocity 100
+isolated btiB49
+endtrack
+node -1 0 btB50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 122.000 4900.0 0
+0 0 0
+0 0 0
+-4.5 120.000 5000.0 0
+0
+velocity 100
+isolated btiB50
+endtrack
+node -1 0 btB51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 120.000 5000.0 0
+0 0 0
+0 0 0
+-4.5 118.000 5100.0 0
+0
+velocity 20
+isolated btiB51
+endtrack
+node -1 0 btB52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 118.000 5100.0 0
+0 0 0
+0 0 0
+-4.5 116.000 5200.0 0
+0
+velocity 20
+isolated btiB52
+endtrack
+node -1 0 btB53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 116.000 5200.0 0
+0 0 0
+0 0 0
+-4.5 114.000 5300.0 0
+0
+velocity 100
+isolated btiB53
+endtrack
+node -1 0 btB54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 114.000 5300.0 0
+0 0 0
+0 0 0
+-4.5 112.000 5400.0 0
+0
+velocity 100
+isolated btiB54
+endtrack
+node -1 0 btB55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 112.000 5400.0 0
+0 0 0
+0 0 0
+-4.5 110.000 5500.0 0
+0
+velocity 100
+isolated btiB55
+endtrack
+node -1 0 btB56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 110.000 5500.0 0
+0 0 0
+0 0 0
+-4.5 108.000 5600.0 0
+0
+velocity 100
+isolated btiB56
+endtrack
+node -1 0 btB57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 108.000 5600.0 0
+0 0 0
+0 0 0
+-4.5 106.000 5700.0 0
+0
+velocity 100
+isolated btiB57
+endtrack
+node -1 0 btB58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 106.000 5700.0 0
+0 0 0
+0 0 0
+-4.5 104.000 5800.0 0
+0
+velocity 100
+isolated btiB58
+endtrack
+node -1 0 btB59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 104.000 5800.0 0
+0 0 0
+0 0 0
+-4.5 102.000 5900.0 0
+0
+velocity 100
+isolated btiB59
+endtrack
+node -1 0 btB60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 102.000 5900.0 0
+0 0 0
+0 0 0
+-4.5 100.000 6000.0 0
+0
+velocity 100
+isolated btiB60
+endtrack
+node -1 0 btB61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 100.000 6000.0 0
+0 0 0
+0 0 0
+-4.5 98.000 6100.0 0
+0
+velocity 100
+isolated btiB61
+endtrack
+node -1 0 btB62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 98.000 6100.0 0
+0 0 0
+0 0 0
+-4.5 96.000 6200.0 0
+0
+velocity 100
+isolated btiB62
+endtrack
+node -1 0 btB63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 96.000 6200.0 0
+0 0 0
+0 0 0
+-4.5 94.000 6300.0 0
+0
+velocity 100
+isolated btiB63
+endtrack
+node -1 0 btB64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 94.000 6300.0 0
+0 0 0
+0 0 0
+-4.5 92.000 6400.0 0
+0
+velocity 100
+isolated btiB64
+endtrack
+node -1 0 btB65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 92.000 6400.0 0
+0 0 0
+0 0 0
+-4.5 90.000 6500.0 0
+0
+velocity 100
+isolated btiB65
+endtrack
+node -1 0 btB66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 90.000 6500.0 0
+0 0 0
+0 0 0
+-4.5 88.000 6600.0 0
+0
+velocity 100
+isolated btiB66
+endtrack
+node -1 0 btB67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 88.000 6600.0 0
+0 0 0
+0 0 0
+-4.5 86.000 6700.0 0
+0
+velocity 100
+isolated btiB67
+endtrack
+node -1 0 btB68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 86.000 6700.0 0
+0 0 0
+0 0 0
+-4.5 84.000 6800.0 0
+0
+velocity 100
+isolated btiB68
+endtrack
+node -1 0 btB69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 84.000 6800.0 0
+0 0 0
+0 0 0
+-4.5 82.000 6900.0 0
+0
+velocity 100
+isolated btiB69
+endtrack
+node -1 0 btB70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 82.000 6900.0 0
+0 0 0
+0 0 0
+-4.5 80.000 7000.0 0
+0
+velocity 100
+isolated btiB70
+endtrack
+node -1 0 btB71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 80.000 7000.0 0
+0 0 0
+0 0 0
+-4.5 78.000 7100.0 0
+0
+velocity 100
+isolated btiB71
+endtrack
+node -1 0 btB72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 78.000 7100.0 0
+0 0 0
+0 0 0
+-4.5 76.000 7200.0 0
+0
+velocity 100
+isolated btiB72
+endtrack
+node -1 0 btB73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 76.000 7200.0 0
+0 0 0
+0 0 0
+-4.5 74.000 7300.0 0
+0
+velocity 100
+isolated btiB73
+endtrack
+node -1 0 btB74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 74.000 7300.0 0
+0 0 0
+0 0 0
+-4.5 72.000 7400.0 0
+0
+velocity 100
+isolated btiB74
+endtrack
+node -1 0 btB75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 72.000 7400.0 0
+0 0 0
+0 0 0
+-4.5 70.000 7500.0 0
+0
+velocity 100
+isolated btiB75
+endtrack
+node -1 0 btB76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 70.000 7500.0 0
+0 0 0
+0 0 0
+-4.5 68.000 7600.0 0
+0
+velocity 100
+isolated btiB76
+endtrack
+node -1 0 btB77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 68.000 7600.0 0
+0 0 0
+0 0 0
+-4.5 66.000 7700.0 0
+0
+velocity 100
+isolated btiB77
+event2 btB_s1_sem_info
+endtrack
+node -1 0 btB78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 66.000 7700.0 0
+0 0 0
+0 0 0
+-4.5 64.000 7800.0 0
+0
+velocity 100
+isolated btiB78
+endtrack
+node -1 0 btB79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 64.000 7800.0 0
+0 0 0
+0 0 0
+-4.5 62.000 7900.0 0
+0
+velocity 100
+isolated btiB79
+endtrack
+node -1 0 btB80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 62.000 7900.0 0
+0 0 0
+0 0 0
+-4.5 60.000 8000.0 0
+0
+velocity 100
+isolated btiB80
+endtrack
+node -1 0 btB81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-4.5 60.000 8000.0 0
+0 0 0
+0 0 0
+-4.5 58.000 8100.0 0
+0
+velocity 100
+isolated btiB81
+endtrack
+
+event btiB01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiB81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btB_go_sem_mem memcell -4.5 208.000 600 SetVelocity -1 -1 none endmemcell
+event btB_go_sem_info getvalues 1.0 btB_go_sem_mem endevent
+node -1 0 btB_s1_sem_mem memcell -4.5 68.000 7600 SetVelocity 0 0 none endmemcell
+event btB_s1_sem_info getvalues 1.0 btB_s1_sem_mem endevent
+
+node -1 0 btC01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 220.000 0.0 0
+0 0 0
+0 0 0
+-9.0 218.000 100.0 0
+0
+velocity 100
+isolated btiC01
+endtrack
+node -1 0 btC02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 218.000 100.0 0
+0 0 0
+0 0 0
+-9.0 216.000 200.0 0
+0
+velocity 100
+isolated btiC02
+endtrack
+node -1 0 btC03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 216.000 200.0 0
+0 0 0
+0 0 0
+-9.0 214.000 300.0 0
+0
+velocity 100
+isolated btiC03
+endtrack
+node -1 0 btC04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 214.000 300.0 0
+0 0 0
+0 0 0
+-9.0 212.000 400.0 0
+0
+velocity 100
+isolated btiC04
+endtrack
+node -1 0 btC05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 212.000 400.0 0
+0 0 0
+0 0 0
+-9.0 210.000 500.0 0
+0
+velocity 100
+isolated btiC05
+endtrack
+node -1 0 btC06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 210.000 500.0 0
+0 0 0
+0 0 0
+-9.0 208.000 600.0 0
+0
+velocity 100
+isolated btiC06
+endtrack
+node -1 0 btC07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 208.000 600.0 0
+0 0 0
+0 0 0
+-9.0 206.000 700.0 0
+0
+velocity 100
+isolated btiC07
+event2 btC_go_sem_info
+endtrack
+node -1 0 btC08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 206.000 700.0 0
+0 0 0
+0 0 0
+-9.0 204.000 800.0 0
+0
+velocity 100
+isolated btiC08
+endtrack
+node -1 0 btC09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 204.000 800.0 0
+0 0 0
+0 0 0
+-9.0 202.000 900.0 0
+0
+velocity 100
+isolated btiC09
+endtrack
+node -1 0 btC10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 202.000 900.0 0
+0 0 0
+0 0 0
+-9.0 200.000 1000.0 0
+0
+velocity 100
+isolated btiC10
+endtrack
+node -1 0 btC11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 200.000 1000.0 0
+0 0 0
+0 0 0
+-9.0 198.000 1100.0 0
+0
+velocity 100
+isolated btiC11
+endtrack
+node -1 0 btC12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 198.000 1100.0 0
+0 0 0
+0 0 0
+-9.0 196.000 1200.0 0
+0
+velocity 100
+isolated btiC12
+endtrack
+node -1 0 btC13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 196.000 1200.0 0
+0 0 0
+0 0 0
+-9.0 194.000 1300.0 0
+0
+velocity 100
+isolated btiC13
+endtrack
+node -1 0 btC14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 194.000 1300.0 0
+0 0 0
+0 0 0
+-9.0 192.000 1400.0 0
+0
+velocity 100
+isolated btiC14
+endtrack
+node -1 0 btC15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 192.000 1400.0 0
+0 0 0
+0 0 0
+-9.0 190.000 1500.0 0
+0
+velocity 100
+isolated btiC15
+endtrack
+node -1 0 btC16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 190.000 1500.0 0
+0 0 0
+0 0 0
+-9.0 188.000 1600.0 0
+0
+velocity 100
+isolated btiC16
+endtrack
+node -1 0 btC17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 188.000 1600.0 0
+0 0 0
+0 0 0
+-9.0 186.000 1700.0 0
+0
+velocity 100
+isolated btiC17
+endtrack
+node -1 0 btC18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 186.000 1700.0 0
+0 0 0
+0 0 0
+-9.0 184.000 1800.0 0
+0
+velocity 100
+isolated btiC18
+endtrack
+node -1 0 btC19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 184.000 1800.0 0
+0 0 0
+0 0 0
+-9.0 182.000 1900.0 0
+0
+velocity 100
+isolated btiC19
+endtrack
+node -1 0 btC20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 182.000 1900.0 0
+0 0 0
+0 0 0
+-9.0 180.000 2000.0 0
+0
+velocity 100
+isolated btiC20
+endtrack
+node -1 0 btC21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 180.000 2000.0 0
+0 0 0
+0 0 0
+-9.0 178.000 2100.0 0
+0
+velocity 100
+isolated btiC21
+endtrack
+node -1 0 btC22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 178.000 2100.0 0
+0 0 0
+0 0 0
+-9.0 176.000 2200.0 0
+0
+velocity 100
+isolated btiC22
+endtrack
+node -1 0 btC23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 176.000 2200.0 0
+0 0 0
+0 0 0
+-9.0 174.000 2300.0 0
+0
+velocity 100
+isolated btiC23
+endtrack
+node -1 0 btC24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 174.000 2300.0 0
+0 0 0
+0 0 0
+-9.0 172.000 2400.0 0
+0
+velocity 100
+isolated btiC24
+endtrack
+node -1 0 btC25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 172.000 2400.0 0
+0 0 0
+0 0 0
+-9.0 170.000 2500.0 0
+0
+velocity 100
+isolated btiC25
+endtrack
+node -1 0 btC26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 170.000 2500.0 0
+0 0 0
+0 0 0
+-9.0 168.000 2600.0 0
+0
+velocity 100
+isolated btiC26
+endtrack
+node -1 0 btC27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 168.000 2600.0 0
+0 0 0
+0 0 0
+-9.0 166.000 2700.0 0
+0
+velocity 100
+isolated btiC27
+endtrack
+node -1 0 btC28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 166.000 2700.0 0
+0 0 0
+0 0 0
+-9.0 164.000 2800.0 0
+0
+velocity 100
+isolated btiC28
+endtrack
+node -1 0 btC29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 164.000 2800.0 0
+0 0 0
+0 0 0
+-9.0 162.000 2900.0 0
+0
+velocity 100
+isolated btiC29
+endtrack
+node -1 0 btC30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 162.000 2900.0 0
+0 0 0
+0 0 0
+-9.0 160.000 3000.0 0
+0
+velocity 100
+isolated btiC30
+endtrack
+node -1 0 btC31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 160.000 3000.0 0
+0 0 0
+0 0 0
+-9.0 158.000 3100.0 0
+0
+velocity 100
+isolated btiC31
+endtrack
+node -1 0 btC32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 158.000 3100.0 0
+0 0 0
+0 0 0
+-9.0 156.000 3200.0 0
+0
+velocity 100
+isolated btiC32
+endtrack
+node -1 0 btC33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 156.000 3200.0 0
+0 0 0
+0 0 0
+-9.0 154.000 3300.0 0
+0
+velocity 100
+isolated btiC33
+endtrack
+node -1 0 btC34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 154.000 3300.0 0
+0 0 0
+0 0 0
+-9.0 152.000 3400.0 0
+0
+velocity 100
+isolated btiC34
+endtrack
+node -1 0 btC35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 152.000 3400.0 0
+0 0 0
+0 0 0
+-9.0 150.000 3500.0 0
+0
+velocity 100
+isolated btiC35
+endtrack
+node -1 0 btC36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 150.000 3500.0 0
+0 0 0
+0 0 0
+-9.0 148.000 3600.0 0
+0
+velocity 100
+isolated btiC36
+endtrack
+node -1 0 btC37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 148.000 3600.0 0
+0 0 0
+0 0 0
+-9.0 146.000 3700.0 0
+0
+velocity 100
+isolated btiC37
+endtrack
+node -1 0 btC38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 146.000 3700.0 0
+0 0 0
+0 0 0
+-9.0 144.000 3800.0 0
+0
+velocity 100
+isolated btiC38
+endtrack
+node -1 0 btC39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 144.000 3800.0 0
+0 0 0
+0 0 0
+-9.0 142.000 3900.0 0
+0
+velocity 100
+isolated btiC39
+endtrack
+node -1 0 btC40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 142.000 3900.0 0
+0 0 0
+0 0 0
+-9.0 140.000 4000.0 0
+0
+velocity 100
+isolated btiC40
+endtrack
+node -1 0 btC41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 140.000 4000.0 0
+0 0 0
+0 0 0
+-9.0 138.000 4100.0 0
+0
+velocity 100
+isolated btiC41
+endtrack
+node -1 0 btC42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 138.000 4100.0 0
+0 0 0
+0 0 0
+-9.0 136.000 4200.0 0
+0
+velocity 100
+isolated btiC42
+endtrack
+node -1 0 btC43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 136.000 4200.0 0
+0 0 0
+0 0 0
+-9.0 134.000 4300.0 0
+0
+velocity 100
+isolated btiC43
+endtrack
+node -1 0 btC44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 134.000 4300.0 0
+0 0 0
+0 0 0
+-9.0 132.000 4400.0 0
+0
+velocity 100
+isolated btiC44
+endtrack
+node -1 0 btC45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 132.000 4400.0 0
+0 0 0
+0 0 0
+-9.0 130.000 4500.0 0
+0
+velocity 100
+isolated btiC45
+endtrack
+node -1 0 btC46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 130.000 4500.0 0
+0 0 0
+0 0 0
+-9.0 128.000 4600.0 0
+0
+velocity 100
+isolated btiC46
+endtrack
+node -1 0 btC47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 128.000 4600.0 0
+0 0 0
+0 0 0
+-9.0 126.000 4700.0 0
+0
+velocity 100
+isolated btiC47
+endtrack
+node -1 0 btC48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 126.000 4700.0 0
+0 0 0
+0 0 0
+-9.0 124.000 4800.0 0
+0
+velocity 100
+isolated btiC48
+endtrack
+node -1 0 btC49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 124.000 4800.0 0
+0 0 0
+0 0 0
+-9.0 122.000 4900.0 0
+0
+velocity 100
+isolated btiC49
+endtrack
+node -1 0 btC50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 122.000 4900.0 0
+0 0 0
+0 0 0
+-9.0 120.000 5000.0 0
+0
+velocity 100
+isolated btiC50
+endtrack
+node -1 0 btC51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 120.000 5000.0 0
+0 0 0
+0 0 0
+-9.0 118.000 5100.0 0
+0
+velocity 20
+isolated btiC51
+endtrack
+node -1 0 btC52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 118.000 5100.0 0
+0 0 0
+0 0 0
+-9.0 116.000 5200.0 0
+0
+velocity 20
+isolated btiC52
+endtrack
+node -1 0 btC53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 116.000 5200.0 0
+0 0 0
+0 0 0
+-9.0 114.000 5300.0 0
+0
+velocity 100
+isolated btiC53
+endtrack
+node -1 0 btC54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 114.000 5300.0 0
+0 0 0
+0 0 0
+-9.0 112.000 5400.0 0
+0
+velocity 100
+isolated btiC54
+endtrack
+node -1 0 btC55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 112.000 5400.0 0
+0 0 0
+0 0 0
+-9.0 110.000 5500.0 0
+0
+velocity 100
+isolated btiC55
+endtrack
+node -1 0 btC56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 110.000 5500.0 0
+0 0 0
+0 0 0
+-9.0 108.000 5600.0 0
+0
+velocity 100
+isolated btiC56
+endtrack
+node -1 0 btC57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 108.000 5600.0 0
+0 0 0
+0 0 0
+-9.0 106.000 5700.0 0
+0
+velocity 100
+isolated btiC57
+endtrack
+node -1 0 btC58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 106.000 5700.0 0
+0 0 0
+0 0 0
+-9.0 104.000 5800.0 0
+0
+velocity 100
+isolated btiC58
+endtrack
+node -1 0 btC59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 104.000 5800.0 0
+0 0 0
+0 0 0
+-9.0 102.000 5900.0 0
+0
+velocity 100
+isolated btiC59
+endtrack
+node -1 0 btC60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 102.000 5900.0 0
+0 0 0
+0 0 0
+-9.0 100.000 6000.0 0
+0
+velocity 100
+isolated btiC60
+endtrack
+node -1 0 btC61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 100.000 6000.0 0
+0 0 0
+0 0 0
+-9.0 98.000 6100.0 0
+0
+velocity 100
+isolated btiC61
+endtrack
+node -1 0 btC62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 98.000 6100.0 0
+0 0 0
+0 0 0
+-9.0 96.000 6200.0 0
+0
+velocity 100
+isolated btiC62
+endtrack
+node -1 0 btC63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 96.000 6200.0 0
+0 0 0
+0 0 0
+-9.0 94.000 6300.0 0
+0
+velocity 100
+isolated btiC63
+endtrack
+node -1 0 btC64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 94.000 6300.0 0
+0 0 0
+0 0 0
+-9.0 92.000 6400.0 0
+0
+velocity 100
+isolated btiC64
+endtrack
+node -1 0 btC65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 92.000 6400.0 0
+0 0 0
+0 0 0
+-9.0 90.000 6500.0 0
+0
+velocity 100
+isolated btiC65
+endtrack
+node -1 0 btC66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 90.000 6500.0 0
+0 0 0
+0 0 0
+-9.0 88.000 6600.0 0
+0
+velocity 100
+isolated btiC66
+endtrack
+node -1 0 btC67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 88.000 6600.0 0
+0 0 0
+0 0 0
+-9.0 86.000 6700.0 0
+0
+velocity 100
+isolated btiC67
+endtrack
+node -1 0 btC68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 86.000 6700.0 0
+0 0 0
+0 0 0
+-9.0 84.000 6800.0 0
+0
+velocity 100
+isolated btiC68
+endtrack
+node -1 0 btC69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 84.000 6800.0 0
+0 0 0
+0 0 0
+-9.0 82.000 6900.0 0
+0
+velocity 100
+isolated btiC69
+endtrack
+node -1 0 btC70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 82.000 6900.0 0
+0 0 0
+0 0 0
+-9.0 80.000 7000.0 0
+0
+velocity 100
+isolated btiC70
+endtrack
+node -1 0 btC71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 80.000 7000.0 0
+0 0 0
+0 0 0
+-9.0 78.000 7100.0 0
+0
+velocity 100
+isolated btiC71
+endtrack
+node -1 0 btC72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 78.000 7100.0 0
+0 0 0
+0 0 0
+-9.0 76.000 7200.0 0
+0
+velocity 100
+isolated btiC72
+endtrack
+node -1 0 btC73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 76.000 7200.0 0
+0 0 0
+0 0 0
+-9.0 74.000 7300.0 0
+0
+velocity 100
+isolated btiC73
+endtrack
+node -1 0 btC74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 74.000 7300.0 0
+0 0 0
+0 0 0
+-9.0 72.000 7400.0 0
+0
+velocity 100
+isolated btiC74
+endtrack
+node -1 0 btC75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 72.000 7400.0 0
+0 0 0
+0 0 0
+-9.0 70.000 7500.0 0
+0
+velocity 100
+isolated btiC75
+endtrack
+node -1 0 btC76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 70.000 7500.0 0
+0 0 0
+0 0 0
+-9.0 68.000 7600.0 0
+0
+velocity 100
+isolated btiC76
+endtrack
+node -1 0 btC77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 68.000 7600.0 0
+0 0 0
+0 0 0
+-9.0 66.000 7700.0 0
+0
+velocity 100
+isolated btiC77
+event2 btC_s1_sem_info
+endtrack
+node -1 0 btC78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 66.000 7700.0 0
+0 0 0
+0 0 0
+-9.0 64.000 7800.0 0
+0
+velocity 100
+isolated btiC78
+endtrack
+node -1 0 btC79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 64.000 7800.0 0
+0 0 0
+0 0 0
+-9.0 62.000 7900.0 0
+0
+velocity 100
+isolated btiC79
+endtrack
+node -1 0 btC80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 62.000 7900.0 0
+0 0 0
+0 0 0
+-9.0 60.000 8000.0 0
+0
+velocity 100
+isolated btiC80
+endtrack
+node -1 0 btC81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-9.0 60.000 8000.0 0
+0 0 0
+0 0 0
+-9.0 58.000 8100.0 0
+0
+velocity 100
+isolated btiC81
+endtrack
+
+event btiC01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiC81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btC_go_sem_mem memcell -9.0 208.000 600 SetVelocity -1 -1 none endmemcell
+event btC_go_sem_info getvalues 1.0 btC_go_sem_mem endevent
+node -1 0 btC_s1_sem_mem memcell -9.0 68.000 7600 SetVelocity 0 0 none endmemcell
+event btC_s1_sem_info getvalues 1.0 btC_s1_sem_mem endevent
+
+node -1 0 btD01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 220.000 0.0 0
+0 0 0
+0 0 0
+-13.5 218.000 100.0 0
+0
+velocity 100
+isolated btiD01
+endtrack
+node -1 0 btD02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 218.000 100.0 0
+0 0 0
+0 0 0
+-13.5 216.000 200.0 0
+0
+velocity 100
+isolated btiD02
+endtrack
+node -1 0 btD03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 216.000 200.0 0
+0 0 0
+0 0 0
+-13.5 214.000 300.0 0
+0
+velocity 100
+isolated btiD03
+endtrack
+node -1 0 btD04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 214.000 300.0 0
+0 0 0
+0 0 0
+-13.5 212.000 400.0 0
+0
+velocity 100
+isolated btiD04
+endtrack
+node -1 0 btD05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 212.000 400.0 0
+0 0 0
+0 0 0
+-13.5 210.000 500.0 0
+0
+velocity 100
+isolated btiD05
+endtrack
+node -1 0 btD06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 210.000 500.0 0
+0 0 0
+0 0 0
+-13.5 208.000 600.0 0
+0
+velocity 100
+isolated btiD06
+endtrack
+node -1 0 btD07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 208.000 600.0 0
+0 0 0
+0 0 0
+-13.5 206.000 700.0 0
+0
+velocity 100
+isolated btiD07
+event2 btD_go_sem_info
+endtrack
+node -1 0 btD08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 206.000 700.0 0
+0 0 0
+0 0 0
+-13.5 204.000 800.0 0
+0
+velocity 100
+isolated btiD08
+endtrack
+node -1 0 btD09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 204.000 800.0 0
+0 0 0
+0 0 0
+-13.5 202.000 900.0 0
+0
+velocity 100
+isolated btiD09
+endtrack
+node -1 0 btD10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 202.000 900.0 0
+0 0 0
+0 0 0
+-13.5 200.000 1000.0 0
+0
+velocity 100
+isolated btiD10
+endtrack
+node -1 0 btD11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 200.000 1000.0 0
+0 0 0
+0 0 0
+-13.5 198.000 1100.0 0
+0
+velocity 100
+isolated btiD11
+endtrack
+node -1 0 btD12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 198.000 1100.0 0
+0 0 0
+0 0 0
+-13.5 196.000 1200.0 0
+0
+velocity 100
+isolated btiD12
+endtrack
+node -1 0 btD13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 196.000 1200.0 0
+0 0 0
+0 0 0
+-13.5 194.000 1300.0 0
+0
+velocity 100
+isolated btiD13
+endtrack
+node -1 0 btD14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 194.000 1300.0 0
+0 0 0
+0 0 0
+-13.5 192.000 1400.0 0
+0
+velocity 100
+isolated btiD14
+endtrack
+node -1 0 btD15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 192.000 1400.0 0
+0 0 0
+0 0 0
+-13.5 190.000 1500.0 0
+0
+velocity 100
+isolated btiD15
+endtrack
+node -1 0 btD16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 190.000 1500.0 0
+0 0 0
+0 0 0
+-13.5 188.000 1600.0 0
+0
+velocity 100
+isolated btiD16
+endtrack
+node -1 0 btD17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 188.000 1600.0 0
+0 0 0
+0 0 0
+-13.5 186.000 1700.0 0
+0
+velocity 100
+isolated btiD17
+endtrack
+node -1 0 btD18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 186.000 1700.0 0
+0 0 0
+0 0 0
+-13.5 184.000 1800.0 0
+0
+velocity 100
+isolated btiD18
+endtrack
+node -1 0 btD19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 184.000 1800.0 0
+0 0 0
+0 0 0
+-13.5 182.000 1900.0 0
+0
+velocity 100
+isolated btiD19
+endtrack
+node -1 0 btD20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 182.000 1900.0 0
+0 0 0
+0 0 0
+-13.5 180.000 2000.0 0
+0
+velocity 100
+isolated btiD20
+endtrack
+node -1 0 btD21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 180.000 2000.0 0
+0 0 0
+0 0 0
+-13.5 178.000 2100.0 0
+0
+velocity 100
+isolated btiD21
+endtrack
+node -1 0 btD22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 178.000 2100.0 0
+0 0 0
+0 0 0
+-13.5 176.000 2200.0 0
+0
+velocity 100
+isolated btiD22
+endtrack
+node -1 0 btD23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 176.000 2200.0 0
+0 0 0
+0 0 0
+-13.5 174.000 2300.0 0
+0
+velocity 100
+isolated btiD23
+endtrack
+node -1 0 btD24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 174.000 2300.0 0
+0 0 0
+0 0 0
+-13.5 172.000 2400.0 0
+0
+velocity 100
+isolated btiD24
+endtrack
+node -1 0 btD25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 172.000 2400.0 0
+0 0 0
+0 0 0
+-13.5 170.000 2500.0 0
+0
+velocity 100
+isolated btiD25
+endtrack
+node -1 0 btD26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 170.000 2500.0 0
+0 0 0
+0 0 0
+-13.5 168.000 2600.0 0
+0
+velocity 100
+isolated btiD26
+endtrack
+node -1 0 btD27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 168.000 2600.0 0
+0 0 0
+0 0 0
+-13.5 166.000 2700.0 0
+0
+velocity 100
+isolated btiD27
+endtrack
+node -1 0 btD28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 166.000 2700.0 0
+0 0 0
+0 0 0
+-13.5 164.000 2800.0 0
+0
+velocity 100
+isolated btiD28
+endtrack
+node -1 0 btD29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 164.000 2800.0 0
+0 0 0
+0 0 0
+-13.5 162.000 2900.0 0
+0
+velocity 100
+isolated btiD29
+endtrack
+node -1 0 btD30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 162.000 2900.0 0
+0 0 0
+0 0 0
+-13.5 160.000 3000.0 0
+0
+velocity 100
+isolated btiD30
+endtrack
+node -1 0 btD31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 160.000 3000.0 0
+0 0 0
+0 0 0
+-13.5 158.000 3100.0 0
+0
+velocity 100
+isolated btiD31
+endtrack
+node -1 0 btD32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 158.000 3100.0 0
+0 0 0
+0 0 0
+-13.5 156.000 3200.0 0
+0
+velocity 100
+isolated btiD32
+endtrack
+node -1 0 btD33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 156.000 3200.0 0
+0 0 0
+0 0 0
+-13.5 154.000 3300.0 0
+0
+velocity 100
+isolated btiD33
+endtrack
+node -1 0 btD34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 154.000 3300.0 0
+0 0 0
+0 0 0
+-13.5 152.000 3400.0 0
+0
+velocity 100
+isolated btiD34
+endtrack
+node -1 0 btD35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 152.000 3400.0 0
+0 0 0
+0 0 0
+-13.5 150.000 3500.0 0
+0
+velocity 100
+isolated btiD35
+endtrack
+node -1 0 btD36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 150.000 3500.0 0
+0 0 0
+0 0 0
+-13.5 148.000 3600.0 0
+0
+velocity 100
+isolated btiD36
+endtrack
+node -1 0 btD37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 148.000 3600.0 0
+0 0 0
+0 0 0
+-13.5 146.000 3700.0 0
+0
+velocity 100
+isolated btiD37
+endtrack
+node -1 0 btD38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 146.000 3700.0 0
+0 0 0
+0 0 0
+-13.5 144.000 3800.0 0
+0
+velocity 100
+isolated btiD38
+endtrack
+node -1 0 btD39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 144.000 3800.0 0
+0 0 0
+0 0 0
+-13.5 142.000 3900.0 0
+0
+velocity 100
+isolated btiD39
+endtrack
+node -1 0 btD40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 142.000 3900.0 0
+0 0 0
+0 0 0
+-13.5 140.000 4000.0 0
+0
+velocity 100
+isolated btiD40
+endtrack
+node -1 0 btD41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 140.000 4000.0 0
+0 0 0
+0 0 0
+-13.5 138.000 4100.0 0
+0
+velocity 100
+isolated btiD41
+endtrack
+node -1 0 btD42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 138.000 4100.0 0
+0 0 0
+0 0 0
+-13.5 136.000 4200.0 0
+0
+velocity 100
+isolated btiD42
+endtrack
+node -1 0 btD43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 136.000 4200.0 0
+0 0 0
+0 0 0
+-13.5 134.000 4300.0 0
+0
+velocity 100
+isolated btiD43
+endtrack
+node -1 0 btD44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 134.000 4300.0 0
+0 0 0
+0 0 0
+-13.5 132.000 4400.0 0
+0
+velocity 100
+isolated btiD44
+endtrack
+node -1 0 btD45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 132.000 4400.0 0
+0 0 0
+0 0 0
+-13.5 130.000 4500.0 0
+0
+velocity 100
+isolated btiD45
+endtrack
+node -1 0 btD46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 130.000 4500.0 0
+0 0 0
+0 0 0
+-13.5 128.000 4600.0 0
+0
+velocity 100
+isolated btiD46
+endtrack
+node -1 0 btD47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 128.000 4600.0 0
+0 0 0
+0 0 0
+-13.5 126.000 4700.0 0
+0
+velocity 100
+isolated btiD47
+endtrack
+node -1 0 btD48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 126.000 4700.0 0
+0 0 0
+0 0 0
+-13.5 124.000 4800.0 0
+0
+velocity 100
+isolated btiD48
+endtrack
+node -1 0 btD49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 124.000 4800.0 0
+0 0 0
+0 0 0
+-13.5 122.000 4900.0 0
+0
+velocity 100
+isolated btiD49
+endtrack
+node -1 0 btD50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 122.000 4900.0 0
+0 0 0
+0 0 0
+-13.5 120.000 5000.0 0
+0
+velocity 100
+isolated btiD50
+endtrack
+node -1 0 btD51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 120.000 5000.0 0
+0 0 0
+0 0 0
+-13.5 118.000 5100.0 0
+0
+velocity 20
+isolated btiD51
+endtrack
+node -1 0 btD52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 118.000 5100.0 0
+0 0 0
+0 0 0
+-13.5 116.000 5200.0 0
+0
+velocity 20
+isolated btiD52
+endtrack
+node -1 0 btD53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 116.000 5200.0 0
+0 0 0
+0 0 0
+-13.5 114.000 5300.0 0
+0
+velocity 100
+isolated btiD53
+endtrack
+node -1 0 btD54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 114.000 5300.0 0
+0 0 0
+0 0 0
+-13.5 112.000 5400.0 0
+0
+velocity 100
+isolated btiD54
+endtrack
+node -1 0 btD55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 112.000 5400.0 0
+0 0 0
+0 0 0
+-13.5 110.000 5500.0 0
+0
+velocity 100
+isolated btiD55
+endtrack
+node -1 0 btD56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 110.000 5500.0 0
+0 0 0
+0 0 0
+-13.5 108.000 5600.0 0
+0
+velocity 100
+isolated btiD56
+endtrack
+node -1 0 btD57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 108.000 5600.0 0
+0 0 0
+0 0 0
+-13.5 106.000 5700.0 0
+0
+velocity 100
+isolated btiD57
+endtrack
+node -1 0 btD58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 106.000 5700.0 0
+0 0 0
+0 0 0
+-13.5 104.000 5800.0 0
+0
+velocity 100
+isolated btiD58
+endtrack
+node -1 0 btD59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 104.000 5800.0 0
+0 0 0
+0 0 0
+-13.5 102.000 5900.0 0
+0
+velocity 100
+isolated btiD59
+endtrack
+node -1 0 btD60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 102.000 5900.0 0
+0 0 0
+0 0 0
+-13.5 100.000 6000.0 0
+0
+velocity 100
+isolated btiD60
+endtrack
+node -1 0 btD61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 100.000 6000.0 0
+0 0 0
+0 0 0
+-13.5 98.000 6100.0 0
+0
+velocity 100
+isolated btiD61
+endtrack
+node -1 0 btD62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 98.000 6100.0 0
+0 0 0
+0 0 0
+-13.5 96.000 6200.0 0
+0
+velocity 100
+isolated btiD62
+endtrack
+node -1 0 btD63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 96.000 6200.0 0
+0 0 0
+0 0 0
+-13.5 94.000 6300.0 0
+0
+velocity 100
+isolated btiD63
+endtrack
+node -1 0 btD64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 94.000 6300.0 0
+0 0 0
+0 0 0
+-13.5 92.000 6400.0 0
+0
+velocity 100
+isolated btiD64
+endtrack
+node -1 0 btD65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 92.000 6400.0 0
+0 0 0
+0 0 0
+-13.5 90.000 6500.0 0
+0
+velocity 100
+isolated btiD65
+endtrack
+node -1 0 btD66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 90.000 6500.0 0
+0 0 0
+0 0 0
+-13.5 88.000 6600.0 0
+0
+velocity 100
+isolated btiD66
+endtrack
+node -1 0 btD67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 88.000 6600.0 0
+0 0 0
+0 0 0
+-13.5 86.000 6700.0 0
+0
+velocity 100
+isolated btiD67
+endtrack
+node -1 0 btD68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 86.000 6700.0 0
+0 0 0
+0 0 0
+-13.5 84.000 6800.0 0
+0
+velocity 100
+isolated btiD68
+endtrack
+node -1 0 btD69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 84.000 6800.0 0
+0 0 0
+0 0 0
+-13.5 82.000 6900.0 0
+0
+velocity 100
+isolated btiD69
+endtrack
+node -1 0 btD70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 82.000 6900.0 0
+0 0 0
+0 0 0
+-13.5 80.000 7000.0 0
+0
+velocity 100
+isolated btiD70
+endtrack
+node -1 0 btD71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 80.000 7000.0 0
+0 0 0
+0 0 0
+-13.5 78.000 7100.0 0
+0
+velocity 100
+isolated btiD71
+endtrack
+node -1 0 btD72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 78.000 7100.0 0
+0 0 0
+0 0 0
+-13.5 76.000 7200.0 0
+0
+velocity 100
+isolated btiD72
+endtrack
+node -1 0 btD73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 76.000 7200.0 0
+0 0 0
+0 0 0
+-13.5 74.000 7300.0 0
+0
+velocity 100
+isolated btiD73
+endtrack
+node -1 0 btD74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 74.000 7300.0 0
+0 0 0
+0 0 0
+-13.5 72.000 7400.0 0
+0
+velocity 100
+isolated btiD74
+endtrack
+node -1 0 btD75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 72.000 7400.0 0
+0 0 0
+0 0 0
+-13.5 70.000 7500.0 0
+0
+velocity 100
+isolated btiD75
+endtrack
+node -1 0 btD76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 70.000 7500.0 0
+0 0 0
+0 0 0
+-13.5 68.000 7600.0 0
+0
+velocity 100
+isolated btiD76
+endtrack
+node -1 0 btD77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 68.000 7600.0 0
+0 0 0
+0 0 0
+-13.5 66.000 7700.0 0
+0
+velocity 100
+isolated btiD77
+event2 btD_s1_sem_info
+endtrack
+node -1 0 btD78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 66.000 7700.0 0
+0 0 0
+0 0 0
+-13.5 64.000 7800.0 0
+0
+velocity 100
+isolated btiD78
+endtrack
+node -1 0 btD79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 64.000 7800.0 0
+0 0 0
+0 0 0
+-13.5 62.000 7900.0 0
+0
+velocity 100
+isolated btiD79
+endtrack
+node -1 0 btD80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 62.000 7900.0 0
+0 0 0
+0 0 0
+-13.5 60.000 8000.0 0
+0
+velocity 100
+isolated btiD80
+endtrack
+node -1 0 btD81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-13.5 60.000 8000.0 0
+0 0 0
+0 0 0
+-13.5 58.000 8100.0 0
+0
+velocity 100
+isolated btiD81
+endtrack
+
+event btiD01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiD81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btD_go_sem_mem memcell -13.5 208.000 600 SetVelocity -1 -1 none endmemcell
+event btD_go_sem_info getvalues 1.0 btD_go_sem_mem endevent
+node -1 0 btD_s1_sem_mem memcell -13.5 68.000 7600 SetVelocity 0 0 none endmemcell
+event btD_s1_sem_info getvalues 1.0 btD_s1_sem_mem endevent
+
+node -1 0 btE01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 220.000 0.0 0
+0 0 0
+0 0 0
+-18.0 218.000 100.0 0
+0
+velocity 100
+isolated btiE01
+endtrack
+node -1 0 btE02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 218.000 100.0 0
+0 0 0
+0 0 0
+-18.0 216.000 200.0 0
+0
+velocity 100
+isolated btiE02
+endtrack
+node -1 0 btE03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 216.000 200.0 0
+0 0 0
+0 0 0
+-18.0 214.000 300.0 0
+0
+velocity 100
+isolated btiE03
+endtrack
+node -1 0 btE04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 214.000 300.0 0
+0 0 0
+0 0 0
+-18.0 212.000 400.0 0
+0
+velocity 100
+isolated btiE04
+endtrack
+node -1 0 btE05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 212.000 400.0 0
+0 0 0
+0 0 0
+-18.0 210.000 500.0 0
+0
+velocity 100
+isolated btiE05
+endtrack
+node -1 0 btE06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 210.000 500.0 0
+0 0 0
+0 0 0
+-18.0 208.000 600.0 0
+0
+velocity 100
+isolated btiE06
+endtrack
+node -1 0 btE07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 208.000 600.0 0
+0 0 0
+0 0 0
+-18.0 206.000 700.0 0
+0
+velocity 100
+isolated btiE07
+event2 btE_go_sem_info
+endtrack
+node -1 0 btE08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 206.000 700.0 0
+0 0 0
+0 0 0
+-18.0 204.000 800.0 0
+0
+velocity 100
+isolated btiE08
+endtrack
+node -1 0 btE09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 204.000 800.0 0
+0 0 0
+0 0 0
+-18.0 202.000 900.0 0
+0
+velocity 100
+isolated btiE09
+endtrack
+node -1 0 btE10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 202.000 900.0 0
+0 0 0
+0 0 0
+-18.0 200.000 1000.0 0
+0
+velocity 100
+isolated btiE10
+endtrack
+node -1 0 btE11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 200.000 1000.0 0
+0 0 0
+0 0 0
+-18.0 198.000 1100.0 0
+0
+velocity 100
+isolated btiE11
+endtrack
+node -1 0 btE12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 198.000 1100.0 0
+0 0 0
+0 0 0
+-18.0 196.000 1200.0 0
+0
+velocity 100
+isolated btiE12
+endtrack
+node -1 0 btE13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 196.000 1200.0 0
+0 0 0
+0 0 0
+-18.0 194.000 1300.0 0
+0
+velocity 100
+isolated btiE13
+endtrack
+node -1 0 btE14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 194.000 1300.0 0
+0 0 0
+0 0 0
+-18.0 192.000 1400.0 0
+0
+velocity 100
+isolated btiE14
+endtrack
+node -1 0 btE15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 192.000 1400.0 0
+0 0 0
+0 0 0
+-18.0 190.000 1500.0 0
+0
+velocity 100
+isolated btiE15
+endtrack
+node -1 0 btE16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 190.000 1500.0 0
+0 0 0
+0 0 0
+-18.0 188.000 1600.0 0
+0
+velocity 100
+isolated btiE16
+endtrack
+node -1 0 btE17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 188.000 1600.0 0
+0 0 0
+0 0 0
+-18.0 186.000 1700.0 0
+0
+velocity 100
+isolated btiE17
+endtrack
+node -1 0 btE18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 186.000 1700.0 0
+0 0 0
+0 0 0
+-18.0 184.000 1800.0 0
+0
+velocity 100
+isolated btiE18
+endtrack
+node -1 0 btE19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 184.000 1800.0 0
+0 0 0
+0 0 0
+-18.0 182.000 1900.0 0
+0
+velocity 100
+isolated btiE19
+endtrack
+node -1 0 btE20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 182.000 1900.0 0
+0 0 0
+0 0 0
+-18.0 180.000 2000.0 0
+0
+velocity 100
+isolated btiE20
+endtrack
+node -1 0 btE21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 180.000 2000.0 0
+0 0 0
+0 0 0
+-18.0 178.000 2100.0 0
+0
+velocity 100
+isolated btiE21
+endtrack
+node -1 0 btE22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 178.000 2100.0 0
+0 0 0
+0 0 0
+-18.0 176.000 2200.0 0
+0
+velocity 100
+isolated btiE22
+endtrack
+node -1 0 btE23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 176.000 2200.0 0
+0 0 0
+0 0 0
+-18.0 174.000 2300.0 0
+0
+velocity 100
+isolated btiE23
+endtrack
+node -1 0 btE24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 174.000 2300.0 0
+0 0 0
+0 0 0
+-18.0 172.000 2400.0 0
+0
+velocity 100
+isolated btiE24
+endtrack
+node -1 0 btE25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 172.000 2400.0 0
+0 0 0
+0 0 0
+-18.0 170.000 2500.0 0
+0
+velocity 100
+isolated btiE25
+endtrack
+node -1 0 btE26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 170.000 2500.0 0
+0 0 0
+0 0 0
+-18.0 168.000 2600.0 0
+0
+velocity 100
+isolated btiE26
+endtrack
+node -1 0 btE27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 168.000 2600.0 0
+0 0 0
+0 0 0
+-18.0 166.000 2700.0 0
+0
+velocity 100
+isolated btiE27
+endtrack
+node -1 0 btE28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 166.000 2700.0 0
+0 0 0
+0 0 0
+-18.0 164.000 2800.0 0
+0
+velocity 100
+isolated btiE28
+endtrack
+node -1 0 btE29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 164.000 2800.0 0
+0 0 0
+0 0 0
+-18.0 162.000 2900.0 0
+0
+velocity 100
+isolated btiE29
+endtrack
+node -1 0 btE30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 162.000 2900.0 0
+0 0 0
+0 0 0
+-18.0 160.000 3000.0 0
+0
+velocity 100
+isolated btiE30
+endtrack
+node -1 0 btE31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 160.000 3000.0 0
+0 0 0
+0 0 0
+-18.0 158.000 3100.0 0
+0
+velocity 100
+isolated btiE31
+endtrack
+node -1 0 btE32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 158.000 3100.0 0
+0 0 0
+0 0 0
+-18.0 156.000 3200.0 0
+0
+velocity 100
+isolated btiE32
+endtrack
+node -1 0 btE33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 156.000 3200.0 0
+0 0 0
+0 0 0
+-18.0 154.000 3300.0 0
+0
+velocity 100
+isolated btiE33
+endtrack
+node -1 0 btE34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 154.000 3300.0 0
+0 0 0
+0 0 0
+-18.0 152.000 3400.0 0
+0
+velocity 100
+isolated btiE34
+endtrack
+node -1 0 btE35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 152.000 3400.0 0
+0 0 0
+0 0 0
+-18.0 150.000 3500.0 0
+0
+velocity 100
+isolated btiE35
+endtrack
+node -1 0 btE36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 150.000 3500.0 0
+0 0 0
+0 0 0
+-18.0 148.000 3600.0 0
+0
+velocity 100
+isolated btiE36
+endtrack
+node -1 0 btE37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 148.000 3600.0 0
+0 0 0
+0 0 0
+-18.0 146.000 3700.0 0
+0
+velocity 100
+isolated btiE37
+endtrack
+node -1 0 btE38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 146.000 3700.0 0
+0 0 0
+0 0 0
+-18.0 144.000 3800.0 0
+0
+velocity 100
+isolated btiE38
+endtrack
+node -1 0 btE39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 144.000 3800.0 0
+0 0 0
+0 0 0
+-18.0 142.000 3900.0 0
+0
+velocity 100
+isolated btiE39
+endtrack
+node -1 0 btE40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 142.000 3900.0 0
+0 0 0
+0 0 0
+-18.0 140.000 4000.0 0
+0
+velocity 100
+isolated btiE40
+endtrack
+node -1 0 btE41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 140.000 4000.0 0
+0 0 0
+0 0 0
+-18.0 138.000 4100.0 0
+0
+velocity 100
+isolated btiE41
+endtrack
+node -1 0 btE42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 138.000 4100.0 0
+0 0 0
+0 0 0
+-18.0 136.000 4200.0 0
+0
+velocity 100
+isolated btiE42
+endtrack
+node -1 0 btE43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 136.000 4200.0 0
+0 0 0
+0 0 0
+-18.0 134.000 4300.0 0
+0
+velocity 100
+isolated btiE43
+endtrack
+node -1 0 btE44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 134.000 4300.0 0
+0 0 0
+0 0 0
+-18.0 132.000 4400.0 0
+0
+velocity 100
+isolated btiE44
+endtrack
+node -1 0 btE45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 132.000 4400.0 0
+0 0 0
+0 0 0
+-18.0 130.000 4500.0 0
+0
+velocity 100
+isolated btiE45
+endtrack
+node -1 0 btE46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 130.000 4500.0 0
+0 0 0
+0 0 0
+-18.0 128.000 4600.0 0
+0
+velocity 100
+isolated btiE46
+endtrack
+node -1 0 btE47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 128.000 4600.0 0
+0 0 0
+0 0 0
+-18.0 126.000 4700.0 0
+0
+velocity 100
+isolated btiE47
+endtrack
+node -1 0 btE48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 126.000 4700.0 0
+0 0 0
+0 0 0
+-18.0 124.000 4800.0 0
+0
+velocity 100
+isolated btiE48
+endtrack
+node -1 0 btE49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 124.000 4800.0 0
+0 0 0
+0 0 0
+-18.0 122.000 4900.0 0
+0
+velocity 100
+isolated btiE49
+endtrack
+node -1 0 btE50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 122.000 4900.0 0
+0 0 0
+0 0 0
+-18.0 120.000 5000.0 0
+0
+velocity 100
+isolated btiE50
+endtrack
+node -1 0 btE51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 120.000 5000.0 0
+0 0 0
+0 0 0
+-18.0 118.000 5100.0 0
+0
+velocity 20
+isolated btiE51
+endtrack
+node -1 0 btE52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 118.000 5100.0 0
+0 0 0
+0 0 0
+-18.0 116.000 5200.0 0
+0
+velocity 20
+isolated btiE52
+endtrack
+node -1 0 btE53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 116.000 5200.0 0
+0 0 0
+0 0 0
+-18.0 114.000 5300.0 0
+0
+velocity 100
+isolated btiE53
+endtrack
+node -1 0 btE54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 114.000 5300.0 0
+0 0 0
+0 0 0
+-18.0 112.000 5400.0 0
+0
+velocity 100
+isolated btiE54
+endtrack
+node -1 0 btE55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 112.000 5400.0 0
+0 0 0
+0 0 0
+-18.0 110.000 5500.0 0
+0
+velocity 100
+isolated btiE55
+endtrack
+node -1 0 btE56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 110.000 5500.0 0
+0 0 0
+0 0 0
+-18.0 108.000 5600.0 0
+0
+velocity 100
+isolated btiE56
+endtrack
+node -1 0 btE57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 108.000 5600.0 0
+0 0 0
+0 0 0
+-18.0 106.000 5700.0 0
+0
+velocity 100
+isolated btiE57
+endtrack
+node -1 0 btE58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 106.000 5700.0 0
+0 0 0
+0 0 0
+-18.0 104.000 5800.0 0
+0
+velocity 100
+isolated btiE58
+endtrack
+node -1 0 btE59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 104.000 5800.0 0
+0 0 0
+0 0 0
+-18.0 102.000 5900.0 0
+0
+velocity 100
+isolated btiE59
+endtrack
+node -1 0 btE60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 102.000 5900.0 0
+0 0 0
+0 0 0
+-18.0 100.000 6000.0 0
+0
+velocity 100
+isolated btiE60
+endtrack
+node -1 0 btE61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 100.000 6000.0 0
+0 0 0
+0 0 0
+-18.0 98.000 6100.0 0
+0
+velocity 100
+isolated btiE61
+endtrack
+node -1 0 btE62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 98.000 6100.0 0
+0 0 0
+0 0 0
+-18.0 96.000 6200.0 0
+0
+velocity 100
+isolated btiE62
+endtrack
+node -1 0 btE63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 96.000 6200.0 0
+0 0 0
+0 0 0
+-18.0 94.000 6300.0 0
+0
+velocity 100
+isolated btiE63
+endtrack
+node -1 0 btE64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 94.000 6300.0 0
+0 0 0
+0 0 0
+-18.0 92.000 6400.0 0
+0
+velocity 100
+isolated btiE64
+endtrack
+node -1 0 btE65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 92.000 6400.0 0
+0 0 0
+0 0 0
+-18.0 90.000 6500.0 0
+0
+velocity 100
+isolated btiE65
+endtrack
+node -1 0 btE66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 90.000 6500.0 0
+0 0 0
+0 0 0
+-18.0 88.000 6600.0 0
+0
+velocity 100
+isolated btiE66
+endtrack
+node -1 0 btE67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 88.000 6600.0 0
+0 0 0
+0 0 0
+-18.0 86.000 6700.0 0
+0
+velocity 100
+isolated btiE67
+endtrack
+node -1 0 btE68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 86.000 6700.0 0
+0 0 0
+0 0 0
+-18.0 84.000 6800.0 0
+0
+velocity 100
+isolated btiE68
+endtrack
+node -1 0 btE69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 84.000 6800.0 0
+0 0 0
+0 0 0
+-18.0 82.000 6900.0 0
+0
+velocity 100
+isolated btiE69
+endtrack
+node -1 0 btE70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 82.000 6900.0 0
+0 0 0
+0 0 0
+-18.0 80.000 7000.0 0
+0
+velocity 100
+isolated btiE70
+endtrack
+node -1 0 btE71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 80.000 7000.0 0
+0 0 0
+0 0 0
+-18.0 78.000 7100.0 0
+0
+velocity 100
+isolated btiE71
+endtrack
+node -1 0 btE72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 78.000 7100.0 0
+0 0 0
+0 0 0
+-18.0 76.000 7200.0 0
+0
+velocity 100
+isolated btiE72
+endtrack
+node -1 0 btE73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 76.000 7200.0 0
+0 0 0
+0 0 0
+-18.0 74.000 7300.0 0
+0
+velocity 100
+isolated btiE73
+endtrack
+node -1 0 btE74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 74.000 7300.0 0
+0 0 0
+0 0 0
+-18.0 72.000 7400.0 0
+0
+velocity 100
+isolated btiE74
+endtrack
+node -1 0 btE75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 72.000 7400.0 0
+0 0 0
+0 0 0
+-18.0 70.000 7500.0 0
+0
+velocity 100
+isolated btiE75
+endtrack
+node -1 0 btE76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 70.000 7500.0 0
+0 0 0
+0 0 0
+-18.0 68.000 7600.0 0
+0
+velocity 100
+isolated btiE76
+endtrack
+node -1 0 btE77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 68.000 7600.0 0
+0 0 0
+0 0 0
+-18.0 66.000 7700.0 0
+0
+velocity 100
+isolated btiE77
+event2 btE_s1_sem_info
+endtrack
+node -1 0 btE78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 66.000 7700.0 0
+0 0 0
+0 0 0
+-18.0 64.000 7800.0 0
+0
+velocity 100
+isolated btiE78
+endtrack
+node -1 0 btE79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 64.000 7800.0 0
+0 0 0
+0 0 0
+-18.0 62.000 7900.0 0
+0
+velocity 100
+isolated btiE79
+endtrack
+node -1 0 btE80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 62.000 7900.0 0
+0 0 0
+0 0 0
+-18.0 60.000 8000.0 0
+0
+velocity 100
+isolated btiE80
+endtrack
+node -1 0 btE81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-18.0 60.000 8000.0 0
+0 0 0
+0 0 0
+-18.0 58.000 8100.0 0
+0
+velocity 100
+isolated btiE81
+endtrack
+
+event btiE01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiE81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btE_go_sem_mem memcell -18.0 208.000 600 SetVelocity -1 -1 none endmemcell
+event btE_go_sem_info getvalues 1.0 btE_go_sem_mem endevent
+node -1 0 btE_s1_sem_mem memcell -18.0 68.000 7600 SetVelocity 0 0 none endmemcell
+event btE_s1_sem_info getvalues 1.0 btE_s1_sem_mem endevent
+
+node -1 0 btF01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 220.000 0.0 0
+0 0 0
+0 0 0
+-22.5 218.000 100.0 0
+0
+velocity 100
+isolated btiF01
+endtrack
+node -1 0 btF02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 218.000 100.0 0
+0 0 0
+0 0 0
+-22.5 216.000 200.0 0
+0
+velocity 100
+isolated btiF02
+endtrack
+node -1 0 btF03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 216.000 200.0 0
+0 0 0
+0 0 0
+-22.5 214.000 300.0 0
+0
+velocity 100
+isolated btiF03
+endtrack
+node -1 0 btF04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 214.000 300.0 0
+0 0 0
+0 0 0
+-22.5 212.000 400.0 0
+0
+velocity 100
+isolated btiF04
+endtrack
+node -1 0 btF05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 212.000 400.0 0
+0 0 0
+0 0 0
+-22.5 210.000 500.0 0
+0
+velocity 100
+isolated btiF05
+endtrack
+node -1 0 btF06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 210.000 500.0 0
+0 0 0
+0 0 0
+-22.5 208.000 600.0 0
+0
+velocity 100
+isolated btiF06
+endtrack
+node -1 0 btF07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 208.000 600.0 0
+0 0 0
+0 0 0
+-22.5 206.000 700.0 0
+0
+velocity 100
+isolated btiF07
+event2 btF_go_sem_info
+endtrack
+node -1 0 btF08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 206.000 700.0 0
+0 0 0
+0 0 0
+-22.5 204.000 800.0 0
+0
+velocity 100
+isolated btiF08
+endtrack
+node -1 0 btF09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 204.000 800.0 0
+0 0 0
+0 0 0
+-22.5 202.000 900.0 0
+0
+velocity 100
+isolated btiF09
+endtrack
+node -1 0 btF10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 202.000 900.0 0
+0 0 0
+0 0 0
+-22.5 200.000 1000.0 0
+0
+velocity 100
+isolated btiF10
+endtrack
+node -1 0 btF11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 200.000 1000.0 0
+0 0 0
+0 0 0
+-22.5 198.000 1100.0 0
+0
+velocity 100
+isolated btiF11
+endtrack
+node -1 0 btF12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 198.000 1100.0 0
+0 0 0
+0 0 0
+-22.5 196.000 1200.0 0
+0
+velocity 100
+isolated btiF12
+endtrack
+node -1 0 btF13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 196.000 1200.0 0
+0 0 0
+0 0 0
+-22.5 194.000 1300.0 0
+0
+velocity 100
+isolated btiF13
+endtrack
+node -1 0 btF14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 194.000 1300.0 0
+0 0 0
+0 0 0
+-22.5 192.000 1400.0 0
+0
+velocity 100
+isolated btiF14
+endtrack
+node -1 0 btF15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 192.000 1400.0 0
+0 0 0
+0 0 0
+-22.5 190.000 1500.0 0
+0
+velocity 100
+isolated btiF15
+endtrack
+node -1 0 btF16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 190.000 1500.0 0
+0 0 0
+0 0 0
+-22.5 188.000 1600.0 0
+0
+velocity 100
+isolated btiF16
+endtrack
+node -1 0 btF17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 188.000 1600.0 0
+0 0 0
+0 0 0
+-22.5 186.000 1700.0 0
+0
+velocity 100
+isolated btiF17
+endtrack
+node -1 0 btF18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 186.000 1700.0 0
+0 0 0
+0 0 0
+-22.5 184.000 1800.0 0
+0
+velocity 100
+isolated btiF18
+endtrack
+node -1 0 btF19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 184.000 1800.0 0
+0 0 0
+0 0 0
+-22.5 182.000 1900.0 0
+0
+velocity 100
+isolated btiF19
+endtrack
+node -1 0 btF20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 182.000 1900.0 0
+0 0 0
+0 0 0
+-22.5 180.000 2000.0 0
+0
+velocity 100
+isolated btiF20
+endtrack
+node -1 0 btF21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 180.000 2000.0 0
+0 0 0
+0 0 0
+-22.5 178.000 2100.0 0
+0
+velocity 100
+isolated btiF21
+endtrack
+node -1 0 btF22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 178.000 2100.0 0
+0 0 0
+0 0 0
+-22.5 176.000 2200.0 0
+0
+velocity 100
+isolated btiF22
+endtrack
+node -1 0 btF23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 176.000 2200.0 0
+0 0 0
+0 0 0
+-22.5 174.000 2300.0 0
+0
+velocity 100
+isolated btiF23
+endtrack
+node -1 0 btF24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 174.000 2300.0 0
+0 0 0
+0 0 0
+-22.5 172.000 2400.0 0
+0
+velocity 100
+isolated btiF24
+endtrack
+node -1 0 btF25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 172.000 2400.0 0
+0 0 0
+0 0 0
+-22.5 170.000 2500.0 0
+0
+velocity 100
+isolated btiF25
+endtrack
+node -1 0 btF26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 170.000 2500.0 0
+0 0 0
+0 0 0
+-22.5 168.000 2600.0 0
+0
+velocity 100
+isolated btiF26
+endtrack
+node -1 0 btF27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 168.000 2600.0 0
+0 0 0
+0 0 0
+-22.5 166.000 2700.0 0
+0
+velocity 100
+isolated btiF27
+endtrack
+node -1 0 btF28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 166.000 2700.0 0
+0 0 0
+0 0 0
+-22.5 164.000 2800.0 0
+0
+velocity 100
+isolated btiF28
+endtrack
+node -1 0 btF29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 164.000 2800.0 0
+0 0 0
+0 0 0
+-22.5 162.000 2900.0 0
+0
+velocity 100
+isolated btiF29
+endtrack
+node -1 0 btF30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 162.000 2900.0 0
+0 0 0
+0 0 0
+-22.5 160.000 3000.0 0
+0
+velocity 100
+isolated btiF30
+endtrack
+node -1 0 btF31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 160.000 3000.0 0
+0 0 0
+0 0 0
+-22.5 158.000 3100.0 0
+0
+velocity 100
+isolated btiF31
+endtrack
+node -1 0 btF32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 158.000 3100.0 0
+0 0 0
+0 0 0
+-22.5 156.000 3200.0 0
+0
+velocity 100
+isolated btiF32
+endtrack
+node -1 0 btF33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 156.000 3200.0 0
+0 0 0
+0 0 0
+-22.5 154.000 3300.0 0
+0
+velocity 100
+isolated btiF33
+endtrack
+node -1 0 btF34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 154.000 3300.0 0
+0 0 0
+0 0 0
+-22.5 152.000 3400.0 0
+0
+velocity 100
+isolated btiF34
+endtrack
+node -1 0 btF35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 152.000 3400.0 0
+0 0 0
+0 0 0
+-22.5 150.000 3500.0 0
+0
+velocity 100
+isolated btiF35
+endtrack
+node -1 0 btF36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 150.000 3500.0 0
+0 0 0
+0 0 0
+-22.5 148.000 3600.0 0
+0
+velocity 100
+isolated btiF36
+endtrack
+node -1 0 btF37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 148.000 3600.0 0
+0 0 0
+0 0 0
+-22.5 146.000 3700.0 0
+0
+velocity 100
+isolated btiF37
+endtrack
+node -1 0 btF38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 146.000 3700.0 0
+0 0 0
+0 0 0
+-22.5 144.000 3800.0 0
+0
+velocity 100
+isolated btiF38
+endtrack
+node -1 0 btF39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 144.000 3800.0 0
+0 0 0
+0 0 0
+-22.5 142.000 3900.0 0
+0
+velocity 100
+isolated btiF39
+endtrack
+node -1 0 btF40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 142.000 3900.0 0
+0 0 0
+0 0 0
+-22.5 140.000 4000.0 0
+0
+velocity 100
+isolated btiF40
+endtrack
+node -1 0 btF41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 140.000 4000.0 0
+0 0 0
+0 0 0
+-22.5 138.000 4100.0 0
+0
+velocity 100
+isolated btiF41
+endtrack
+node -1 0 btF42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 138.000 4100.0 0
+0 0 0
+0 0 0
+-22.5 136.000 4200.0 0
+0
+velocity 100
+isolated btiF42
+endtrack
+node -1 0 btF43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 136.000 4200.0 0
+0 0 0
+0 0 0
+-22.5 134.000 4300.0 0
+0
+velocity 100
+isolated btiF43
+endtrack
+node -1 0 btF44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 134.000 4300.0 0
+0 0 0
+0 0 0
+-22.5 132.000 4400.0 0
+0
+velocity 100
+isolated btiF44
+endtrack
+node -1 0 btF45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 132.000 4400.0 0
+0 0 0
+0 0 0
+-22.5 130.000 4500.0 0
+0
+velocity 100
+isolated btiF45
+endtrack
+node -1 0 btF46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 130.000 4500.0 0
+0 0 0
+0 0 0
+-22.5 128.000 4600.0 0
+0
+velocity 100
+isolated btiF46
+endtrack
+node -1 0 btF47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 128.000 4600.0 0
+0 0 0
+0 0 0
+-22.5 126.000 4700.0 0
+0
+velocity 100
+isolated btiF47
+endtrack
+node -1 0 btF48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 126.000 4700.0 0
+0 0 0
+0 0 0
+-22.5 124.000 4800.0 0
+0
+velocity 100
+isolated btiF48
+endtrack
+node -1 0 btF49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 124.000 4800.0 0
+0 0 0
+0 0 0
+-22.5 122.000 4900.0 0
+0
+velocity 100
+isolated btiF49
+endtrack
+node -1 0 btF50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 122.000 4900.0 0
+0 0 0
+0 0 0
+-22.5 120.000 5000.0 0
+0
+velocity 100
+isolated btiF50
+endtrack
+node -1 0 btF51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 120.000 5000.0 0
+0 0 0
+0 0 0
+-22.5 118.000 5100.0 0
+0
+velocity 20
+isolated btiF51
+endtrack
+node -1 0 btF52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 118.000 5100.0 0
+0 0 0
+0 0 0
+-22.5 116.000 5200.0 0
+0
+velocity 20
+isolated btiF52
+endtrack
+node -1 0 btF53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 116.000 5200.0 0
+0 0 0
+0 0 0
+-22.5 114.000 5300.0 0
+0
+velocity 100
+isolated btiF53
+endtrack
+node -1 0 btF54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 114.000 5300.0 0
+0 0 0
+0 0 0
+-22.5 112.000 5400.0 0
+0
+velocity 100
+isolated btiF54
+endtrack
+node -1 0 btF55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 112.000 5400.0 0
+0 0 0
+0 0 0
+-22.5 110.000 5500.0 0
+0
+velocity 100
+isolated btiF55
+endtrack
+node -1 0 btF56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 110.000 5500.0 0
+0 0 0
+0 0 0
+-22.5 108.000 5600.0 0
+0
+velocity 100
+isolated btiF56
+endtrack
+node -1 0 btF57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 108.000 5600.0 0
+0 0 0
+0 0 0
+-22.5 106.000 5700.0 0
+0
+velocity 100
+isolated btiF57
+endtrack
+node -1 0 btF58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 106.000 5700.0 0
+0 0 0
+0 0 0
+-22.5 104.000 5800.0 0
+0
+velocity 100
+isolated btiF58
+endtrack
+node -1 0 btF59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 104.000 5800.0 0
+0 0 0
+0 0 0
+-22.5 102.000 5900.0 0
+0
+velocity 100
+isolated btiF59
+endtrack
+node -1 0 btF60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 102.000 5900.0 0
+0 0 0
+0 0 0
+-22.5 100.000 6000.0 0
+0
+velocity 100
+isolated btiF60
+endtrack
+node -1 0 btF61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 100.000 6000.0 0
+0 0 0
+0 0 0
+-22.5 98.000 6100.0 0
+0
+velocity 100
+isolated btiF61
+endtrack
+node -1 0 btF62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 98.000 6100.0 0
+0 0 0
+0 0 0
+-22.5 96.000 6200.0 0
+0
+velocity 100
+isolated btiF62
+endtrack
+node -1 0 btF63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 96.000 6200.0 0
+0 0 0
+0 0 0
+-22.5 94.000 6300.0 0
+0
+velocity 100
+isolated btiF63
+endtrack
+node -1 0 btF64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 94.000 6300.0 0
+0 0 0
+0 0 0
+-22.5 92.000 6400.0 0
+0
+velocity 100
+isolated btiF64
+endtrack
+node -1 0 btF65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 92.000 6400.0 0
+0 0 0
+0 0 0
+-22.5 90.000 6500.0 0
+0
+velocity 100
+isolated btiF65
+endtrack
+node -1 0 btF66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 90.000 6500.0 0
+0 0 0
+0 0 0
+-22.5 88.000 6600.0 0
+0
+velocity 100
+isolated btiF66
+endtrack
+node -1 0 btF67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 88.000 6600.0 0
+0 0 0
+0 0 0
+-22.5 86.000 6700.0 0
+0
+velocity 100
+isolated btiF67
+endtrack
+node -1 0 btF68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 86.000 6700.0 0
+0 0 0
+0 0 0
+-22.5 84.000 6800.0 0
+0
+velocity 100
+isolated btiF68
+endtrack
+node -1 0 btF69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 84.000 6800.0 0
+0 0 0
+0 0 0
+-22.5 82.000 6900.0 0
+0
+velocity 100
+isolated btiF69
+endtrack
+node -1 0 btF70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 82.000 6900.0 0
+0 0 0
+0 0 0
+-22.5 80.000 7000.0 0
+0
+velocity 100
+isolated btiF70
+endtrack
+node -1 0 btF71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 80.000 7000.0 0
+0 0 0
+0 0 0
+-22.5 78.000 7100.0 0
+0
+velocity 100
+isolated btiF71
+endtrack
+node -1 0 btF72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 78.000 7100.0 0
+0 0 0
+0 0 0
+-22.5 76.000 7200.0 0
+0
+velocity 100
+isolated btiF72
+endtrack
+node -1 0 btF73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 76.000 7200.0 0
+0 0 0
+0 0 0
+-22.5 74.000 7300.0 0
+0
+velocity 100
+isolated btiF73
+endtrack
+node -1 0 btF74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 74.000 7300.0 0
+0 0 0
+0 0 0
+-22.5 72.000 7400.0 0
+0
+velocity 100
+isolated btiF74
+endtrack
+node -1 0 btF75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 72.000 7400.0 0
+0 0 0
+0 0 0
+-22.5 70.000 7500.0 0
+0
+velocity 100
+isolated btiF75
+endtrack
+node -1 0 btF76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 70.000 7500.0 0
+0 0 0
+0 0 0
+-22.5 68.000 7600.0 0
+0
+velocity 100
+isolated btiF76
+endtrack
+node -1 0 btF77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 68.000 7600.0 0
+0 0 0
+0 0 0
+-22.5 66.000 7700.0 0
+0
+velocity 100
+isolated btiF77
+event2 btF_s1_sem_info
+endtrack
+node -1 0 btF78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 66.000 7700.0 0
+0 0 0
+0 0 0
+-22.5 64.000 7800.0 0
+0
+velocity 100
+isolated btiF78
+endtrack
+node -1 0 btF79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 64.000 7800.0 0
+0 0 0
+0 0 0
+-22.5 62.000 7900.0 0
+0
+velocity 100
+isolated btiF79
+endtrack
+node -1 0 btF80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 62.000 7900.0 0
+0 0 0
+0 0 0
+-22.5 60.000 8000.0 0
+0
+velocity 100
+isolated btiF80
+endtrack
+node -1 0 btF81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-22.5 60.000 8000.0 0
+0 0 0
+0 0 0
+-22.5 58.000 8100.0 0
+0
+velocity 100
+isolated btiF81
+endtrack
+
+event btiF01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiF81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btF_go_sem_mem memcell -22.5 208.000 600 SetVelocity -1 -1 none endmemcell
+event btF_go_sem_info getvalues 1.0 btF_go_sem_mem endevent
+node -1 0 btF_s1_sem_mem memcell -22.5 68.000 7600 SetVelocity 0 0 none endmemcell
+event btF_s1_sem_info getvalues 1.0 btF_s1_sem_mem endevent
+
+node -1 0 btG01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 220.000 0.0 0
+0 0 0
+0 0 0
+-27.0 218.000 100.0 0
+0
+velocity 100
+isolated btiG01
+endtrack
+node -1 0 btG02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 218.000 100.0 0
+0 0 0
+0 0 0
+-27.0 216.000 200.0 0
+0
+velocity 100
+isolated btiG02
+endtrack
+node -1 0 btG03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 216.000 200.0 0
+0 0 0
+0 0 0
+-27.0 214.000 300.0 0
+0
+velocity 100
+isolated btiG03
+endtrack
+node -1 0 btG04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 214.000 300.0 0
+0 0 0
+0 0 0
+-27.0 212.000 400.0 0
+0
+velocity 100
+isolated btiG04
+endtrack
+node -1 0 btG05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 212.000 400.0 0
+0 0 0
+0 0 0
+-27.0 210.000 500.0 0
+0
+velocity 100
+isolated btiG05
+endtrack
+node -1 0 btG06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 210.000 500.0 0
+0 0 0
+0 0 0
+-27.0 208.000 600.0 0
+0
+velocity 100
+isolated btiG06
+endtrack
+node -1 0 btG07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 208.000 600.0 0
+0 0 0
+0 0 0
+-27.0 206.000 700.0 0
+0
+velocity 100
+isolated btiG07
+event2 btG_go_sem_info
+endtrack
+node -1 0 btG08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 206.000 700.0 0
+0 0 0
+0 0 0
+-27.0 204.000 800.0 0
+0
+velocity 100
+isolated btiG08
+endtrack
+node -1 0 btG09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 204.000 800.0 0
+0 0 0
+0 0 0
+-27.0 202.000 900.0 0
+0
+velocity 100
+isolated btiG09
+endtrack
+node -1 0 btG10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 202.000 900.0 0
+0 0 0
+0 0 0
+-27.0 200.000 1000.0 0
+0
+velocity 100
+isolated btiG10
+endtrack
+node -1 0 btG11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 200.000 1000.0 0
+0 0 0
+0 0 0
+-27.0 198.000 1100.0 0
+0
+velocity 100
+isolated btiG11
+endtrack
+node -1 0 btG12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 198.000 1100.0 0
+0 0 0
+0 0 0
+-27.0 196.000 1200.0 0
+0
+velocity 100
+isolated btiG12
+endtrack
+node -1 0 btG13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 196.000 1200.0 0
+0 0 0
+0 0 0
+-27.0 194.000 1300.0 0
+0
+velocity 100
+isolated btiG13
+endtrack
+node -1 0 btG14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 194.000 1300.0 0
+0 0 0
+0 0 0
+-27.0 192.000 1400.0 0
+0
+velocity 100
+isolated btiG14
+endtrack
+node -1 0 btG15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 192.000 1400.0 0
+0 0 0
+0 0 0
+-27.0 190.000 1500.0 0
+0
+velocity 100
+isolated btiG15
+endtrack
+node -1 0 btG16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 190.000 1500.0 0
+0 0 0
+0 0 0
+-27.0 188.000 1600.0 0
+0
+velocity 100
+isolated btiG16
+endtrack
+node -1 0 btG17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 188.000 1600.0 0
+0 0 0
+0 0 0
+-27.0 186.000 1700.0 0
+0
+velocity 100
+isolated btiG17
+endtrack
+node -1 0 btG18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 186.000 1700.0 0
+0 0 0
+0 0 0
+-27.0 184.000 1800.0 0
+0
+velocity 100
+isolated btiG18
+endtrack
+node -1 0 btG19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 184.000 1800.0 0
+0 0 0
+0 0 0
+-27.0 182.000 1900.0 0
+0
+velocity 100
+isolated btiG19
+endtrack
+node -1 0 btG20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 182.000 1900.0 0
+0 0 0
+0 0 0
+-27.0 180.000 2000.0 0
+0
+velocity 100
+isolated btiG20
+endtrack
+node -1 0 btG21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 180.000 2000.0 0
+0 0 0
+0 0 0
+-27.0 178.000 2100.0 0
+0
+velocity 100
+isolated btiG21
+endtrack
+node -1 0 btG22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 178.000 2100.0 0
+0 0 0
+0 0 0
+-27.0 176.000 2200.0 0
+0
+velocity 100
+isolated btiG22
+endtrack
+node -1 0 btG23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 176.000 2200.0 0
+0 0 0
+0 0 0
+-27.0 174.000 2300.0 0
+0
+velocity 100
+isolated btiG23
+endtrack
+node -1 0 btG24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 174.000 2300.0 0
+0 0 0
+0 0 0
+-27.0 172.000 2400.0 0
+0
+velocity 100
+isolated btiG24
+endtrack
+node -1 0 btG25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 172.000 2400.0 0
+0 0 0
+0 0 0
+-27.0 170.000 2500.0 0
+0
+velocity 100
+isolated btiG25
+endtrack
+node -1 0 btG26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 170.000 2500.0 0
+0 0 0
+0 0 0
+-27.0 168.000 2600.0 0
+0
+velocity 100
+isolated btiG26
+endtrack
+node -1 0 btG27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 168.000 2600.0 0
+0 0 0
+0 0 0
+-27.0 166.000 2700.0 0
+0
+velocity 100
+isolated btiG27
+endtrack
+node -1 0 btG28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 166.000 2700.0 0
+0 0 0
+0 0 0
+-27.0 164.000 2800.0 0
+0
+velocity 100
+isolated btiG28
+endtrack
+node -1 0 btG29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 164.000 2800.0 0
+0 0 0
+0 0 0
+-27.0 162.000 2900.0 0
+0
+velocity 100
+isolated btiG29
+endtrack
+node -1 0 btG30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 162.000 2900.0 0
+0 0 0
+0 0 0
+-27.0 160.000 3000.0 0
+0
+velocity 100
+isolated btiG30
+endtrack
+node -1 0 btG31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 160.000 3000.0 0
+0 0 0
+0 0 0
+-27.0 158.000 3100.0 0
+0
+velocity 100
+isolated btiG31
+endtrack
+node -1 0 btG32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 158.000 3100.0 0
+0 0 0
+0 0 0
+-27.0 156.000 3200.0 0
+0
+velocity 100
+isolated btiG32
+endtrack
+node -1 0 btG33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 156.000 3200.0 0
+0 0 0
+0 0 0
+-27.0 154.000 3300.0 0
+0
+velocity 100
+isolated btiG33
+endtrack
+node -1 0 btG34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 154.000 3300.0 0
+0 0 0
+0 0 0
+-27.0 152.000 3400.0 0
+0
+velocity 100
+isolated btiG34
+endtrack
+node -1 0 btG35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 152.000 3400.0 0
+0 0 0
+0 0 0
+-27.0 150.000 3500.0 0
+0
+velocity 100
+isolated btiG35
+endtrack
+node -1 0 btG36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 150.000 3500.0 0
+0 0 0
+0 0 0
+-27.0 148.000 3600.0 0
+0
+velocity 100
+isolated btiG36
+endtrack
+node -1 0 btG37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 148.000 3600.0 0
+0 0 0
+0 0 0
+-27.0 146.000 3700.0 0
+0
+velocity 100
+isolated btiG37
+endtrack
+node -1 0 btG38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 146.000 3700.0 0
+0 0 0
+0 0 0
+-27.0 144.000 3800.0 0
+0
+velocity 100
+isolated btiG38
+endtrack
+node -1 0 btG39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 144.000 3800.0 0
+0 0 0
+0 0 0
+-27.0 142.000 3900.0 0
+0
+velocity 100
+isolated btiG39
+endtrack
+node -1 0 btG40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 142.000 3900.0 0
+0 0 0
+0 0 0
+-27.0 140.000 4000.0 0
+0
+velocity 100
+isolated btiG40
+endtrack
+node -1 0 btG41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 140.000 4000.0 0
+0 0 0
+0 0 0
+-27.0 138.000 4100.0 0
+0
+velocity 100
+isolated btiG41
+endtrack
+node -1 0 btG42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 138.000 4100.0 0
+0 0 0
+0 0 0
+-27.0 136.000 4200.0 0
+0
+velocity 100
+isolated btiG42
+endtrack
+node -1 0 btG43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 136.000 4200.0 0
+0 0 0
+0 0 0
+-27.0 134.000 4300.0 0
+0
+velocity 100
+isolated btiG43
+endtrack
+node -1 0 btG44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 134.000 4300.0 0
+0 0 0
+0 0 0
+-27.0 132.000 4400.0 0
+0
+velocity 100
+isolated btiG44
+endtrack
+node -1 0 btG45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 132.000 4400.0 0
+0 0 0
+0 0 0
+-27.0 130.000 4500.0 0
+0
+velocity 100
+isolated btiG45
+endtrack
+node -1 0 btG46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 130.000 4500.0 0
+0 0 0
+0 0 0
+-27.0 128.000 4600.0 0
+0
+velocity 100
+isolated btiG46
+endtrack
+node -1 0 btG47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 128.000 4600.0 0
+0 0 0
+0 0 0
+-27.0 126.000 4700.0 0
+0
+velocity 100
+isolated btiG47
+endtrack
+node -1 0 btG48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 126.000 4700.0 0
+0 0 0
+0 0 0
+-27.0 124.000 4800.0 0
+0
+velocity 100
+isolated btiG48
+endtrack
+node -1 0 btG49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 124.000 4800.0 0
+0 0 0
+0 0 0
+-27.0 122.000 4900.0 0
+0
+velocity 100
+isolated btiG49
+endtrack
+node -1 0 btG50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 122.000 4900.0 0
+0 0 0
+0 0 0
+-27.0 120.000 5000.0 0
+0
+velocity 100
+isolated btiG50
+endtrack
+node -1 0 btG51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 120.000 5000.0 0
+0 0 0
+0 0 0
+-27.0 118.000 5100.0 0
+0
+velocity 20
+isolated btiG51
+endtrack
+node -1 0 btG52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 118.000 5100.0 0
+0 0 0
+0 0 0
+-27.0 116.000 5200.0 0
+0
+velocity 20
+isolated btiG52
+endtrack
+node -1 0 btG53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 116.000 5200.0 0
+0 0 0
+0 0 0
+-27.0 114.000 5300.0 0
+0
+velocity 100
+isolated btiG53
+endtrack
+node -1 0 btG54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 114.000 5300.0 0
+0 0 0
+0 0 0
+-27.0 112.000 5400.0 0
+0
+velocity 100
+isolated btiG54
+endtrack
+node -1 0 btG55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 112.000 5400.0 0
+0 0 0
+0 0 0
+-27.0 110.000 5500.0 0
+0
+velocity 100
+isolated btiG55
+endtrack
+node -1 0 btG56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 110.000 5500.0 0
+0 0 0
+0 0 0
+-27.0 108.000 5600.0 0
+0
+velocity 100
+isolated btiG56
+endtrack
+node -1 0 btG57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 108.000 5600.0 0
+0 0 0
+0 0 0
+-27.0 106.000 5700.0 0
+0
+velocity 100
+isolated btiG57
+endtrack
+node -1 0 btG58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 106.000 5700.0 0
+0 0 0
+0 0 0
+-27.0 104.000 5800.0 0
+0
+velocity 100
+isolated btiG58
+endtrack
+node -1 0 btG59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 104.000 5800.0 0
+0 0 0
+0 0 0
+-27.0 102.000 5900.0 0
+0
+velocity 100
+isolated btiG59
+endtrack
+node -1 0 btG60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 102.000 5900.0 0
+0 0 0
+0 0 0
+-27.0 100.000 6000.0 0
+0
+velocity 100
+isolated btiG60
+endtrack
+node -1 0 btG61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 100.000 6000.0 0
+0 0 0
+0 0 0
+-27.0 98.000 6100.0 0
+0
+velocity 100
+isolated btiG61
+endtrack
+node -1 0 btG62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 98.000 6100.0 0
+0 0 0
+0 0 0
+-27.0 96.000 6200.0 0
+0
+velocity 100
+isolated btiG62
+endtrack
+node -1 0 btG63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 96.000 6200.0 0
+0 0 0
+0 0 0
+-27.0 94.000 6300.0 0
+0
+velocity 100
+isolated btiG63
+endtrack
+node -1 0 btG64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 94.000 6300.0 0
+0 0 0
+0 0 0
+-27.0 92.000 6400.0 0
+0
+velocity 100
+isolated btiG64
+endtrack
+node -1 0 btG65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 92.000 6400.0 0
+0 0 0
+0 0 0
+-27.0 90.000 6500.0 0
+0
+velocity 100
+isolated btiG65
+endtrack
+node -1 0 btG66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 90.000 6500.0 0
+0 0 0
+0 0 0
+-27.0 88.000 6600.0 0
+0
+velocity 100
+isolated btiG66
+endtrack
+node -1 0 btG67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 88.000 6600.0 0
+0 0 0
+0 0 0
+-27.0 86.000 6700.0 0
+0
+velocity 100
+isolated btiG67
+endtrack
+node -1 0 btG68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 86.000 6700.0 0
+0 0 0
+0 0 0
+-27.0 84.000 6800.0 0
+0
+velocity 100
+isolated btiG68
+endtrack
+node -1 0 btG69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 84.000 6800.0 0
+0 0 0
+0 0 0
+-27.0 82.000 6900.0 0
+0
+velocity 100
+isolated btiG69
+endtrack
+node -1 0 btG70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 82.000 6900.0 0
+0 0 0
+0 0 0
+-27.0 80.000 7000.0 0
+0
+velocity 100
+isolated btiG70
+endtrack
+node -1 0 btG71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 80.000 7000.0 0
+0 0 0
+0 0 0
+-27.0 78.000 7100.0 0
+0
+velocity 100
+isolated btiG71
+endtrack
+node -1 0 btG72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 78.000 7100.0 0
+0 0 0
+0 0 0
+-27.0 76.000 7200.0 0
+0
+velocity 100
+isolated btiG72
+endtrack
+node -1 0 btG73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 76.000 7200.0 0
+0 0 0
+0 0 0
+-27.0 74.000 7300.0 0
+0
+velocity 100
+isolated btiG73
+endtrack
+node -1 0 btG74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 74.000 7300.0 0
+0 0 0
+0 0 0
+-27.0 72.000 7400.0 0
+0
+velocity 100
+isolated btiG74
+endtrack
+node -1 0 btG75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 72.000 7400.0 0
+0 0 0
+0 0 0
+-27.0 70.000 7500.0 0
+0
+velocity 100
+isolated btiG75
+endtrack
+node -1 0 btG76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 70.000 7500.0 0
+0 0 0
+0 0 0
+-27.0 68.000 7600.0 0
+0
+velocity 100
+isolated btiG76
+endtrack
+node -1 0 btG77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 68.000 7600.0 0
+0 0 0
+0 0 0
+-27.0 66.000 7700.0 0
+0
+velocity 100
+isolated btiG77
+event2 btG_s1_sem_info
+endtrack
+node -1 0 btG78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 66.000 7700.0 0
+0 0 0
+0 0 0
+-27.0 64.000 7800.0 0
+0
+velocity 100
+isolated btiG78
+endtrack
+node -1 0 btG79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 64.000 7800.0 0
+0 0 0
+0 0 0
+-27.0 62.000 7900.0 0
+0
+velocity 100
+isolated btiG79
+endtrack
+node -1 0 btG80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 62.000 7900.0 0
+0 0 0
+0 0 0
+-27.0 60.000 8000.0 0
+0
+velocity 100
+isolated btiG80
+endtrack
+node -1 0 btG81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-27.0 60.000 8000.0 0
+0 0 0
+0 0 0
+-27.0 58.000 8100.0 0
+0
+velocity 100
+isolated btiG81
+endtrack
+
+event btiG01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiG81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btG_go_sem_mem memcell -27.0 208.000 600 SetVelocity -1 -1 none endmemcell
+event btG_go_sem_info getvalues 1.0 btG_go_sem_mem endevent
+node -1 0 btG_s1_sem_mem memcell -27.0 68.000 7600 SetVelocity 0 0 none endmemcell
+event btG_s1_sem_info getvalues 1.0 btG_s1_sem_mem endevent
+
+node -1 0 btH01 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 220.000 0.0 0
+0 0 0
+0 0 0
+-31.5 218.000 100.0 0
+0
+velocity 100
+isolated btiH01
+endtrack
+node -1 0 btH02 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 218.000 100.0 0
+0 0 0
+0 0 0
+-31.5 216.000 200.0 0
+0
+velocity 100
+isolated btiH02
+endtrack
+node -1 0 btH03 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 216.000 200.0 0
+0 0 0
+0 0 0
+-31.5 214.000 300.0 0
+0
+velocity 100
+isolated btiH03
+endtrack
+node -1 0 btH04 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 214.000 300.0 0
+0 0 0
+0 0 0
+-31.5 212.000 400.0 0
+0
+velocity 100
+isolated btiH04
+endtrack
+node -1 0 btH05 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 212.000 400.0 0
+0 0 0
+0 0 0
+-31.5 210.000 500.0 0
+0
+velocity 100
+isolated btiH05
+endtrack
+node -1 0 btH06 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 210.000 500.0 0
+0 0 0
+0 0 0
+-31.5 208.000 600.0 0
+0
+velocity 100
+isolated btiH06
+endtrack
+node -1 0 btH07 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 208.000 600.0 0
+0 0 0
+0 0 0
+-31.5 206.000 700.0 0
+0
+velocity 100
+isolated btiH07
+event2 btH_go_sem_info
+endtrack
+node -1 0 btH08 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 206.000 700.0 0
+0 0 0
+0 0 0
+-31.5 204.000 800.0 0
+0
+velocity 100
+isolated btiH08
+endtrack
+node -1 0 btH09 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 204.000 800.0 0
+0 0 0
+0 0 0
+-31.5 202.000 900.0 0
+0
+velocity 100
+isolated btiH09
+endtrack
+node -1 0 btH10 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 202.000 900.0 0
+0 0 0
+0 0 0
+-31.5 200.000 1000.0 0
+0
+velocity 100
+isolated btiH10
+endtrack
+node -1 0 btH11 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 200.000 1000.0 0
+0 0 0
+0 0 0
+-31.5 198.000 1100.0 0
+0
+velocity 100
+isolated btiH11
+endtrack
+node -1 0 btH12 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 198.000 1100.0 0
+0 0 0
+0 0 0
+-31.5 196.000 1200.0 0
+0
+velocity 100
+isolated btiH12
+endtrack
+node -1 0 btH13 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 196.000 1200.0 0
+0 0 0
+0 0 0
+-31.5 194.000 1300.0 0
+0
+velocity 100
+isolated btiH13
+endtrack
+node -1 0 btH14 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 194.000 1300.0 0
+0 0 0
+0 0 0
+-31.5 192.000 1400.0 0
+0
+velocity 100
+isolated btiH14
+endtrack
+node -1 0 btH15 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 192.000 1400.0 0
+0 0 0
+0 0 0
+-31.5 190.000 1500.0 0
+0
+velocity 100
+isolated btiH15
+endtrack
+node -1 0 btH16 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 190.000 1500.0 0
+0 0 0
+0 0 0
+-31.5 188.000 1600.0 0
+0
+velocity 100
+isolated btiH16
+endtrack
+node -1 0 btH17 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 188.000 1600.0 0
+0 0 0
+0 0 0
+-31.5 186.000 1700.0 0
+0
+velocity 100
+isolated btiH17
+endtrack
+node -1 0 btH18 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 186.000 1700.0 0
+0 0 0
+0 0 0
+-31.5 184.000 1800.0 0
+0
+velocity 100
+isolated btiH18
+endtrack
+node -1 0 btH19 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 184.000 1800.0 0
+0 0 0
+0 0 0
+-31.5 182.000 1900.0 0
+0
+velocity 100
+isolated btiH19
+endtrack
+node -1 0 btH20 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 182.000 1900.0 0
+0 0 0
+0 0 0
+-31.5 180.000 2000.0 0
+0
+velocity 100
+isolated btiH20
+endtrack
+node -1 0 btH21 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 180.000 2000.0 0
+0 0 0
+0 0 0
+-31.5 178.000 2100.0 0
+0
+velocity 100
+isolated btiH21
+endtrack
+node -1 0 btH22 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 178.000 2100.0 0
+0 0 0
+0 0 0
+-31.5 176.000 2200.0 0
+0
+velocity 100
+isolated btiH22
+endtrack
+node -1 0 btH23 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 176.000 2200.0 0
+0 0 0
+0 0 0
+-31.5 174.000 2300.0 0
+0
+velocity 100
+isolated btiH23
+endtrack
+node -1 0 btH24 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 174.000 2300.0 0
+0 0 0
+0 0 0
+-31.5 172.000 2400.0 0
+0
+velocity 100
+isolated btiH24
+endtrack
+node -1 0 btH25 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 172.000 2400.0 0
+0 0 0
+0 0 0
+-31.5 170.000 2500.0 0
+0
+velocity 100
+isolated btiH25
+endtrack
+node -1 0 btH26 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 170.000 2500.0 0
+0 0 0
+0 0 0
+-31.5 168.000 2600.0 0
+0
+velocity 100
+isolated btiH26
+endtrack
+node -1 0 btH27 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 168.000 2600.0 0
+0 0 0
+0 0 0
+-31.5 166.000 2700.0 0
+0
+velocity 100
+isolated btiH27
+endtrack
+node -1 0 btH28 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 166.000 2700.0 0
+0 0 0
+0 0 0
+-31.5 164.000 2800.0 0
+0
+velocity 100
+isolated btiH28
+endtrack
+node -1 0 btH29 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 164.000 2800.0 0
+0 0 0
+0 0 0
+-31.5 162.000 2900.0 0
+0
+velocity 100
+isolated btiH29
+endtrack
+node -1 0 btH30 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 162.000 2900.0 0
+0 0 0
+0 0 0
+-31.5 160.000 3000.0 0
+0
+velocity 100
+isolated btiH30
+endtrack
+node -1 0 btH31 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 160.000 3000.0 0
+0 0 0
+0 0 0
+-31.5 158.000 3100.0 0
+0
+velocity 100
+isolated btiH31
+endtrack
+node -1 0 btH32 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 158.000 3100.0 0
+0 0 0
+0 0 0
+-31.5 156.000 3200.0 0
+0
+velocity 100
+isolated btiH32
+endtrack
+node -1 0 btH33 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 156.000 3200.0 0
+0 0 0
+0 0 0
+-31.5 154.000 3300.0 0
+0
+velocity 100
+isolated btiH33
+endtrack
+node -1 0 btH34 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 154.000 3300.0 0
+0 0 0
+0 0 0
+-31.5 152.000 3400.0 0
+0
+velocity 100
+isolated btiH34
+endtrack
+node -1 0 btH35 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 152.000 3400.0 0
+0 0 0
+0 0 0
+-31.5 150.000 3500.0 0
+0
+velocity 100
+isolated btiH35
+endtrack
+node -1 0 btH36 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 150.000 3500.0 0
+0 0 0
+0 0 0
+-31.5 148.000 3600.0 0
+0
+velocity 100
+isolated btiH36
+endtrack
+node -1 0 btH37 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 148.000 3600.0 0
+0 0 0
+0 0 0
+-31.5 146.000 3700.0 0
+0
+velocity 100
+isolated btiH37
+endtrack
+node -1 0 btH38 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 146.000 3700.0 0
+0 0 0
+0 0 0
+-31.5 144.000 3800.0 0
+0
+velocity 100
+isolated btiH38
+endtrack
+node -1 0 btH39 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 144.000 3800.0 0
+0 0 0
+0 0 0
+-31.5 142.000 3900.0 0
+0
+velocity 100
+isolated btiH39
+endtrack
+node -1 0 btH40 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 142.000 3900.0 0
+0 0 0
+0 0 0
+-31.5 140.000 4000.0 0
+0
+velocity 100
+isolated btiH40
+endtrack
+node -1 0 btH41 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 140.000 4000.0 0
+0 0 0
+0 0 0
+-31.5 138.000 4100.0 0
+0
+velocity 100
+isolated btiH41
+endtrack
+node -1 0 btH42 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 138.000 4100.0 0
+0 0 0
+0 0 0
+-31.5 136.000 4200.0 0
+0
+velocity 100
+isolated btiH42
+endtrack
+node -1 0 btH43 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 136.000 4200.0 0
+0 0 0
+0 0 0
+-31.5 134.000 4300.0 0
+0
+velocity 100
+isolated btiH43
+endtrack
+node -1 0 btH44 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 134.000 4300.0 0
+0 0 0
+0 0 0
+-31.5 132.000 4400.0 0
+0
+velocity 100
+isolated btiH44
+endtrack
+node -1 0 btH45 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 132.000 4400.0 0
+0 0 0
+0 0 0
+-31.5 130.000 4500.0 0
+0
+velocity 100
+isolated btiH45
+endtrack
+node -1 0 btH46 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 130.000 4500.0 0
+0 0 0
+0 0 0
+-31.5 128.000 4600.0 0
+0
+velocity 100
+isolated btiH46
+endtrack
+node -1 0 btH47 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 128.000 4600.0 0
+0 0 0
+0 0 0
+-31.5 126.000 4700.0 0
+0
+velocity 100
+isolated btiH47
+endtrack
+node -1 0 btH48 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 126.000 4700.0 0
+0 0 0
+0 0 0
+-31.5 124.000 4800.0 0
+0
+velocity 100
+isolated btiH48
+endtrack
+node -1 0 btH49 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 124.000 4800.0 0
+0 0 0
+0 0 0
+-31.5 122.000 4900.0 0
+0
+velocity 100
+isolated btiH49
+endtrack
+node -1 0 btH50 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 122.000 4900.0 0
+0 0 0
+0 0 0
+-31.5 120.000 5000.0 0
+0
+velocity 100
+isolated btiH50
+endtrack
+node -1 0 btH51 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 120.000 5000.0 0
+0 0 0
+0 0 0
+-31.5 118.000 5100.0 0
+0
+velocity 20
+isolated btiH51
+endtrack
+node -1 0 btH52 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 118.000 5100.0 0
+0 0 0
+0 0 0
+-31.5 116.000 5200.0 0
+0
+velocity 20
+isolated btiH52
+endtrack
+node -1 0 btH53 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 116.000 5200.0 0
+0 0 0
+0 0 0
+-31.5 114.000 5300.0 0
+0
+velocity 100
+isolated btiH53
+endtrack
+node -1 0 btH54 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 114.000 5300.0 0
+0 0 0
+0 0 0
+-31.5 112.000 5400.0 0
+0
+velocity 100
+isolated btiH54
+endtrack
+node -1 0 btH55 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 112.000 5400.0 0
+0 0 0
+0 0 0
+-31.5 110.000 5500.0 0
+0
+velocity 100
+isolated btiH55
+endtrack
+node -1 0 btH56 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 110.000 5500.0 0
+0 0 0
+0 0 0
+-31.5 108.000 5600.0 0
+0
+velocity 100
+isolated btiH56
+endtrack
+node -1 0 btH57 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 108.000 5600.0 0
+0 0 0
+0 0 0
+-31.5 106.000 5700.0 0
+0
+velocity 100
+isolated btiH57
+endtrack
+node -1 0 btH58 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 106.000 5700.0 0
+0 0 0
+0 0 0
+-31.5 104.000 5800.0 0
+0
+velocity 100
+isolated btiH58
+endtrack
+node -1 0 btH59 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 104.000 5800.0 0
+0 0 0
+0 0 0
+-31.5 102.000 5900.0 0
+0
+velocity 100
+isolated btiH59
+endtrack
+node -1 0 btH60 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 102.000 5900.0 0
+0 0 0
+0 0 0
+-31.5 100.000 6000.0 0
+0
+velocity 100
+isolated btiH60
+endtrack
+node -1 0 btH61 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 100.000 6000.0 0
+0 0 0
+0 0 0
+-31.5 98.000 6100.0 0
+0
+velocity 100
+isolated btiH61
+endtrack
+node -1 0 btH62 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 98.000 6100.0 0
+0 0 0
+0 0 0
+-31.5 96.000 6200.0 0
+0
+velocity 100
+isolated btiH62
+endtrack
+node -1 0 btH63 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 96.000 6200.0 0
+0 0 0
+0 0 0
+-31.5 94.000 6300.0 0
+0
+velocity 100
+isolated btiH63
+endtrack
+node -1 0 btH64 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 94.000 6300.0 0
+0 0 0
+0 0 0
+-31.5 92.000 6400.0 0
+0
+velocity 100
+isolated btiH64
+endtrack
+node -1 0 btH65 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 92.000 6400.0 0
+0 0 0
+0 0 0
+-31.5 90.000 6500.0 0
+0
+velocity 100
+isolated btiH65
+endtrack
+node -1 0 btH66 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 90.000 6500.0 0
+0 0 0
+0 0 0
+-31.5 88.000 6600.0 0
+0
+velocity 100
+isolated btiH66
+endtrack
+node -1 0 btH67 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 88.000 6600.0 0
+0 0 0
+0 0 0
+-31.5 86.000 6700.0 0
+0
+velocity 100
+isolated btiH67
+endtrack
+node -1 0 btH68 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 86.000 6700.0 0
+0 0 0
+0 0 0
+-31.5 84.000 6800.0 0
+0
+velocity 100
+isolated btiH68
+endtrack
+node -1 0 btH69 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 84.000 6800.0 0
+0 0 0
+0 0 0
+-31.5 82.000 6900.0 0
+0
+velocity 100
+isolated btiH69
+endtrack
+node -1 0 btH70 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 82.000 6900.0 0
+0 0 0
+0 0 0
+-31.5 80.000 7000.0 0
+0
+velocity 100
+isolated btiH70
+endtrack
+node -1 0 btH71 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 80.000 7000.0 0
+0 0 0
+0 0 0
+-31.5 78.000 7100.0 0
+0
+velocity 100
+isolated btiH71
+endtrack
+node -1 0 btH72 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 78.000 7100.0 0
+0 0 0
+0 0 0
+-31.5 76.000 7200.0 0
+0
+velocity 100
+isolated btiH72
+endtrack
+node -1 0 btH73 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 76.000 7200.0 0
+0 0 0
+0 0 0
+-31.5 74.000 7300.0 0
+0
+velocity 100
+isolated btiH73
+endtrack
+node -1 0 btH74 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 74.000 7300.0 0
+0 0 0
+0 0 0
+-31.5 72.000 7400.0 0
+0
+velocity 100
+isolated btiH74
+endtrack
+node -1 0 btH75 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 72.000 7400.0 0
+0 0 0
+0 0 0
+-31.5 70.000 7500.0 0
+0
+velocity 100
+isolated btiH75
+endtrack
+node -1 0 btH76 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 70.000 7500.0 0
+0 0 0
+0 0 0
+-31.5 68.000 7600.0 0
+0
+velocity 100
+isolated btiH76
+endtrack
+node -1 0 btH77 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 68.000 7600.0 0
+0 0 0
+0 0 0
+-31.5 66.000 7700.0 0
+0
+velocity 100
+isolated btiH77
+event2 btH_s1_sem_info
+endtrack
+node -1 0 btH78 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 66.000 7700.0 0
+0 0 0
+0 0 0
+-31.5 64.000 7800.0 0
+0
+velocity 100
+isolated btiH78
+endtrack
+node -1 0 btH79 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 64.000 7800.0 0
+0 0 0
+0 0 0
+-31.5 62.000 7900.0 0
+0
+velocity 100
+isolated btiH79
+endtrack
+node -1 0 btH80 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 62.000 7900.0 0
+0 0 0
+0 0 0
+-31.5 60.000 8000.0 0
+0
+velocity 100
+isolated btiH80
+endtrack
+node -1 0 btH81 track normal 100 1.435 0.2 30 20 0 flat vis
+rail_screw_used1 4.55 1435mm/tpd-455-2 0.6 0.9 0.9
+-31.5 60.000 8000.0 0
+0 0 0
+0 0 0
+-31.5 58.000 8100.0 0
+0
+velocity 100
+isolated btiH81
+endtrack
+
+event btiH01:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH02:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH03:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH04:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH05:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH06:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH07:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH08:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH09:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH10:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH11:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH12:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH13:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH14:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH15:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH16:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH17:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH18:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH19:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH20:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH21:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH22:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH23:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH24:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH25:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH26:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH27:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH28:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH29:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH30:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH31:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH32:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH33:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH34:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH35:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH36:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH37:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH38:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH39:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH40:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH41:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH42:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH43:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH44:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH45:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH46:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH47:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH48:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH49:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH50:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH51:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH52:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH53:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH54:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH55:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH56:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH57:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH58:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH59:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH60:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH61:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH62:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH63:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH64:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH65:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH66:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH67:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH68:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH69:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH70:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH71:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH72:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH73:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH74:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH75:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH76:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH77:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH78:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH79:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH80:busy updatevalues 0 bt_nul * * 0 endevent
+event btiH81:busy updatevalues 0 bt_nul * * 0 endevent
+
+node -1 0 btH_go_sem_mem memcell -31.5 208.000 600 SetVelocity -1 -1 none endmemcell
+event btH_go_sem_info getvalues 1.0 btH_go_sem_mem endevent
+node -1 0 btH_s1_sem_mem memcell -31.5 68.000 7600 SetVelocity 0 0 none endmemcell
+event btH_s1_sem_info getvalues 1.0 btH_s1_sem_mem endevent
+
+node 1500 0 none model 2.0 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model 2.0 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btA_s1_glowica model 2.0 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model 2.0 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -2.5 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -2.5 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btB_s1_glowica model -2.5 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -2.5 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -7.0 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -7.0 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btC_s1_glowica model -7.0 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -7.0 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -11.5 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -11.5 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btD_s1_glowica model -11.5 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -11.5 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -16.0 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -16.0 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btE_s1_glowica model -16.0 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -16.0 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -20.5 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -20.5 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btF_s1_glowica model -20.5 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -20.5 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -25.0 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -25.0 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btG_s1_glowica model -25.0 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -25.0 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+node 1500 0 none model -29.5 120.000 5000 180 pkp/w9.t3d w9_2 endmodel
+node 1500 0 none model -29.5 116.000 5200 0 pkp/w9.t3d w9_10 endmodel
+node 1500 0 btH_s1_glowica model -29.5 68.000 7600 180 sem/glowice/s5ypzpcpb_dd.t3d none lights 0 0 1 0 0 endmodel
+node 800 0 none model -29.5 68.000 7600 180 sem/slupy/s5ypml.t3d sem/slupy endmodel
+
+FirstInit
+
+trainset 100 btA04 95 0.1
+node -1 0 EU07-TESTA dynamic pkp\4e_v1 4e-004 4e 0 headdriver 99 0 enddynamic
+node -1 0 BTA-WAG1 dynamic pkp\11xa_v2 a9o_1988140-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG2 dynamic pkp\11xa_v2 a9ou_1900211-9 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG3 dynamic pkp\11xa_v2 a9ou_1900234-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG4 dynamic pkp\11xa_v2 a9ou_1900294-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG5 dynamic pkp\11xa_v2 a9ou_1908008-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG6 dynamic pkp\11xa_v2 a9ou_1908136-0 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG7 dynamic pkp\11xa_v2 a9ou_1970003-4 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTA-WAG8 dynamic pkp\11xa_v2 a9ou_1970363-2 111ay_preg 0 nobody 115 60 passengers enddynamic
+endtrainset
+
+trainset 100 btB04 95 0.1
+node -1 0 EU07-TESTB dynamic pkp\et22_v3 201e-003 201E-RN 0 headdriver 3 0 enddynamic
+node -1 0 BTB-CYS1 dynamic pkp\406r_v1 33517952512-6 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS2 dynamic pkp\406r_v1 33517850733-1 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS3 dynamic pkp\406r_v1 33517850951-9 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS4 dynamic pkp\406r_v1 33517853187-7 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS5 dynamic pkp\406r_v1 33517853381-6 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS6 dynamic pkp\406r_v1 33517853420-2 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS7 dynamic pkp\406r_v1 33517854112-4 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS8 dynamic pkp\406r_v1 33517855562-9 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS9 dynamic pkp\406r_v1 33517856129-6 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS10 dynamic pkp\406r_v1 33517856543-8 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS11 dynamic pkp\406r_v1 33517859535-1 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS12 dynamic pkp\406r_v1 33517861520-9 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS13 dynamic pkp\406r_v1 33517861626-4 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS14 dynamic pkp\406r_v1 33517862792-3 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+node -1 0 BTB-CYS15 dynamic pkp\406r_v1 33517863179-2 406R_NO_NZ 0 nobody 3 33 petrol enddynamic
+endtrainset
+
+trainset 100 btC04 95 0.1
+node -1 0 EU07-TESTC dynamic pkp\impuls_v1 36WEa-015a 36WEa-A_KD 0 headdriver 255 30 passengers enddynamic
+node -1 0 BTC-EZT-B dynamic pkp\impuls_v1 36WEa-015b 36WEa-B_KD 0 nobody 255 30 passengers enddynamic
+node -1 0 BTC-EZT-C dynamic pkp\impuls_v1 36WEa-015c 36WEa-C_KD 0 nobody 255 30 passengers enddynamic
+endtrainset
+
+trainset 100 btD04 95 0.1
+node -1 0 EU07-TESTD dynamic pkp\4e_v1 4e-030 4e 0 headdriver 99 0 enddynamic
+node -1 0 BTD-WAG1 dynamic pkp\11xa_v2 a9nou_1970646-0 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTD-WAG2 dynamic pkp\11xa_v2 a9nou_1970667-6 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTD-WAG3 dynamic pkp\11xa_v2 a9nouy_1908169-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTD-WAG4 dynamic pkp\11xa_v2 a9nouz_1970634-6 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTD-WAG5 dynamic pkp\11xa_v2 a9nouz_1970666-8 111ay_preg 0 nobody 115 60 passengers enddynamic
+endtrainset
+
+trainset 100 btE04 95 0.1
+node -1 0 EU07-TESTE dynamic pkp\4e_v1 4e-072 4e 0 headdriver 99 0 enddynamic
+node -1 0 BTE-WAG1 dynamic pkp\11xa_v2 a9ou_1908008-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG2 dynamic pkp\11xa_v2 a9ou_1908136-0 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG3 dynamic pkp\11xa_v2 a9ou_1970003-4 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG4 dynamic pkp\11xa_v2 a9ou_1970363-2 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG5 dynamic pkp\11xa_v2 a9ou_1970511-6 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG6 dynamic pkp\11xa_v2 a9ou_1970519-9 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG7 dynamic pkp\11xa_v2 a9ou_1970640-3 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG8 dynamic pkp\11xa_v2 a9ou_1978209-0 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG9 dynamic pkp\11xa_v2 a9ouy_1908171-7 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG10 dynamic pkp\11xa_v2 a9ouy_1908172-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG11 dynamic pkp\11xa_v2 a9nou_1970045-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTE-WAG12 dynamic pkp\11xa_v2 a9nou_1970646-0 111ay_preg 0 nobody 115 60 passengers enddynamic
+endtrainset
+
+trainset 100 btF04 95 0.1
+node -1 0 EU07-TESTF dynamic pkp\et22_v3 201e-1021 201E-RN 0 headdriver 3 0 enddynamic
+node -1 0 BTF-WEG1 dynamic pkp\401w_v2 84515333624-1 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG2 dynamic pkp\401w_v2 84515333728-0 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG3 dynamic pkp\401w_v2 84515338004-1 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG4 dynamic pkp\401w_v2 84515338023-1 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG5 dynamic pkp\401w_v2 84515374992-2 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG6 dynamic pkp\401w_v2 31515959734-5 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG7 dynamic pkp\401w_v2 33515977982-6 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG8 dynamic pkp\401w_v2 5217 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG9 dynamic pkp\401w_v2 5346 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG10 dynamic pkp\401w_v2 5360 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG11 dynamic pkp\401w_v2 82515303013-5 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG12 dynamic pkp\401w_v2 82515314470-4 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG13 dynamic pkp\401w_v2 83515972045-6 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG14 dynamic pkp\401w_v2 84515333546-6 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG15 dynamic pkp\401w_v2 84515333568-0 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG16 dynamic pkp\401w_v2 84515333606-8 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG17 dynamic pkp\401w_v2 84515333624-1 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG18 dynamic pkp\401w_v2 84515333728-0 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG19 dynamic pkp\401w_v2 84515338004-1 401w 0 nobody 3 52 coal enddynamic
+node -1 0 BTF-WEG20 dynamic pkp\401w_v2 84515338023-1 401w 0 nobody 3 52 coal enddynamic
+endtrainset
+
+trainset 100 btG04 95 0.1
+node -1 0 EU07-TESTG dynamic pkp\en57_v2 en57-1272ra en57-1272ra 0 headdriver 255 30 passengers enddynamic
+node -1 0 BTG-EN57-S dynamic pkp\en57_v2 en57-1272s en57-1272s 0 nobody 255 60 passengers enddynamic
+node -1 0 BTG-EN57-RB dynamic pkp\en57_v2 en57-1272rb en57-1272rb 0 nobody 255 30 passengers enddynamic
+endtrainset
+
+trainset 100 btH04 95 0.1
+node -1 0 EU07-TESTH dynamic pkp\ep09_v2 104e-046 104e 0 headdriver 99 0 enddynamic
+node -1 0 BTH-WAG1 dynamic pkp\11xa_v2 a9nouz_1970666-8 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG2 dynamic pkp\11xa_v2 a9nouz_1970686-6 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG3 dynamic pkp\11xa_v2 a9nouz_1970688-2 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG4 dynamic pkp\11xa_v2 a9nouz_1978127-7 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG5 dynamic pkp\11xa_v2 a9o_1908185-7 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG6 dynamic pkp\11xa_v2 a9o_1988140-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG7 dynamic pkp\11xa_v2 a9ou_1900211-9 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG8 dynamic pkp\11xa_v2 a9ou_1900234-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG9 dynamic pkp\11xa_v2 a9ou_1900294-5 111ay_preg 0 nobody 115 60 passengers enddynamic
+node -1 0 BTH-WAG10 dynamic pkp\11xa_v2 a9ou_1908008-1 111ay_preg 0 nobody 115 60 passengers enddynamic
+endtrainset
