@@ -2260,6 +2260,29 @@ void TController::AutoRewident()
 		    fBrake_a1[i+1] /= 12 * fMass;
 	    }
 
+        {
+            // DIAGNOSTYKA (samo logowanie, bez zmiany zachowania): ksztalt charakterystyki hamulca
+            auto const velsample { std::max( 20.0, mvOccupied->Vmax * 0.25 ) };
+            std::string s { "BRAKESHAPE " + OwnerName() + " v=" + std::to_string( (int)velsample ) + " force:" };
+            for( int k = 1; k <= 12; ++k ) {
+                double force { 0.0 };
+                auto *w { pVehicles[ 0 ] };
+                while( w != nullptr ) {
+                    force += w->MoverParameters->BrakeForceR( k / 12.0, velsample );
+                    w = w->Next();
+                }
+                s += " " + std::to_string( (int)( force / std::max( 1.0, fMass ) * 1000.0 ) );
+            }
+            s += " | mass=" + std::to_string( (int)fMass )
+              + " vehicles=" + std::to_string( iVehicles )
+              + " delay=" + std::to_string( mvOccupied->BrakeDelay[ 0 ] )
+              + "/" + std::to_string( mvOccupied->BrakeDelay[ 1 ] )
+              + "/" + std::to_string( mvOccupied->BrakeDelay[ 2 ] )
+              + "/" + std::to_string( mvOccupied->BrakeDelay[ 3 ] )
+              + " maxbp=" + std::to_string( mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] );
+            WriteLog( s );
+        }
+
         IsPassengerTrain = is_train() && false == is_emu() && false == is_dmu() && (mvOccupied->BrakeDelayFlag & bdelay_G) == 0;
         IsCargoTrain = is_train() && (mvOccupied->BrakeDelayFlag & bdelay_G) != 0;
         IsHeavyCargoTrain = true == IsCargoTrain && fBrake_a0[1] > 0.4 && iVehicles - ControlledEnginesCount > 0 && fMass / iVehicles > 50000;
@@ -5891,6 +5914,35 @@ TController::update_timers( double dt ) {
     ElapsedTime += dt;
     WaitingTime += dt;
     fBrakeTime -= dt; // wpisana wartość jest zmniejszana do 0, gdy ujemna należy zmienić nastawę hamulca
+    if( ( mvOccupied != nullptr ) && ( ElapsedTime - fBrakeProbeTime >= 1.0 ) ) {
+        // DIAGNOSTYKA (samo logowanie): wszystko, co potrzebne do rozliczenia bilansu sil.
+        // celowo bez warunkow - filtrowanie po sile pociagowej i stanie ustalonym robimy offline
+        fBrakeProbeTime = ElapsedTime;
+        auto const fullpress {
+            mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] > 0.1 ?
+                mvOccupied->MaxBrakePress[ std::clamp( mvOccupied->LoadFlag, 1, 3 ) ] :
+                3.8 };
+        auto const fillratio { std::clamp( mvOccupied->BrakePress / fullpress, 0.0, 1.0 ) };
+        auto const commanded { std::clamp( BrakeCtrlPosition / 4.0, 0.0, 1.0 ) };
+        double fcmd { 0.0 }, ffill { 0.0 }, fb { 0.0 }, ft { 0.0 };
+        auto *w { pVehicles[ 0 ] };
+        while( w != nullptr ) {
+            fcmd += w->MoverParameters->BrakeForceR( commanded, mvOccupied->Vel );
+            ffill += w->MoverParameters->BrakeForceR( fillratio, mvOccupied->Vel );
+            fb += w->MoverParameters->Fb;
+            ft += w->MoverParameters->Ft;
+            w = w->Next();
+        }
+        char probe[ 400 ];
+        std::snprintf(
+            probe, sizeof( probe ),
+            "BRAKECAL %s t=%.1f v=%.2f g=%.4f absacc=%.4f pos=%.2f press=%.3f fill=%.3f cmd=%.3f a_cmd=%.4f a_fill=%.4f Fb=%.0f Ft=%.0f accdes=%.3f vnext=%.1f veldes=%.1f dist=%.1f",
+            OwnerName().c_str(), ElapsedTime, mvOccupied->Vel, fAccGravity, AbsAccS,
+            BrakeCtrlPosition, mvOccupied->BrakePress, fillratio, commanded,
+            fcmd / std::max( 1.0, fMass ), ffill / std::max( 1.0, fMass ), fb, ft,
+            AccDesired, VelNext, VelDesired, ActualProximityDist );
+        WriteLog( probe );
+    }
     if( mvOccupied->fBrakeCtrlPos != mvOccupied->Handle->GetPos( bh_FS ) ) {
         // brake charging timeout starts after charging ends
         BrakeChargingCooldown += dt;
