@@ -434,6 +434,8 @@ bool anim_type_unsafe_for_instancing( TAnimType a ) {
 // instanced path (one shared submodel tree across all instances) cannot serve.
 bool submodel_tree_blocks_instancing( TSubModel const *Sub ) {
     if( Sub == nullptr ) { return false; }
+    // a text display shows the text of its instance, a tree shared by all instances can't do that
+    if( Sub->eType == TP_TEXT ) { return true; }
     if( anim_type_unsafe_for_instancing( Sub->b_Anim ) ) { return true; }
     if( ( Sub->iFlags & 0x4000 ) != 0 ) { return true; }
     if( submodel_tree_blocks_instancing( Sub->Child ) ) { return true; }
