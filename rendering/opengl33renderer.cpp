@@ -28,6 +28,9 @@ http://mozilla.org/MPL/2.0/.
 
 int constexpr EU07_PICKBUFFERSIZE{ 1024 }; // size of (square) textures bound with the pick framebuffer
 int constexpr EU07_REFLECTIONFIDELITYOFFSET { 250 }; // artificial increase of range for reflection pass detail reduction
+// rails of plain tracks lying wholly farther than this aren't drawn. at this distance a rail head (7 cm) is a small
+// fraction of a pixel, while the two rails make up most of the triangles of a track; its trackbed is drawn as before
+double constexpr EU07_RAILDRAWRANGE { 1500.0 };
 
 namespace {
 
@@ -4284,6 +4287,20 @@ void opengl33_renderer::Render(scene::basic_cell::path_sequence::const_iterator 
 		return true;
 	};
 
+	// rails of plain railway tracks are left out past EU07_RAILDRAWRANGE. the distance is scaled like the range of the
+	// other scenery nodes and measured to the nearest point of the bounding sphere of the track. shadows draw no rails
+	// of railway tracks anyway, and the material 1 of roads, switches and turntables isn't plain rails
+	auto const camera{m_renderpass.pass_camera.position()};
+	auto const railrangesquared{sq(EU07_RAILDRAWRANGE)};
+	auto const far_rails = [&](TTrack *Track) {
+		if (((Track->iCategoryFlag & 15) != 1) || (Track->eType != tt_Normal))
+		{
+			return false;
+		}
+		auto const nearest{std::max(0.0, glm::length(Track->location() - camera) - Track->radius())};
+		return ((nearest * nearest) / (static_cast<double>(Global.ZoomFactor) * Global.ZoomFactor) / Global.fDistanceFactor) > railrangesquared;
+	};
+
 	// TODO: render auto generated trackbeds together with regular trackbeds in pass 1, and all rails in pass 2
 	// first pass, material 1
 	for (auto first{First}; first != Last; ++first)
@@ -4301,6 +4318,10 @@ void opengl33_renderer::Render(scene::basic_cell::path_sequence::const_iterator 
 		}
 
 		++m_renderpass.draw_stats.paths;
+		if ((m_renderpass.draw_mode == rendermode::color || m_renderpass.draw_mode == rendermode::reflections) && far_rails(track))
+		{
+			continue;
+		}
 		++m_renderpass.draw_stats.drawcalls;
 
 		switch (m_renderpass.draw_mode)
