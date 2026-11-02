@@ -6839,6 +6839,12 @@ bool TMoverParameters::AutoRelaySwitch(bool State)
 // Sprawdzenie warunków pracy automatycznego rozruchu
 // *************************************************************************************************
 
+// prog pradu PSR; na pozycjach z AutoSwitch=2 przesuwany o ARVC * napiecie zasilania
+double TMoverParameters::AutoRelayMinCurrent(double Base) const
+{
+	return RList[MainCtrlActualPos].AutoSwitchVoltage ? Base + ARVC * EngineVoltage : Base;
+}
+
 bool TMoverParameters::AutoRelayCheck(void)
 {
 	bool OK = false; // b:int;
@@ -6862,7 +6868,7 @@ bool TMoverParameters::AutoRelayCheck(void)
 	// sprawdzenie wszystkich warunkow (AutoRelayFlag, AutoSwitch, Im<Imin)
 	auto const ARFASI2{(false == AutoRelayFlag || (motor_param(ScndCtrlActualPos).AutoSwitch && abs(Im) < Imin))};
 	auto const ARFASI{
-	    (false == AutoRelayFlag || (RList[MainCtrlActualPos].AutoSwitch && abs(Im) < Imin) || (!RList[MainCtrlActualPos].AutoSwitch && RList[MainCtrlActualPos].Relay < MainCtrlPos))};
+	    (false == AutoRelayFlag || (RList[MainCtrlActualPos].AutoSwitch && abs(Im) < AutoRelayMinCurrent(Imin)) || (!RList[MainCtrlActualPos].AutoSwitch && RList[MainCtrlActualPos].Relay < MainCtrlPos))};
 	// brak PSR                   na tej pozycji działa PSR i prąd poniżej progu
 	// na tej pozycji nie działa PSR i pozycja walu ponizej
 	//                         chodzi w tym wszystkim o to, żeby można było zatrzymać rozruch na
@@ -9239,7 +9245,11 @@ bool TMoverParameters::readRList(std::string const &Input)
 		WriteLog("Read RList: number of entries exceeded capacity of the data table");
 		return false;
 	}
-	parser >> RList[idx].Relay >> RList[idx].R >> RList[idx].Bn >> RList[idx].Mn >> RList[idx].AutoSwitch;
+	std::string autoswitch;
+	parser >> RList[idx].Relay >> RList[idx].R >> RList[idx].Bn >> RList[idx].Mn >> autoswitch;
+	// 2: PSR z progiem zaleznym od napiecia (ARVC)
+	RList[idx].AutoSwitchVoltage = autoswitch == "2";
+	RList[idx].AutoSwitch = RList[idx].AutoSwitchVoltage || autoswitch == "true" || autoswitch == "yes" || autoswitch == "1";
 
 	if (true == parser.getTokens(1, false))
 	{
@@ -11445,6 +11455,7 @@ void TMoverParameters::LoadFIZ_Circuit(std::string const &Input)
 	extract_value(CircuitRes, "CircuitRes", Input, "");
 	extract_value(IminLo, "IminLo", Input, "");
 	extract_value(IminHi, "IminHi", Input, "");
+	extract_value(ARVC, "ARVC", Input, "");
 	extract_value(ImaxLo, "ImaxLo", Input, "");
 	extract_value(ImaxHi, "ImaxHi", Input, "");
 	Imin = IminLo;

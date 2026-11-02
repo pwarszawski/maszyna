@@ -1052,6 +1052,7 @@ struct TScheme
 	int Bn = 0;
 	int Mn = 0; /*ilosc galezi i silnikow w galezi*/ /*dla dizla Mn: czy luz czy nie*/
 	bool AutoSwitch = false; /*czy dana pozycja nastawniana jest recznie czy autom.*/
+	bool AutoSwitchVoltage = false; /*czy prog PSR na tej pozycji zalezy od napiecia (ARVC)*/
 	int ScndAct = 0; /*jesli ma bocznik w nastawniku, to ktory bocznik na ktorej pozycji*/
 };
 using TSchemeTable = TScheme[ResArraySize + 1]; /*tablica rezystorow rozr.*/
@@ -1755,6 +1756,7 @@ class TMoverParameters
 	double CircuitRes = 0.0; /*rezystancje silnika i obwodu*/
 	int IminLo = 0;
 	int IminHi = 0; /*prady przelacznika automatycznego rozruchu, uzywane tez przez ai_driver*/
+	double ARVC = 0.0; // zmiana progu PSR na A/V napiecia zasilania, na pozycjach z AutoSwitch=2
 	int ImaxLo = 0; // maksymalny prad niskiego rozruchu
 	int ImaxHi = 0; // maksymalny prad wysokiego rozruchu
 	bool MotorOverloadRelayHighThreshold{false};
@@ -2541,6 +2543,7 @@ class TMoverParameters
 	bool MinCurrentSwitch(bool State); // przelacznik pradu automatycznego rozruchu
 	bool AutoRelaySwitch(bool State); // przelacznik automatycznego rozruchu
 	bool AutoRelayCheck(); // symulacja automatycznego rozruchu
+	double AutoRelayMinCurrent(double Base) const; // prog PSR na biezacej pozycji, z poprawka napieciowa
 	bool MotorConnectorsCheck();
 	bool ResistorsFlagCheck(void) const; // sprawdzenie kontrolki oporow rozruchowych NBMX
 
