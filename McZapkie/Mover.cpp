@@ -6839,10 +6839,10 @@ bool TMoverParameters::AutoRelaySwitch(bool State)
 // Sprawdzenie warunków pracy automatycznego rozruchu
 // *************************************************************************************************
 
-// prog pradu PSR; na pozycjach z AutoSwitch=2 przesuwany o ARVC * napiecie zasilania
+// prog pradu PSR; na pozycjach z AutoSwitch=2 przesuwany o ARVC * napiecie sieci
 double TMoverParameters::AutoRelayMinCurrent(double Base) const
 {
-	return RList[MainCtrlActualPos].AutoSwitchVoltage ? Base + ARVC * EngineVoltage : Base;
+	return RList[MainCtrlActualPos].AutoSwitchVoltage ? Base + ARVC * EnginePowerSourceVoltage() : Base;
 }
 
 bool TMoverParameters::AutoRelayCheck(void)

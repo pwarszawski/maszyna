@@ -1756,7 +1756,7 @@ class TMoverParameters
 	double CircuitRes = 0.0; /*rezystancje silnika i obwodu*/
 	int IminLo = 0;
 	int IminHi = 0; /*prady przelacznika automatycznego rozruchu, uzywane tez przez ai_driver*/
-	double ARVC = 0.0; // zmiana progu PSR na A/V napiecia zasilania, na pozycjach z AutoSwitch=2
+	double ARVC = 0.0; // zmiana progu PSR na A/V napiecia sieci, na pozycjach z AutoSwitch=2
 	int ImaxLo = 0; // maksymalny prad niskiego rozruchu
 	int ImaxHi = 0; // maksymalny prad wysokiego rozruchu
 	bool MotorOverloadRelayHighThreshold{false};
