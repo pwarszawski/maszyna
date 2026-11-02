@@ -1757,7 +1757,7 @@ class TMoverParameters
 	int IminLo = 0;
 	int IminHi = 0; /*prady przelacznika automatycznego rozruchu, uzywane tez przez ai_driver*/
 	double ARVC = 0.0; // zmiana progu PSR na A/V napiecia sieci, na pozycjach z AutoSwitch=2
-	bool AutoRelayTotalCurrent = false; // ARTC: PSR mierzy prad calego pojazdu (Yes) zamiast jednej galezi
+	bool AutoRelayTotalCurrent = false; // ARTC (Cntrl.): PSR mierzy prad calego pojazdu (Yes) zamiast jednej galezi
 	int ImaxLo = 0; // maksymalny prad niskiego rozruchu
 	int ImaxHi = 0; // maksymalny prad wysokiego rozruchu
 	bool MotorOverloadRelayHighThreshold{false};

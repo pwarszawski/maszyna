@@ -10893,6 +10893,7 @@ void TMoverParameters::LoadFIZ_Cntrl(std::string const &line)
 		AutoRelayType = 0;
 	}
 
+	extract_value(AutoRelayTotalCurrent, "ARTC", line, "");
 	extract_value(CoupledCtrl, "CoupledCtrl", line, "");
 	extract_value(HasCamshaft, "Camshaft", line, "");
 	extract_value(EIMCtrlType, "EIMCtrlType", line, "");
@@ -11462,7 +11463,6 @@ void TMoverParameters::LoadFIZ_Circuit(std::string const &Input)
 	extract_value(IminLo, "IminLo", Input, "");
 	extract_value(IminHi, "IminHi", Input, "");
 	extract_value(ARVC, "ARVC", Input, "");
-	extract_value(AutoRelayTotalCurrent, "ARTC", Input, "");
 	extract_value(ImaxLo, "ImaxLo", Input, "");
 	extract_value(ImaxHi, "ImaxHi", Input, "");
 	Imin = IminLo;
