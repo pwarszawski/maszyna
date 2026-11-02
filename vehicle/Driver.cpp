@@ -3408,7 +3408,7 @@ bool TController::IncSpeed()
 				Vs = ESMVelocity(!usefieldshunting);
 			}
 
-			if (std::abs(mvControlling->Im) < mvControlling->AutoRelayMinCurrent(fReady < 0.4 ? mvControlling->Imin : mvControlling->IminLo) || mvControlling->Vel > Vs)
+			if (mvControlling->AutoRelayCurrent() < mvControlling->AutoRelayMinCurrent(fReady < 0.4 ? mvControlling->Imin : mvControlling->IminLo) || mvControlling->Vel > Vs)
 			{
 				// Ra: wywalał nadmiarowy, bo Im może być ujemne; jak nie odhamowany, to nie przesadzać z prądem
 				if (usefieldshunting)

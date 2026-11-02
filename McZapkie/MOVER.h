@@ -1757,6 +1757,7 @@ class TMoverParameters
 	int IminLo = 0;
 	int IminHi = 0; /*prady przelacznika automatycznego rozruchu, uzywane tez przez ai_driver*/
 	double ARVC = 0.0; // zmiana progu PSR na A/V napiecia sieci, na pozycjach z AutoSwitch=2
+	bool AutoRelayOneBranch = true; // AROB: PSR mierzy prad jednej galezi (Yes) albo calego pojazdu (No)
 	int ImaxLo = 0; // maksymalny prad niskiego rozruchu
 	int ImaxHi = 0; // maksymalny prad wysokiego rozruchu
 	bool MotorOverloadRelayHighThreshold{false};
@@ -2544,6 +2545,7 @@ class TMoverParameters
 	bool AutoRelaySwitch(bool State); // przelacznik automatycznego rozruchu
 	bool AutoRelayCheck(); // symulacja automatycznego rozruchu
 	double AutoRelayMinCurrent(double Base) const; // prog PSR na biezacej pozycji, z poprawka napieciowa
+	double AutoRelayCurrent() const; // prad mierzony przez PSR
 	bool MotorConnectorsCheck();
 	bool ResistorsFlagCheck(void) const; // sprawdzenie kontrolki oporow rozruchowych NBMX
 

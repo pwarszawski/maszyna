@@ -6845,6 +6845,12 @@ double TMoverParameters::AutoRelayMinCurrent(double Base) const
 	return RList[MainCtrlActualPos].AutoSwitchVoltage ? Base + ARVC * EnginePowerSourceVoltage() : Base;
 }
 
+// prad jednej galezi silnikow albo, przy AROB=No, calego pojazdu
+double TMoverParameters::AutoRelayCurrent() const
+{
+	return std::abs(AutoRelayOneBranch ? Im : Itot);
+}
+
 bool TMoverParameters::AutoRelayCheck(void)
 {
 	bool OK = false; // b:int;
@@ -6866,9 +6872,9 @@ bool TMoverParameters::AutoRelayCheck(void)
 	}
 
 	// sprawdzenie wszystkich warunkow (AutoRelayFlag, AutoSwitch, Im<Imin)
-	auto const ARFASI2{(false == AutoRelayFlag || (motor_param(ScndCtrlActualPos).AutoSwitch && abs(Im) < Imin))};
+	auto const ARFASI2{(false == AutoRelayFlag || (motor_param(ScndCtrlActualPos).AutoSwitch && AutoRelayCurrent() < AutoRelayMinCurrent(Imin)))};
 	auto const ARFASI{
-	    (false == AutoRelayFlag || (RList[MainCtrlActualPos].AutoSwitch && abs(Im) < AutoRelayMinCurrent(Imin)) || (!RList[MainCtrlActualPos].AutoSwitch && RList[MainCtrlActualPos].Relay < MainCtrlPos))};
+	    (false == AutoRelayFlag || (RList[MainCtrlActualPos].AutoSwitch && AutoRelayCurrent() < AutoRelayMinCurrent(Imin)) || (!RList[MainCtrlActualPos].AutoSwitch && RList[MainCtrlActualPos].Relay < MainCtrlPos))};
 	// brak PSR                   na tej pozycji działa PSR i prąd poniżej progu
 	// na tej pozycji nie działa PSR i pozycja walu ponizej
 	//                         chodzi w tym wszystkim o to, żeby można było zatrzymać rozruch na
@@ -11456,6 +11462,7 @@ void TMoverParameters::LoadFIZ_Circuit(std::string const &Input)
 	extract_value(IminLo, "IminLo", Input, "");
 	extract_value(IminHi, "IminHi", Input, "");
 	extract_value(ARVC, "ARVC", Input, "");
+	extract_value(AutoRelayOneBranch, "AROB", Input, "");
 	extract_value(ImaxLo, "ImaxLo", Input, "");
 	extract_value(ImaxHi, "ImaxHi", Input, "");
 	Imin = IminLo;
