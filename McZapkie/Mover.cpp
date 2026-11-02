@@ -6845,10 +6845,10 @@ double TMoverParameters::AutoRelayMinCurrent(double Base) const
 	return RList[MainCtrlActualPos].AutoSwitchVoltage ? Base + ARVC * EnginePowerSourceVoltage() : Base;
 }
 
-// prad jednej galezi silnikow albo, przy AROB=No, calego pojazdu
+// prad jednej galezi silnikow albo, przy ARTC=Yes, calego pojazdu
 double TMoverParameters::AutoRelayCurrent() const
 {
-	return std::abs(AutoRelayOneBranch ? Im : Itot);
+	return std::abs(AutoRelayTotalCurrent ? Itot : Im);
 }
 
 bool TMoverParameters::AutoRelayCheck(void)
@@ -11462,7 +11462,7 @@ void TMoverParameters::LoadFIZ_Circuit(std::string const &Input)
 	extract_value(IminLo, "IminLo", Input, "");
 	extract_value(IminHi, "IminHi", Input, "");
 	extract_value(ARVC, "ARVC", Input, "");
-	extract_value(AutoRelayOneBranch, "AROB", Input, "");
+	extract_value(AutoRelayTotalCurrent, "ARTC", Input, "");
 	extract_value(ImaxLo, "ImaxLo", Input, "");
 	extract_value(ImaxHi, "ImaxHi", Input, "");
 	Imin = IminLo;
