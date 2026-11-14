@@ -533,9 +533,12 @@ struct global_settings {
     // surroundings, each one downwards as the lamp of a street light, separated with |. other glowing points (lights of signals,
     // of chimneys, the stars of the sky) only glow. empty: none
     std::string gfx_lights_stars { "lamp" };
-    // the half angle of the cone of the light of a light point is at least this, degrees. 0: the cone of its glare, which many
-    // lamps have narrow
+    // the half angle of the cone of the light of a light point of a scenery lamp shining downwards is at least this, degrees.
+    // 0: the cone of its glare, which many lamps have narrow. lights shining sideways (signals) keep their cones
     float gfx_lights_freespot_mincone { 0.f };
+    // the brightness of the light the lamps of the scenery shining downwards (and their glowing points, gfx_lights_stars) light
+    // their surroundings with is multiplied by this. lights shining sideways (signals) keep theirs
+    float gfx_lights_lamps_gain { 1.f };
     // textures of the planes models fake the light of their lamps with (pools of light on the ground, glows), separated with |:
     // they aren't drawn while the light points of scenery models light their surroundings. empty: they're drawn
     std::string gfx_lights_hideglow;
