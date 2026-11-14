@@ -122,15 +122,19 @@ class local_lights
 	struct cell_data
 	{
 		std::vector<TAnimModel *> instances; // instances of models with light points
-		// what the list was made from: when the instance list of the cell changes, the list is made anew
+		// what the list was made from: when the instance lists of the cell change, the list is made anew
 		std::size_t source_size{0};
 		void const *source_data{nullptr};
+		std::size_t opaque_size{0};
+		void const *opaque_data{nullptr};
 	};
 
 	// lights of the light points of the submodel tree, gone through the way the render goes through it. Transform: model space of
 	// Submodel's parent, Placement: model space to world space, Brightness: of a light point of white colour
 	void walk(TSubModel *Submodel, glm::mat4 const &Transform, glm::dmat4 const &Placement, float const Brightness);
 	void add_light_point(TSubModel const &Submodel, glm::mat4 const &Transform, glm::dmat4 const &Placement, float Brightness);
+	// lights of the glowing points of a smt_Stars submodel of a scenery lamp (gfx_lights_stars), each one shining downwards
+	void add_lamp_points(TSubModel const &Submodel, glm::mat4 const &Transform, glm::dmat4 const &Placement, float Brightness);
 	void gather_instance(TAnimModel *Instance, glm::dvec3 const &Camera, float const Brightness, unsigned int const Framestamp);
 	void gather_vehicle(TDynamicObject *Vehicle, glm::dvec3 const &Camera, gfx::geometrybank_manager const &Geometry, float const Freespotbrightness, float const Compartmentbrightness);
 	void gather_cab_lights(gfx::geometrybank_manager const &Geometry);
@@ -150,6 +154,7 @@ class local_lights
 	std::unordered_map<TSubModel const *, section_data> m_sections; // compartments, by their submodel
 	std::unordered_map<TModel3d const *, section_data> m_models; // bounds of cab models
 	TAnimModel const *m_walkowner{nullptr}; // scenery instance whose light points walk() goes through; nullptr for vehicles
+	gfx::geometrybank_manager const *m_walkgeometry{nullptr}; // geometry of the models, for the glowing points of the lamps
 	bool m_editorseen{false}; // the editor was on in the last frame: the instance lists of the cells may have changed
 	// statistics
 	std::uint32_t m_scenerycount{0};

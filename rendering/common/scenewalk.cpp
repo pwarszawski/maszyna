@@ -16,6 +16,7 @@ http://mozilla.org/MPL/2.0/.
 #include "rendering/common/walksync.h"
 #include "utilities/color.h"
 #include "utilities/Globals.h"
+#include "utilities/utilities.h"
 #include "vehicle/Train.h"
 #include "vehicle/Camera.h"
 #include "vehicle/DynObj.h"
@@ -29,7 +30,10 @@ http://mozilla.org/MPL/2.0/.
 #include "model/AnimModel.h"
 #include "model/Model3d.h"
 #include "rendering/common/skyocclusion.h"
+#include <algorithm>
 #include <chrono>
+#include <string>
+#include <string_view>
 
 namespace gfx
 {
@@ -44,7 +48,59 @@ TEnvironmentType track_environment(TTrack const *Track)
 	return (Global.gfx_tunnelflags ? Track->eEnvironment : e_flat);
 }
 
+// the name of a texture or a material the way gfx_lights_hideglow lists it: lower case, with /, without the folder of the textures
+// and without the extension
+std::string glow_name(std::string_view const Name)
+{
+	auto name{ToLower(std::string{Name})};
+	std::ranges::replace(name, '\\', '/');
+	if (name.starts_with("textures/"))
+	{
+		name.erase(0, std::string_view{"textures/"}.size());
+	}
+	if (auto const dot{name.rfind('.')}; (dot != std::string::npos) && (name.find('/', dot) == std::string::npos))
+	{
+		name.erase(dot);
+	}
+	return name;
+}
+
+// whether the material named Name is one of the textures separated with | in List: the same name, or the end of it after a /
+bool is_listed_glow(std::string_view const Name, std::string_view const List)
+{
+	std::size_t start{0};
+	while (start <= List.size())
+	{
+		auto end{List.find('|', start)};
+		if (end == std::string_view::npos)
+		{
+			end = List.size();
+		}
+		if (auto const entry{glow_name(List.substr(start, end - start))}; (false == entry.empty()) && ((Name == entry) || Name.ends_with("/" + entry)))
+		{
+			return true;
+		}
+		start = end + 1;
+	}
+	return false;
+}
+
 } // namespace
+
+bool scene_walk::is_fake_glow(TSubModel const *Submodel)
+{
+	if (Global.gfx_lights_hideglow.empty() || (false == Global.gfx_lights_clustered) || (false == Global.gfx_lights_scenery) || (Submodel->m_material <= 0))
+	{
+		return false;
+	}
+	auto lookup{m_fakeglows.find(Submodel->m_material)};
+	if (lookup == m_fakeglows.end())
+	{
+		auto const fake{is_listed_glow(glow_name(walk_material_data(Submodel->m_material).GetName()), Global.gfx_lights_hideglow)};
+		lookup = m_fakeglows.emplace(Submodel->m_material, fake).first;
+	}
+	return lookup->second;
+}
 
 // the top view of the editor shows everything this close to the camera, the corners of the screen included
 float scene_walk::editor_ortho_reach()
@@ -2094,7 +2150,7 @@ void scene_walk::Render(TSubModel *Submodel)
 		if (Submodel->eType < TP_ROTATOR)
 		{
 			// renderowanie obiektów OpenGL
-			if (Submodel->iAlpha & Submodel->iFlags & 0x1F)
+			if ((Submodel->iAlpha & Submodel->iFlags & 0x1F) && (false == is_fake_glow(Submodel)))
 			{
 				// rysuj gdy element nieprzezroczysty
 
@@ -3134,7 +3190,7 @@ void scene_walk::Render_Alpha(TSubModel *Submodel)
 		if (Submodel->eType < TP_ROTATOR)
 		{
 			// renderowanie obiektów OpenGL
-			if (Submodel->iAlpha & Submodel->iFlags & 0x2F)
+			if ((Submodel->iAlpha & Submodel->iFlags & 0x2F) && (false == is_fake_glow(Submodel)))
 			{
                 // rysuj gdy element przezroczysty
 
