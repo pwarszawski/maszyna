@@ -266,7 +266,8 @@ class scene_walk
 	virtual void walk_timbers_expand(std::vector<glm::mat4> const &Origins, std::vector<gl::timber_range> const &Ranges) {}
 	virtual void walk_cull_face(bool const Enabled) = 0;
 	// the glare of a lamp: drawn without the depth test, added to what is there; drawn only where the point of the light was
-	// seen (walk_light_query() of the last frame, when the backend has it)
+	// seen (walk_light_query() of this point drawn just before it, when the backend has it: the opengl renderer uses
+	// the query at once, the vulkan renderer the result of the last frame)
 	virtual void walk_glare(bool const Enabled) = 0;
 	virtual void walk_glare_draw(TSubModel *Submodel, gfx::geometry_handle const &Geometry) = 0;
 	virtual void walk_light_query(TSubModel *Submodel, bool const Begin) = 0;
