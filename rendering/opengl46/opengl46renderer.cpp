@@ -5058,6 +5058,11 @@ void opengl46_renderer::walk_glare(bool const Enabled)
 
 void opengl46_renderer::walk_glare_draw(TSubModel *Submodel, gfx::geometry_handle const &Geometry)
 {
+	// billboard.frag scales the glare by the part of the point seen, when the samples were counted for it
+	auto const parameter{model_ubs.param[1].w};
+	model_ubs.param[1].w = (m_glaresamples ? 1.f : 0.f);
+	if (m_glaresamples)
+		m_glaressbo->bind_base();
 	if (Submodel->occlusion_query) {
 		glBeginConditionalRender(*Submodel->occlusion_query, GL_QUERY_WAIT);
 		draw(Geometry);
@@ -5065,6 +5070,8 @@ void opengl46_renderer::walk_glare_draw(TSubModel *Submodel, gfx::geometry_handl
 	}
 	else
 		draw(Geometry);
+	model_ubs.param[1].w = parameter;
+	m_glaresamples = false;
 }
 
 void opengl46_renderer::walk_light_query(TSubModel *Submodel, bool const Begin)
@@ -5072,12 +5079,38 @@ void opengl46_renderer::walk_light_query(TSubModel *Submodel, bool const Begin)
 	if (false == gl::vao::use_vao)
 		return;
 	if (Begin) {
+		m_glaresamples = false;
 		if (!Submodel->occlusion_query)
-			Submodel->occlusion_query.emplace(gl::query::ANY_SAMPLES_PASSED);
+			Submodel->occlusion_query.emplace(gl::query::SAMPLES_PASSED);
 		Submodel->occlusion_query->begin();
+		m_glarequerysubmodel = Submodel;
 	}
 	else
 		Submodel->occlusion_query->end();
+}
+
+void opengl46_renderer::walk_light_reference(gfx::geometry_handle const &Geometry)
+{
+	if ((false == gl::vao::use_vao) || (m_glarequerysubmodel == nullptr) || (false == m_glarequerysubmodel->occlusion_query.has_value()))
+		return;
+	auto const &seen{*m_glarequerysubmodel->occlusion_query};
+	m_glarequerysubmodel = nullptr;
+	if (!m_glarequery)
+		m_glarequery.emplace(gl::query::SAMPLES_PASSED);
+	if (!m_glaressbo)
+		m_glaressbo = std::make_unique<gl::ssbo>(static_cast<GLsizeiptr>(2 * sizeof(GLuint)), gl::GLARE_SSBO_BINDING);
+	// the whole point, unseen: what the samples seen are compared with
+	glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+	glDisable(GL_DEPTH_TEST);
+	m_glarequery->begin();
+	draw(Geometry);
+	m_glarequery->end();
+	glEnable(GL_DEPTH_TEST);
+	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+	// the gpu writes the counts when they're done, no wait here
+	glGetQueryBufferObjectuiv(seen, *m_glaressbo, GL_QUERY_RESULT, 0);
+	glGetQueryBufferObjectuiv(*m_glarequery, *m_glaressbo, GL_QUERY_RESULT, static_cast<GLintptr>(sizeof(GLuint)));
+	m_glaresamples = true;
 }
 
 void opengl46_renderer::walk_region_begin()
