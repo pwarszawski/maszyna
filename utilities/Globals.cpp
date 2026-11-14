@@ -2058,6 +2058,7 @@ global_settings::ConfigParse_gfx_sky( cParser &Parser, std::string_view const To
         Parser >> gfx_lights_stars;
         if( gfx_lights_stars == "no" ) { gfx_lights_stars.clear(); } }
     else if( Token == "gfx.lights.freespot.mincone" ) { readvalue( gfx_lights_freespot_mincone, 0.f, 89.f ); }
+    else if( Token == "gfx.lights.lamps.gain" ) { readvalue( gfx_lights_lamps_gain, 0.1f, 10.f ); }
     else if( Token == "gfx.lights.hideglow" ) {
         // textures separated with |, or "no"
         Parser.getTokens( 1 );
@@ -2594,6 +2595,7 @@ global_settings::export_as_text( std::ostream &Output ) const {
     export_as_text( Output, "gfx.lights.points.near", gfx_lights_points_near );
     export_as_text( Output, "gfx.lights.stars", gfx_lights_stars.empty() ? std::string{ "no" } : gfx_lights_stars );
     export_as_text( Output, "gfx.lights.freespot.mincone", gfx_lights_freespot_mincone );
+    export_as_text( Output, "gfx.lights.lamps.gain", gfx_lights_lamps_gain );
     export_as_text( Output, "gfx.lights.hideglow", gfx_lights_hideglow.empty() ? std::string{ "no" } : gfx_lights_hideglow );
     export_as_text( Output, "gfx.cabprobe", std::string{ gfx_cabprobe == 3 ? "high" : gfx_cabprobe == 2 ? "medium" : gfx_cabprobe == 1 ? "low" : "no" } );
     export_as_text( Output, "gfx.cabprobe.interval", gfx_cabprobe_interval );

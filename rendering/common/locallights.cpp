@@ -48,6 +48,9 @@ std::size_t const CAB_LIGHTS_MAX{16};
 float const LAMP_POINT_OUTER_ANGLE{80.f};
 float const LAMP_POINT_INNER_ANGLE{55.f};
 float const LAMP_POINT_RADIUS{0.2f};
+// a light point whose axis is at most this far from straight down (the cosine of the angle) is a lamp lighting the ground under it;
+// one shining more sideways is a signal or a headlight, left as its model has it
+float const LAMP_DOWN_COS{0.7f};
 
 glm::vec3 to_linear(glm::vec3 const &Color)
 {
@@ -89,6 +92,19 @@ bool is_listed(std::string_view const Name, std::string_view const List)
 bool is_lamp_points(TSubModel const &Submodel)
 {
 	return (Submodel.eType == TP_STARS) && (false == Global.gfx_lights_stars.empty()) && is_listed(ToLower(Submodel.pName), Global.gfx_lights_stars);
+}
+
+// the axis of the cone of a light point, in the world
+glm::vec3 light_axis(glm::mat4 const &Transform, glm::dmat4 const &Placement)
+{
+	auto const axis{glm::vec3{glm::dmat3{Placement} * glm::dvec3{-glm::vec3{Transform[2]}}}};
+	return (glm::length2(axis) > 0.f ? glm::normalize(axis) : glm::vec3{0.f, -1.f, 0.f});
+}
+
+// whether a light with the axis shines downwards, the way a lamp lights the ground under it
+bool shines_down(glm::vec3 const &Axis)
+{
+	return (Axis.y <= -LAMP_DOWN_COS);
 }
 
 // the cosines of the outer and inner half angles of the cone of a light, the outer one widened to gfx_lights_freespot_mincone when
@@ -465,6 +481,11 @@ void gfx::local_lights::walk(TSubModel *Submodel, glm::mat4 const &Transform, gl
 				submodel->RaAnimation(transform, submodel->b_aAnim);
 			}
 		}
+		// closer than its glare is seen from only a lamp shining downwards lights, not a signal
+		if ((TSubModel::fSquareDist < submodel->fSquareMinDist) && (submodel->eType == TP_FREESPOTLIGHT) && (false == shines_down(light_axis(transform, Placement))))
+		{
+			continue;
+		}
 		if (submodel->eType == TP_FREESPOTLIGHT)
 		{
 			add_light_point(*submodel, transform, Placement, Brightness);
@@ -498,7 +519,11 @@ void gfx::local_lights::add_light_point(TSubModel const &Submodel, glm::mat4 con
 	auto const diffuse{Submodel.DiffuseOverride.r < 0.f ? // -1 indicates no override
 	                       glm::vec3{Submodel.f4Diffuse} :
 	                       Submodel.DiffuseOverride};
-	auto const color{to_linear(diffuse) * (Brightness * Submodel.fHotspotPower * Submodel.fVisible * std::min(Submodel.f4Emision.a, 1.f))};
+	auto const direction{light_axis(Transform, Placement)};
+	// a lamp of the scenery shining downwards: brighter by gfx_lights_lamps_gain, its cone widened to gfx_lights_freespot_mincone
+	auto const lamp{(m_walkowner != nullptr) && shines_down(direction)};
+	auto const gain{lamp ? Global.gfx_lights_lamps_gain : 1.f};
+	auto const color{to_linear(diffuse) * (Brightness * gain * Submodel.fHotspotPower * Submodel.fVisible * std::min(Submodel.f4Emision.a, 1.f))};
 	if (max_component(color) <= LIGHT_THRESHOLD)
 	{
 		return;
@@ -506,13 +531,11 @@ void gfx::local_lights::add_light_point(TSubModel const &Submodel, glm::mat4 con
 
 	light lightpoint;
 	lightpoint.position = glm::dvec3{Placement * glm::dvec4{glm::dvec3{Transform[3]}, 1.0}};
-	auto const axis{glm::vec3{glm::dmat3{Placement} * glm::dvec3{-glm::vec3{Transform[2]}}}};
-	lightpoint.direction = (glm::length2(axis) > 0.f ? glm::normalize(axis) : glm::vec3{0.f, -1.f, 0.f});
+	lightpoint.direction = direction;
 	lightpoint.color = color;
 	// the cone of the glare: where the point is seen from is where it shines. the glare goes from no brightness at the falloff
 	// angle to full at the hotspot angle, which some models have the wrong way round
-	// a lamp of the scenery: the cone widened to gfx_lights_freespot_mincone
-	auto const cone{light_cone(Submodel.fCosFalloffAngle, Submodel.fCosHotspotAngle, m_walkowner != nullptr)};
+	auto const cone{light_cone(Submodel.fCosFalloffAngle, Submodel.fCosHotspotAngle, lamp)};
 	lightpoint.cos_outer = cone.x;
 	lightpoint.cos_inner = cone.y;
 	lightpoint.range = light_range(color);
@@ -545,7 +568,7 @@ void gfx::local_lights::add_lamp_points(TSubModel const &Submodel, glm::mat4 con
 	{
 		// a glowing point keeps its colour in its normal; one without any takes the colour of the submodel
 		auto const pointcolor{max_component(vertex.normal) > 0.f ? vertex.normal : glm::vec3{Submodel.f4Diffuse}};
-		auto const color{to_linear(pointcolor) * Brightness};
+		auto const color{to_linear(pointcolor) * (Brightness * Global.gfx_lights_lamps_gain)};
 		if (max_component(color) <= LIGHT_THRESHOLD)
 		{
 			continue;
