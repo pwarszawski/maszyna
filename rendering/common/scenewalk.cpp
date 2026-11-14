@@ -3332,6 +3332,7 @@ void scene_walk::Render_Alpha(TSubModel *Submodel)
 					walk_draw(Submodel->m_geometry.handle);
 
                     walk_light_query(Submodel, false);
+					walk_light_reference(Submodel->m_geometry.handle);
 					pointdrawn = true;
 
 					// post-draw reset

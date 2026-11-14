@@ -228,6 +228,7 @@ class opengl46_renderer : public gfx_renderer, public gfx::scene_walk {
 	void walk_glare(bool const Enabled) override;
 	void walk_glare_draw(TSubModel *Submodel, gfx::geometry_handle const &Geometry) override;
 	void walk_light_query(TSubModel *Submodel, bool const Begin) override;
+	void walk_light_reference(gfx::geometry_handle const &Geometry) override;
 	// the gpu culling of the instances, models and sleepers, the depth pass of the whole scene
 	void walk_region_begin() override;
 	void walk_editor_cursor() override;
@@ -848,6 +849,13 @@ class opengl46_renderer : public gfx_renderer, public gfx::scene_walk {
 	unsigned int m_editor_overlay_revision{0};
 	std::unique_ptr<gl::program> m_freespot_shader;
     std::unique_ptr<gl::program> m_billboard_shader;
+	// the glare of a lamp as bright as the part of its point seen: the submodel of the point whose query is under way
+	// (walk_light_query()), the samples of the point drawn without the depth test (walk_light_reference()), the samples counted
+	// for the point (seen and all) written there by the gpu, and whether they were for the glare which follows
+	TSubModel *m_glarequerysubmodel { nullptr };
+	std::optional<gl::query> m_glarequery;
+	std::unique_ptr<gl::ssbo> m_glaressbo;
+	bool m_glaresamples { false };
     std::unique_ptr<gl::program> m_celestial_shader;
     std::unique_ptr<gl::program> m_hiddenarea_shader;
     std::unique_ptr<gl::program> m_copy_shader;
