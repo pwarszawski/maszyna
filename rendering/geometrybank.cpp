@@ -195,9 +195,21 @@ void calculate_tangents(vertex_array &vertices, index_array const &indices, int 
         const glm::vec3 &t = tan[a];
         const glm::vec3 &t2 = tan[vertex_count + a];
 
+        // texture coordinates collapsed to a point (e.g. the end faces of rails, all in one texel) give no
+        // direction, and normalizing the zero vector yields NaN, which blackens normal-mapped surfaces;
+        // any direction square to the normal does for those
+        auto tangent { t - n * glm::dot(n, t) };
+        if (false == (glm::length2(tangent) > 1e-12f)) {
+            auto const axis { std::abs(n.x) < 0.9f ? glm::vec3{ 1.f, 0.f, 0.f } : glm::vec3{ 0.f, 1.f, 0.f } };
+            tangent = axis - n * glm::dot(n, axis);
+            if (false == (glm::length2(tangent) > 1e-12f)) {
+                tangent = axis;
+            }
+        }
+
         vertices[a].tangent =
             glm::vec4(
-                glm::normalize((t - n * glm::dot(n, t))),
+                glm::normalize(tangent),
                 (glm::dot(glm::cross(n, t), t2) < 0.0F) ?
                    -1.0F :
                     1.0F);
