@@ -85,6 +85,25 @@ basic_vertex::deserialize_packed( std::istream &s, bool const Tangent ) {
     }
 }
 
+namespace {
+
+// the tangent t made square to the normal n. texture coordinates collapsed to a point (e.g. the end faces of rails, all in
+// one texel) give no direction, and normalizing the zero vector yields NaN, which blackens normal-mapped surfaces; any
+// direction square to the normal does for those
+glm::vec3 surface_tangent(glm::vec3 const &n, glm::vec3 const &t)
+{
+    if (auto const tangent { t - n * glm::dot(n, t) }; glm::length2(tangent) > 1e-12f) {
+        return tangent;
+    }
+    auto const axis { std::abs(n.x) < 0.9f ? glm::vec3{ 1.f, 0.f, 0.f } : glm::vec3{ 0.f, 1.f, 0.f } };
+    if (auto const tangent { axis - n * glm::dot(n, axis) }; glm::length2(tangent) > 1e-12f) {
+        return tangent;
+    }
+    return axis;
+}
+
+} // namespace
+
 // based on
 // Lengyel, Eric. “Computing Tangent Space Basis Vectors for an Arbitrary Mesh”.
 // Terathon Software, 2001. http://terathon.com/code/tangent.html
@@ -197,7 +216,7 @@ void calculate_tangents(vertex_array &vertices, index_array const &indices, int 
 
         vertices[a].tangent =
             glm::vec4(
-                glm::normalize((t - n * glm::dot(n, t))),
+                glm::normalize(surface_tangent(n, t)),
                 (glm::dot(glm::cross(n, t), t2) < 0.0F) ?
                    -1.0F :
                     1.0F);
